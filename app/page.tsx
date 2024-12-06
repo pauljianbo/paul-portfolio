@@ -10,8 +10,8 @@ export default function Home() {
     <div className="">
       <Banner />
       <div className="flex h-screen items-center justify-center">
-        <AnimatedBorderButton className='shadow-glow cursor-pointer hover:shadow-glow-lg'>
-          <div className="bg-gradient-to-r from-light-primary to-light-secondary bg-clip-text text-[20px] font-semibold text-transparent dark:from-dark-primary dark:to-dark-secondary text-center leading-[40px]">
+        <AnimatedBorderButton className="cursor-pointer bg-gradient-to-br from-light-background-gradient-start via-light-background-gradient-via to-light-background-gradient-start shadow-glow hover:shadow-glow-lg dark:from-dark-background-gradient-start dark:via-dark-background-gradient-via dark:to-dark-background-gradient-end">
+          <div className="bg-gradient-to-r from-light-primary to-light-secondary bg-clip-text text-center text-[20px] font-semibold leading-[40px] text-transparent dark:from-white dark:to-dark-secondary">
             Let's Connect
           </div>
         </AnimatedBorderButton>
