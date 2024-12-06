@@ -9,6 +9,35 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      boxShadow: {
+        // === Light Mode Shadows - Sky Blue Theme ===
+        // Color: Sky-500 (#0ea5e9)
+        'glow-sm': '0 0 15px rgba(14,165,233,0.5)',
+        // Small subtle glow effect for light mode
+        // Usage: shadow-glow-sm
+        
+        'glow': '0 0 20px rgba(14,165,233,0.5)',
+        // Medium glow effect for light mode
+        // Usage: shadow-glow
+        
+        'glow-lg': '0 0 20px rgba(14,165,233,0.5), 0 0 40px rgba(14,165,233,0.3)',
+        // Large double-layered glow effect for light mode
+        // Usage: shadow-glow-lg
+        
+        // === Dark Mode Shadows - Cosmic Purple Theme ===
+        // Color: Violet-400 (#a78bfa)
+        'dark-glow-sm': '0 0 15px rgba(167,139,250,0.5)',
+        // Small subtle glow effect for dark mode
+        // Usage: shadow-dark-glow-sm
+        
+        'dark-glow': '0 0 20px rgba(167,139,250,0.5)',
+        // Medium glow effect for dark mode
+        // Usage: shadow-dark-glow
+        
+        'dark-glow-lg': '0 0 20px rgba(167,139,250,0.5), 0 0 40px rgba(167,139,250,0.3)',
+        // Large double-layered glow effect for dark mode
+        // Usage: shadow-dark-glow-lg
+      },
       colors: {
         light: {
           // === Light Mode Color Scheme - Sky Blue Theme ===
@@ -16,18 +45,18 @@ const config: Config = {
             DEFAULT: '#f8fafc', // Slate-50 (fallback)
             gradient: {
               start: '#f0f9ff', // Sky-50
-              via: '#e0f2fe',   // Sky-100
-              end: '#bae6fd'    // Sky-200
-            }
+              via: '#e0f2fe', // Sky-100
+              end: '#bae6fd', // Sky-200
+            },
           },
-          // Usage: bg-gradient-to-br from-light-background-gradient-start 
+          // Usage: bg-gradient-to-br from-light-background-gradient-start
           // via-light-background-gradient-via to-light-background-gradient-end
 
           paper: '#bae6fd', // White
           // Light mode elevated surface - clean white
           // Usage: bg-light-paper
 
-          primary: '#0ea5e9',    // Sky-500
+          primary: '#0ea5e9', // Sky-500
           // Light mode primary actions - vibrant sky blue
           // Usage: bg-light-primary, text-light-primary
 
@@ -59,11 +88,11 @@ const config: Config = {
             DEFAULT: '#1e1b4b', // Fallback color (Indigo-950)
             gradient: {
               start: '#312e81', // Indigo-900
-              via: '#6b21a8',   // Purple-800
-              end: '#4c1d95'    // Purple-900
-            }
+              via: '#6b21a8', // Purple-800
+              end: '#4c1d95', // Purple-900
+            },
           },
-          // Usage: dark:bg-gradient-to-br from-dark-background-gradient-start 
+          // Usage: dark:bg-gradient-to-br from-dark-background-gradient-start
           // via-dark-background-gradient-via to-dark-background-gradient-end
 
           paper: '#312e81', // Indigo-900
@@ -95,8 +124,9 @@ const config: Config = {
           border: '#4c1d95', // Purple-900 for cosmic boundaries
           // Dark mode borders - space boundaries
           // Usage: dark:border-dark-border
-        }
+        },
       },
+      
     },
   },
   plugins: [],
