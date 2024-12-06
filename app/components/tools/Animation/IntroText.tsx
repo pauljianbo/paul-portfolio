@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import AnimatedButton from './AnimatedButton';
-
+import AnimatedBorderButton from './AnimatedBorderButton';
 // Custom hook to create typewriter effect
 // Parameters:
 // - texts: array of strings to type out sequentially
@@ -18,7 +18,7 @@ function useTypewriter(texts: string[], typingSpeed = 100, delayBetweenTexts = 1
   useEffect(() => {
     // Get the full text we're currently typing (use modulo to loop through texts array)
     const currentFullText = texts[currentTextIndex % texts.length];
-    
+
     // If we haven't finished typing the current text
     if (currentText.length < currentFullText.length) {
       // Set a timeout to add the next character
@@ -26,14 +26,14 @@ function useTypewriter(texts: string[], typingSpeed = 100, delayBetweenTexts = 1
         setCurrentText(currentFullText.slice(0, currentText.length + 1));
       }, typingSpeed);
       return () => clearTimeout(timeoutId);
-    } 
-    
+    }
+
     // If we've finished typing the current text, wait and then move to next text
     const timeoutId = setTimeout(() => {
-      setCurrentTextIndex(prev => prev + 1);
+      setCurrentTextIndex((prev) => prev + 1);
       setCurrentText(''); // Reset current text to start typing next string
     }, delayBetweenTexts);
-    
+
     return () => clearTimeout(timeoutId);
   }, [currentText, currentTextIndex, texts, typingSpeed, delayBetweenTexts]);
 
@@ -50,9 +50,9 @@ export default function IntroText() {
     <div className="flex h-full flex-col justify-center space-y-4 p-6">
       {/* Animated container for the name - Slides up and fades in */}
       <motion.div
-        initial={{ opacity: 0, y: 20 }}     // Start invisible and 20px below
-        animate={{ opacity: 1, y: 0 }}      // Animate to fully visible at original position
-        transition={{ duration: 0.5 }}      // Animation takes 0.5 seconds
+        initial={{ opacity: 0, y: -20 }} // Start invisible and 20px below
+        animate={{ opacity: 1, y: 0 }} // Animate to fully visible at original position
+        transition={{ duration: 0.5 }} // Animation takes 0.5 seconds
       >
         <motion.h1 className="bg-gradient-to-r from-light-primary to-light-secondary bg-clip-text text-[90px] font-bold text-transparent dark:from-white dark:to-dark-secondary">
           Hi, I'm Paul
@@ -73,13 +73,34 @@ export default function IntroText() {
         </div>
       </motion.div>
 
-      {/* Description paragraph with gradient text */}
-      <p className="bg-gradient-to-r from-light-primary to-light-secondary bg-clip-text text-[20px] leading-[30px] text-transparent dark:from-white dark:to-dark-secondary">
-        As a Full Stack Developer, I craft seamless digital experiences by bridging elegant front-end designs with robust back-end solutions. With a passion for clean code and innovative technologies, I transform complex problems into user-friendly applications that make a real impact.
-      </p>
+      <motion.div
+        initial={{ opacity: 0, x: -20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ delay: 0.7, duration: 0.5 }} // Starts 0.5s after component mount
+        className="space-y-2"
+      >
+        {/* Description paragraph with gradient text */}
+        <p className="bg-gradient-to-r from-light-primary to-light-secondary bg-clip-text text-[20px] leading-[30px] text-transparent dark:from-white dark:to-dark-secondary">
+          As a Full Stack Developer, I craft seamless digital experiences by bridging elegant front-end designs with
+          robust back-end solutions. With a passion for clean code and innovative technologies, I transform complex
+          problems into user-friendly applications that make a real impact.
+        </p>
+      </motion.div>
 
-      {/* Animated "Let's Connect" button with 1 second delay */}
-      <AnimatedButton text="Let's Connect" href="/about" delay={1} className="mt-8" />
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.9, duration: 0.5 }} // Starts 0.5s after component mount
+        className="space-y-2"
+      >
+        {/* Animated "Let's Connect" button with 1 second delay */}
+        {/* <AnimatedButton text="Let's Connect" href="/about" delay={1} className="mt-8" /> */}
+        <AnimatedBorderButton className="w-fit cursor-pointer bg-gradient-to-br from-light-background-gradient-start via-light-background-gradient-via to-light-background-gradient-start shadow-glow hover:shadow-glow-lg dark:from-dark-background-gradient-start dark:via-dark-background-gradient-via dark:to-dark-background-gradient-end">
+          <div className="bg-gradient-to-r from-light-primary to-light-secondary bg-clip-text text-center text-[20px] font-semibold leading-[40px] text-transparent dark:from-white dark:to-dark-secondary">
+            Let's Connect
+          </div>
+        </AnimatedBorderButton>
+      </motion.div>
     </div>
   );
 }
