@@ -55,7 +55,7 @@ export default function IntroText() {
         transition={{ duration: 0.5 }}      // Animation takes 0.5 seconds
       >
         <motion.h1 className="bg-gradient-to-r from-light-primary to-light-secondary bg-clip-text text-[90px] font-bold text-transparent dark:from-white dark:to-dark-secondary">
-          Hi, ..........
+          Hi, I'm Paul
         </motion.h1>
       </motion.div>
 

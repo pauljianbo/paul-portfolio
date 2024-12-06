@@ -51,7 +51,7 @@ function CubeMesh() {
         }
       `,
     }),
-    [isDarkMode]  // Recreate shader when theme changes
+    [] // Recreate shader when theme changes
   );
 
   // Update shader uniforms when theme changes
@@ -78,7 +78,7 @@ function CubeMesh() {
 
   return (
     <mesh ref={meshRef}>
-      <boxGeometry args={[3, 3, 3]} />  {/* Create cube with 3x3x3 dimensions */}
+      <boxGeometry args={[3, 3, 3]} /> {/* Create cube with 3x3x3 dimensions */}
       <shaderMaterial attach="material" {...gradientShader} transparent={true} />
     </mesh>
   );
@@ -88,10 +88,10 @@ export default function AnimatedCube() {
   return (
     <div className="h-full w-full">
       <Canvas camera={{ position: [0, 0, 5] }} className="h-full w-full">
-        <ambientLight intensity={0.5} />  {/* Add overall lighting */}
-        <pointLight position={[10, 10, 10]} />  {/* Add directional lighting */}
+        <ambientLight intensity={0.5} /> {/* Add overall lighting */}
+        <pointLight position={[10, 10, 10]} /> {/* Add directional lighting */}
         <CubeMesh />
-        <OrbitControls enableZoom={false} />  {/* Add mouse control for rotation */}
+        <OrbitControls enableZoom={false} /> {/* Add mouse control for rotation */}
       </Canvas>
     </div>
   );
