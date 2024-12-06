@@ -1,99 +1,60 @@
-'use client'
+'use client';
 
 interface AnimatedBorderButtonProps {
   children: React.ReactNode;
   className?: string;
 }
 
-const AnimatedBorderButton: React.FC<AnimatedBorderButtonProps> = ({ 
-  children,
-  className = ''
-}) => {
+const AnimatedBorderButton: React.FC<AnimatedBorderButtonProps> = ({ children, className = '' }) => {
   return (
     <>
       <style jsx>{`
-        @property --rotate {
-          syntax: "<angle>";
-          initial-value: 132deg;
+        @property --gradient-angle {
+          syntax: '<angle>';
+          initial-value: 0deg;
           inherits: false;
         }
+        /* :root {
+          --clr-1: #052b2f;
+          --clr-2: #073438;
+          --clr-3: #0e4b50;
+          --clr-4: #2d8f85;
+          --clr-5: #637c54;
+        } */
 
         .card {
-          --card-height: 100px;
-          --card-width: 200px;
-          background: #FFF;
-          width: var(--card-width);
-          height: var(--card-height);
-          padding: 3px;
+          height: 40px;
+          aspect-ratio: 4/1;
+          background: white;
+          border-radius: 0.5rem;
           position: relative;
-          border-radius: 6px;
-          justify-content: center;
-          align-items: center;
-          text-align: center;
-          display: flex;
-          font-size: 1.5em;
-          color: rgb(88 199 250 / 0%);
-          cursor: pointer;
-          font-family: cursive;
         }
 
-        .card:hover {
-          color: rgb(88 199 250 / 100%);
-          transition: color 1s;
-        }
-
-        .card:hover:before, .card:hover:after {
-          animation: none;
-          opacity: 0;
-        }
-
-        .card::before {
-          content: "";
-          width: 104%;
-          height: 102%;
-          border-radius: 8px;
-          background-image: linear-gradient(
-            var(--rotate)
-            , #5ddcff, #3c67e3 43%, #4e00c2);
-          position: absolute;
-          z-index: -1;
-          top: -1%;
-          left: -2%;
-          animation: spin 2.5s linear infinite;
-        }
-
+        .card::before,
         .card::after {
+          content: '';
           position: absolute;
-          content: "";
-          top: calc(var(--card-height) / 6);
-          left: 0;
-          right: 0;
+          inset: -0.1rem;
           z-index: -1;
-          height: 100%;
-          width: 100%;
-          margin: 0 auto;
-          transform: scale(0.8);
-          filter: blur(calc(var(--card-height) / 6));
-          background-image: linear-gradient(
-            var(--rotate)
-            , #5ddcff, #3c67e3 43%, #4e00c2);
-          opacity: 1;
-          transition: opacity .5s;
-          animation: spin 2.5s linear infinite;
+          background: conic-gradient(from var(--gradient-angle), #e0f2fe, #bae6fd, #0ea5e9, #bae6fd, #e0f2fe);
+          /* opacity:0.1; */
+          border-radius: inherit;
+          animation: rotation 2s linear infinite;
+        }
+        .card::after {
+          filter: blur(5rem);
         }
 
-        @keyframes spin {
+        @keyframes rotation {
           0% {
-            --rotate: 0deg;
+            --gradient-angle: 0deg;
           }
           100% {
-            --rotate: 360deg;
+            --gradient-angle: 360deg;
           }
         }
       `}</style>
-      <div className={`card ${className} `}>
-        {children}
-      </div>
+      <div className={`card ${className}`}>{children}</div>
     </>
   );
 };

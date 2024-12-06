@@ -9,8 +9,12 @@ export default function Home() {
   return (
     <div className="">
       <Banner />
-      <div className="flex justify-center items-center h-screen">
-        <AnimatedBorderButton>Magic Card</AnimatedBorderButton>
+      <div className="flex h-screen items-center justify-center">
+        <AnimatedBorderButton className='shadow-glow cursor-pointer hover:shadow-glow-lg'>
+          <div className="bg-gradient-to-r from-light-primary to-light-secondary bg-clip-text text-[20px] font-semibold text-transparent dark:from-dark-primary dark:to-dark-secondary text-center leading-[40px]">
+            Let's Connect
+          </div>
+        </AnimatedBorderButton>
       </div>
     </div>
   );
