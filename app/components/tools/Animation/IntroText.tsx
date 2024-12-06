@@ -75,7 +75,7 @@ export default function IntroText() {
 
       {/* Description paragraph with gradient text */}
       <p className="bg-gradient-to-r from-light-primary to-light-secondary bg-clip-text text-[20px] leading-[30px] text-transparent dark:from-white dark:to-dark-secondary">
-        As a Full Stack Developer, I craft seamless digital experiences...
+        As a Full Stack Developer, I craft seamless digital experiences by bridging elegant front-end designs with robust back-end solutions. With a passion for clean code and innovative technologies, I transform complex problems into user-friendly applications that make a real impact.
       </p>
 
       {/* Animated "Let's Connect" button with 1 second delay */}
