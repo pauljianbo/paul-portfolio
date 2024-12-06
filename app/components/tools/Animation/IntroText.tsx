@@ -62,14 +62,14 @@ export default function IntroText() {
   const { currentText, currentTextIndex } = useTypewriter(roles, 50, 1500);
 
   return (
-    <div className="flex h-full  flex-col justify-center p-6">
+    <div className="flex h-full  flex-col justify-center p-6 space-y-4">
       {/* Animated container for the name */}
       <motion.div
         initial={{ opacity: 0, y: 20 }} // Start invisible and 20px down
         animate={{ opacity: 1, y: 0 }} // Animate to visible and original position
         transition={{ duration: 0.5 }} // Animation takes 0.5 seconds
       >
-        <motion.h1 className="mb-4 bg-gradient-to-r from-light-primary to-light-secondary bg-clip-text text-[100px] font-bold text-transparent dark:from-dark-primary dark:to-dark-secondary">
+        <motion.h1 className="bg-gradient-to-r from-light-primary to-light-secondary bg-clip-text text-[100px] font-bold text-transparent dark:from-dark-primary dark:to-dark-secondary">
           Hi, ..........
         </motion.h1>
       </motion.div>
@@ -87,6 +87,9 @@ export default function IntroText() {
           <span>{currentText}</span>
         </div>
       </motion.div>
+      <p className="bg-gradient-to-r from-light-primary to-light-secondary bg-clip-text text-[20px] leading-[30px] text-transparent dark:from-dark-primary dark:to-dark-secondary">
+        As a Full Stack Developer, I craft seamless digital experiences by bridging front-end aesthetics with robust back-end architecture. With expertise in modern web technologies, I transform complex problems into elegant, user-centric solutions while ensuring scalability and performance across the entire application stack.
+      </p>
     </div>
   );
 }
