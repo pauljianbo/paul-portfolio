@@ -62,7 +62,7 @@ export default function IntroText() {
   const { currentText, currentTextIndex } = useTypewriter(roles, 50, 1500);
 
   return (
-    <div className="flex h-full  flex-col justify-center p-10">
+    <div className="flex h-full  flex-col justify-center p-6">
       {/* Animated container for the name */}
       <motion.div
         initial={{ opacity: 0, y: 20 }} // Start invisible and 20px down
@@ -82,7 +82,7 @@ export default function IntroText() {
         className="space-y-2"
       >
         {/* Container for the current role being typed */}
-        <div className="flex items-center space-x-2 bg-gradient-to-r from-light-primary to-light-secondary bg-clip-text text-[60px] font-bold text-transparent dark:from-dark-primary dark:to-dark-secondary">
+        <div className="flex items-center space-x-2 bg-gradient-to-r from-light-primary to-light-secondary bg-clip-text text-[40px] font-bold text-transparent dark:from-dark-primary dark:to-dark-secondary">
           <span>▹</span>
           <span>{currentText}</span>
         </div>
