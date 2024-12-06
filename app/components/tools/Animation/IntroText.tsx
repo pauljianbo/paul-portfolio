@@ -3,96 +3,82 @@
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import AnimatedButton from './AnimatedButton';
+
 // Custom hook to create typewriter effect
 // Parameters:
-// - texts: array of strings to type out
-// - typingSpeed: milliseconds between each character
+// - texts: array of strings to type out sequentially
+// - typingSpeed: milliseconds between each character typed
 // - delayBetweenTexts: milliseconds to wait before starting next text
 function useTypewriter(texts: string[], typingSpeed = 100, delayBetweenTexts = 1000) {
-  // Track which text from the array we're currently showing
+  // Track which text from the array we're currently typing
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
   // Track how much of the current text has been typed
   const [currentText, setCurrentText] = useState('');
-  // Flag to control if we're in typing state
-  const [isTyping, setIsTyping] = useState(true);
 
   useEffect(() => {
-    // Instead of stopping, loop back to beginning
-    if (currentTextIndex >= texts.length) {
-      setCurrentTextIndex(0); // Reset to first text
-      setCurrentText(''); // Clear current text
-      return;
-    }
+    // Get the full text we're currently typing (use modulo to loop through texts array)
+    const currentFullText = texts[currentTextIndex % texts.length];
+    
+    // If we haven't finished typing the current text
+    if (currentText.length < currentFullText.length) {
+      // Set a timeout to add the next character
+      const timeoutId = setTimeout(() => {
+        setCurrentText(currentFullText.slice(0, currentText.length + 1));
+      }, typingSpeed);
+      return () => clearTimeout(timeoutId);
+    } 
+    
+    // If we've finished typing the current text, wait and then move to next text
+    const timeoutId = setTimeout(() => {
+      setCurrentTextIndex(prev => prev + 1);
+      setCurrentText(''); // Reset current text to start typing next string
+    }, delayBetweenTexts);
+    
+    return () => clearTimeout(timeoutId);
+  }, [currentText, currentTextIndex, texts, typingSpeed, delayBetweenTexts]);
 
-    if (isTyping) {
-      // Get the full text we're currently typing
-      const currentFullText = texts[currentTextIndex];
-
-      // If we haven't finished typing the current text
-      if (currentText.length < currentFullText.length) {
-        // Set a timeout to add the next character
-        const timeoutId = setTimeout(() => {
-          setCurrentText(currentFullText.slice(0, currentText.length + 1));
-        }, typingSpeed);
-        // Cleanup timeout if component unmounts
-        return () => clearTimeout(timeoutId);
-      } else {
-        // If we finished typing the current text, wait for delay then move to next text
-        const timeoutId = setTimeout(() => {
-          setCurrentTextIndex((prev) => prev + 1);
-          setCurrentText(''); // Reset current text for next word
-        }, delayBetweenTexts);
-        // Cleanup timeout if component unmounts
-        return () => clearTimeout(timeoutId);
-      }
-    }
-  }, [currentText, currentTextIndex, texts, isTyping, typingSpeed, delayBetweenTexts]);
-
-  // Return current state for component to use
-  return { currentText, currentTextIndex };
+  return { currentText };
 }
 
 export default function IntroText() {
-  // Array of roles to display
+  // Array of roles to display in the typewriter effect
   const roles = ['Full Stack Developer', 'React & Next.js Expert', 'TypeScript Enthusiast'];
-
-  // Use our typewriter hook
-  // 50ms between each character
-  // 1500ms delay between each role
-  const { currentText, currentTextIndex } = useTypewriter(roles, 50, 1500);
+  // Use typewriter hook with custom timing (50ms per character, 1500ms between texts)
+  const { currentText } = useTypewriter(roles, 50, 1500);
 
   return (
     <div className="flex h-full flex-col justify-center space-y-4 p-6">
-      {/* Animated container for the name */}
+      {/* Animated container for the name - Slides up and fades in */}
       <motion.div
-        initial={{ opacity: 0, y: 20 }} // Start invisible and 20px down
-        animate={{ opacity: 1, y: 0 }} // Animate to visible and original position
-        transition={{ duration: 0.5 }} // Animation takes 0.5 seconds
+        initial={{ opacity: 0, y: 20 }}     // Start invisible and 20px below
+        animate={{ opacity: 1, y: 0 }}      // Animate to fully visible at original position
+        transition={{ duration: 0.5 }}      // Animation takes 0.5 seconds
       >
         <motion.h1 className="bg-gradient-to-r from-light-primary to-light-secondary bg-clip-text text-[90px] font-bold text-transparent dark:from-white dark:to-dark-secondary">
           Hi, ..........
         </motion.h1>
       </motion.div>
 
-      {/* Animated container for the roles */}
+      {/* Animated container for the roles - Fades in after name animation */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 0.5, duration: 0.5 }} // Start after name animation
+        transition={{ delay: 0.5, duration: 0.5 }} // Starts 0.5s after component mount
         className="space-y-2"
       >
-        {/* Container for the current role being typed */}
+        {/* Container for the typewriter text with arrow prefix */}
         <div className="flex items-center space-x-2 bg-gradient-to-r from-light-primary to-light-secondary bg-clip-text text-[40px] font-bold text-transparent dark:from-white dark:to-dark-secondary">
           <span>▹</span>
           <span>{currentText}</span>
         </div>
       </motion.div>
+
+      {/* Description paragraph with gradient text */}
       <p className="bg-gradient-to-r from-light-primary to-light-secondary bg-clip-text text-[20px] leading-[30px] text-transparent dark:from-white dark:to-dark-secondary">
-        As a Full Stack Developer, I craft seamless digital experiences by bridging front-end aesthetics with robust
-        back-end architecture. With expertise in modern web technologies, I transform complex problems into elegant,
-        user-centric solutions while ensuring scalability and performance across the entire application stack.
+        As a Full Stack Developer, I craft seamless digital experiences...
       </p>
-      {/* Animated button with hero */}
+
+      {/* Animated "Let's Connect" button with 1 second delay */}
       <AnimatedButton text="Let's Connect" href="/about" delay={1} className="mt-8" />
     </div>
   );
