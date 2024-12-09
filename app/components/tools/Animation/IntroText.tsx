@@ -95,11 +95,7 @@ export default function IntroText() {
       >
         {/* Animated "Let's Connect" button with 1 second delay */}
         {/* <AnimatedButton text="Let's Connect" href="/about" delay={1} className="mt-8" /> */}
-        <AnimatedBorderButton className="w-fit cursor-pointer bg-gradient-to-br from-light-background-gradient-start via-light-background-gradient-via to-light-background-gradient-start shadow-glow hover:shadow-glow-lg dark:from-dark-background-gradient-start dark:via-dark-background-gradient-via dark:to-dark-background-gradient-end">
-          <div className="bg-gradient-to-r from-light-primary to-light-secondary bg-clip-text text-center text-[20px] font-semibold leading-[40px] text-transparent dark:from-white dark:to-dark-secondary">
-            Let's Connect
-          </div>
-        </AnimatedBorderButton>
+        <AnimatedBorderButton>Let's Connect</AnimatedBorderButton>
       </motion.div>
     </div>
   );
