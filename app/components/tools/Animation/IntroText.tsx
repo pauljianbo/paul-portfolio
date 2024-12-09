@@ -50,7 +50,7 @@ export default function IntroText() {
     <div className="flex h-full flex-col justify-center space-y-4 p-6">
       {/* Animated container for the name - Slides up and fades in */}
       <motion.div
-        initial={{ opacity: 0, y: -20 }} // Start invisible and 20px below
+        initial={{ opacity: 0, y: -20 }} // Start invisible and 20px top to original position
         animate={{ opacity: 1, y: 0 }} // Animate to fully visible at original position
         transition={{ duration: 0.5 }} // Animation takes 0.5 seconds
       >
@@ -74,8 +74,8 @@ export default function IntroText() {
       </motion.div>
 
       <motion.div
-        initial={{ opacity: 0, x: -20 }}
-        animate={{ opacity: 1, x: 0 }}
+        initial={{ opacity: 0, x: -20 }} // Start invisible and 20px left to original position
+        animate={{ opacity: 1, x: 0 }} // Animate to fully visible at original position
         transition={{ delay: 0.7, duration: 0.5 }} // Starts 0.5s after component mount
         className="space-y-2"
       >
@@ -88,8 +88,8 @@ export default function IntroText() {
       </motion.div>
 
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, y: 20 }} // Start invisible and 20px below
+        animate={{ opacity: 1, y: 0 }} // Animate to fully visible at original position
         transition={{ delay: 0.9, duration: 0.5 }} // Starts 0.5s after component mount
         className="space-y-2"
       >
