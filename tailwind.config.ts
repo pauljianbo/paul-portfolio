@@ -52,7 +52,7 @@ const config: Config = {
           // Usage: bg-gradient-to-br from-light-background-gradient-start
           // via-light-background-gradient-via to-light-background-gradient-end
 
-          paper: '#bae6fd', // White
+          paper: '#bae6fd', // light sky blue
           // Light mode elevated surface - clean white
           // Usage: bg-light-paper
 

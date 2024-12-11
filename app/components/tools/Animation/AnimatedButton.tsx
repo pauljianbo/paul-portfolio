@@ -12,13 +12,13 @@ interface AnimatedButtonProps {
   delay?: number;        // Optional delay before animation starts (in seconds)
 }
 
-export default function AnimatedButton({ 
+const AnimatedButton = ({ 
   text, 
   href, 
   onClick, 
   className = '',  // Default to empty string if not provided
   delay = 0        // Default to 0 if not provided
-}: AnimatedButtonProps) {
+}: AnimatedButtonProps) => {
   // Button content wrapped in a fragment to maintain consistent styling
   // whether it's used as a button or link
   const buttonContent = (
@@ -51,4 +51,6 @@ export default function AnimatedButton({
       )}
     </motion.div>
   );
-}
+};
+
+export default AnimatedButton;

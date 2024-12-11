@@ -6,7 +6,7 @@ import { useRef, useEffect, useMemo } from 'react';
 import { OrbitControls } from '@react-three/drei';
 import { useTheme } from '@/app/context/ThemeContext';
 
-function CubeMesh() {
+const CubeMesh = () => {
   // Reference to the 3D mesh object for manipulation
   const meshRef = useRef<THREE.Mesh>(null);
   // Get current theme from context
@@ -82,17 +82,19 @@ function CubeMesh() {
       <shaderMaterial attach="material" {...gradientShader} transparent={true} />
     </mesh>
   );
-}
+};
 
-export default function AnimatedCube() {
+const AnimatedCube = () => {
   return (
     <div className="h-full w-full">
       <Canvas camera={{ position: [0, 0, 5] }} className="h-full w-full">
-        <ambientLight intensity={0.5} /> {/* Add overall lighting */}
-        <pointLight position={[10, 10, 10]} /> {/* Add directional lighting */}
+        <ambientLight intensity={0.5} />
+        <pointLight position={[10, 10, 10]} />
         <CubeMesh />
-        <OrbitControls enableZoom={false} /> {/* Add mouse control for rotation */}
+        <OrbitControls enableZoom={false} />
       </Canvas>
     </div>
   );
-}
+};
+
+export default AnimatedCube;

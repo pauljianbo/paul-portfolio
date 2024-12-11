@@ -2,9 +2,9 @@
 import AnimatedCube from '../tools/Animation/AnimatedCube';
 import IntroText from '../tools/Animation/IntroText';
 
-export default function AnimatedCubeCard() {
+const AnimatedCubeCard = () => {
   return (
-    <div className="flex max-w-7xl  mx-auto">
+    <div className="flex max-w-7xl  mx-auto h-screen">
       <div className="w-1/2 aspect-square ">
         <IntroText />
       </div>
@@ -13,4 +13,6 @@ export default function AnimatedCubeCard() {
       </div>
     </div>
   );
-}
+};
+
+export default AnimatedCubeCard;
