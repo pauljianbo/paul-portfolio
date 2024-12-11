@@ -9,7 +9,7 @@ import AnimatedBorderButton from './AnimatedBorderButton';
 // - texts: array of strings to type out sequentially
 // - typingSpeed: milliseconds between each character typed
 // - delayBetweenTexts: milliseconds to wait before starting next text
-function useTypewriter(texts: string[], typingSpeed = 100, delayBetweenTexts = 1000) {
+const useTypewriter = (texts: string[], typingSpeed = 100, delayBetweenTexts = 1000) => {
   // Track which text from the array we're currently typing
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
   // Track how much of the current text has been typed
@@ -38,9 +38,9 @@ function useTypewriter(texts: string[], typingSpeed = 100, delayBetweenTexts = 1
   }, [currentText, currentTextIndex, texts, typingSpeed, delayBetweenTexts]);
 
   return { currentText };
-}
+};
 
-export default function IntroText() {
+const IntroText = () => {
   // Array of roles to display in the typewriter effect
   const roles = ['Full Stack Developer', 'React & Next.js Expert', 'TypeScript Enthusiast'];
   // Use typewriter hook with custom timing (50ms per character, 1500ms between texts)
@@ -99,4 +99,6 @@ export default function IntroText() {
       </motion.div>
     </div>
   );
-}
+};
+
+export default IntroText;

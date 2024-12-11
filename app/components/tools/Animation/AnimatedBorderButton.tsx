@@ -1,11 +1,12 @@
 'use client';
 import { useTheme } from '@/app/context/ThemeContext';
+
 interface AnimatedBorderButtonProps {
   children: React.ReactNode;
   className?: string;
 }
 
-const AnimatedBorderButton: React.FC<AnimatedBorderButtonProps> = ({ children, className = '' }) => {
+const AnimatedBorderButton = ({ children, className = '' }: AnimatedBorderButtonProps) => {
   const { theme } = useTheme();
   const isDarkMode = theme === 'dark';
   return (
