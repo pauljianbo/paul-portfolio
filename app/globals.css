@@ -2,3 +2,34 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Swiper navigation and pagination styles */
+.swiper-button-next,
+.swiper-button-prev {
+  color: currentColor !important;
+  scale: 0.7;
+}
+
+.swiper-pagination-bullet {
+  background: currentColor !important;
+}
+
+.swiper-pagination-bullet-active {
+  background: currentColor !important;
+}
+
+/* Adjust navigation buttons position for compact layout */
+.skill-category .swiper-button-prev {
+  left: 0;
+}
+
+.skill-category .swiper-button-next {
+  right: 0;
+}
+
+/* Optional: Hide navigation arrows on mobile */
+@media (max-width: 640px) {
+  .swiper-button-next,
+  .swiper-button-prev {
+    display: none;
+  }
+}
