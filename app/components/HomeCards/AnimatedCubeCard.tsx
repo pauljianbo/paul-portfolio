@@ -4,7 +4,7 @@ import IntroText from '../tools/Animation/IntroText';
 
 const AnimatedCubeCard = () => {
   return (
-    <div className="flex max-w-7xl  mx-auto">
+    <div className="flex max-w-7xl  mx-auto h-screen">
       <div className="w-1/2 aspect-square ">
         <IntroText />
       </div>
