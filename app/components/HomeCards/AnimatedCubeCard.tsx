@@ -1,5 +1,5 @@
 'use client';
-import AnimatedCube from '../tools/Animation/3D/AnimatedCube';
+// import AnimatedCube from '../tools/Animation/3D/AnimatedCube';
 import IntroText from '../tools/Animation/IntroText';
 import AnimatedCharacter from '../tools/Animation/3D/AnimatedCharacter';
 const AnimatedCubeCard = () => {
