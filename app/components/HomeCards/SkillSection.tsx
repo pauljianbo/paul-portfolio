@@ -1,6 +1,6 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
-import AnimatedMaskButton from '../tools/Animation/AnimatedMaskButton';
+import AnimatedMaskButton from '../tools/Animation/Buttons/AnimatedMaskButton';
 
 // Import Swiper styles
 import 'swiper/css';

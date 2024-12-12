@@ -2,8 +2,8 @@
 
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
-import AnimatedButton from './AnimatedButton';
-import AnimatedBorderButton from './AnimatedBorderButton';
+import AnimatedButton from './Buttons/AnimatedButton';
+import AnimatedBorderButton from './Buttons/AnimatedBorderButton';
 // Custom hook to create typewriter effect
 // Parameters:
 // - texts: array of strings to type out sequentially
