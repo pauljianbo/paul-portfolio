@@ -14,68 +14,35 @@ const SkillSection = () => {
     { name: 'TypeScript', category: 'Language' },
     { name: 'JavaScript', category: 'Language' },
     { name: 'Python', category: 'Language' },
-    { name: 'HTML5', category: 'Language' },
-    { name: 'CSS3', category: 'Language' },
-    { name: 'Java', category: 'Language' },
-    { name: 'C++', category: 'Language' },
-    { name: 'SQL', category: 'Language' },
-    { name: 'PHP', category: 'Language' },
-    { name: 'Ruby', category: 'Language' },
 
     // Frontend
     { name: 'React.js', category: 'Frontend' },
     { name: 'Next.js', category: 'Frontend' },
     { name: 'Tailwind CSS', category: 'Frontend' },
-    { name: 'Redux', category: 'Frontend' },
-    { name: 'Vue.js', category: 'Frontend' },
-    { name: 'Angular', category: 'Frontend' },
-    { name: 'SASS/SCSS', category: 'Frontend' },
-    { name: 'Material-UI', category: 'Frontend' },
-    { name: 'Bootstrap', category: 'Frontend' },
     { name: 'jQuery', category: 'Frontend' },
 
     // Backend
     { name: 'Node.js', category: 'Backend' },
     { name: 'Express.js', category: 'Backend' },
     { name: 'REST APIs', category: 'Backend' },
-    { name: 'GraphQL', category: 'Backend' },
-    { name: 'MongoDB', category: 'Backend' },
-    { name: 'Django', category: 'Backend' },
-    { name: 'Spring Boot', category: 'Backend' },
-    { name: 'Laravel', category: 'Backend' },
-    { name: 'Ruby on Rails', category: 'Backend' },
 
     // Databases
-    { name: 'PostgreSQL', category: 'Database' },
-    { name: 'MySQL', category: 'Database' },
     { name: 'MongoDB', category: 'Database' },
     { name: 'Redis', category: 'Database' },
-    { name: 'SQLite', category: 'Database' },
-    { name: 'Oracle', category: 'Database' },
-    { name: 'Microsoft SQL Server', category: 'Database' },
+    { name: 'SQL', category: 'Database' },
     { name: 'Firebase', category: 'Database' },
 
     // Tools
     { name: 'Git', category: 'Tool' },
     { name: 'Docker', category: 'Tool' },
     { name: 'AWS', category: 'Tool' },
-    { name: 'Jest', category: 'Tool' },
     { name: 'Webpack', category: 'Tool' },
-    { name: 'Jenkins', category: 'Tool' },
-    { name: 'Kubernetes', category: 'Tool' },
-    { name: 'Terraform', category: 'Tool' },
     { name: 'Postman', category: 'Tool' },
 
     // Practices
     { name: 'Agile', category: 'Practice' },
     { name: 'CI/CD', category: 'Practice' },
-    { name: 'TDD', category: 'Practice' },
-    { name: 'Responsive Design', category: 'Practice' },
-    { name: 'Performance Optimization', category: 'Practice' },
-    { name: 'Microservices', category: 'Practice' },
-    { name: 'DevOps', category: 'Practice' },
-    { name: 'Clean Code', category: 'Practice' },
-    { name: 'Design Patterns', category: 'Practice' },
+
   ];
 
   return (
@@ -112,9 +79,9 @@ const SkillSection = () => {
           <Swiper
             modules={[Navigation, Pagination]}
             slidesPerView="auto"
-            spaceBetween={35}
+            spaceBetween={30}
             grabCursor={true}
-            className="!ml-0 !mr-0"
+            className="!ml-0 !mr-0 !py-[20px] !px-[20px]"
           >
             {skills.map((skill, index) => (
               <SwiperSlide key={index} className="!w-auto">
