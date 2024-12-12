@@ -1,14 +1,19 @@
 'use client';
-import dynamic from 'next/dynamic';
-// Dynamically import the Banner component with no SSR
-const Banner = dynamic(() => import('./components/HomeCards/AnimatedCubeCard'), { ssr: false });
+import { useRef } from 'react';
+import { useInView } from 'framer-motion';
+import AnimatedCubeCard from './components/HomeCards/AnimatedCubeCard';
 import SkillSection from './components/HomeCards/SkillSection';
 
 const Home = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+
   return (
     <div className="">
-      <Banner />
-      <SkillSection />
+      <AnimatedCubeCard />
+      <div ref={ref}>
+        {isInView && <SkillSection />}
+      </div>
     </div>
   );
 }
