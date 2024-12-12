@@ -6,20 +6,21 @@
   .gradient-text {
     @apply bg-gradient-to-r from-light-primary to-light-secondary bg-clip-text text-transparent dark:from-white dark:to-dark-secondary;
   }
-  
+  .gradient-bg {
+    @apply  bg-gradient-to-br 
+    from-light-background-gradient-start 
+    via-light-background-gradient-via 
+    to-light-background-gradient-end
+    dark:from-dark-background-gradient-start 
+    dark:via-dark-background-gradient-via 
+    dark:to-dark-background-gradient-end ;
+  }
 }
-
 
 /* Swiper navigation button styles */
 .swiper-button-prev,
 .swiper-button-next {
-  @apply  bg-gradient-to-br 
-  from-light-background-gradient-start 
-  via-light-background-gradient-via 
-  to-light-background-gradient-end
-  dark:from-dark-background-gradient-start 
-  dark:via-dark-background-gradient-via 
-  dark:to-dark-background-gradient-end rounded-full w-20 h-20 hover:scale-105 transition-transform duration-300 ease-in-out shadow-glow-lg dark:shadow-dark-glow-lg !important;
+  @apply gradient-bg rounded-full w-20 h-20 hover:scale-105 transition-transform duration-300 ease-in-out shadow-glow-lg dark:shadow-dark-glow-lg !important;
 }
 
 .swiper-button-prev::after,
