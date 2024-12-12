@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .gradient-text {
+    @apply bg-gradient-to-r from-light-primary to-light-secondary bg-clip-text text-transparent dark:from-white dark:to-dark-secondary;
+  }
+  
+}
+
+
 /* Swiper navigation button styles */
 .swiper-button-prev,
 .swiper-button-next {

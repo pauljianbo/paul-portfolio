@@ -74,7 +74,7 @@ const AnimatedMaskButton = ({ text, className = '' }: AnimatedMaskButtonProps) =
 
       <div className={`flex items-center justify-center`}>
         <div
-          className={`fancy-glow text-[20px] ${className} flex items-center justify-center bg-gradient-to-r from-light-primary to-light-secondary bg-clip-text text-transparent dark:from-white dark:to-dark-secondary hover:scale-105 transition-all duration-300`}
+          className={`fancy-glow text-[20px] ${className} gradient-text flex items-center justify-center transition-all duration-300 hover:scale-105`}
         >
           {text}
         </div>

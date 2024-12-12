@@ -51,7 +51,7 @@ const SkillSection = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.5 }}
-        className="bg-gradient-to-r from-light-primary to-light-secondary bg-clip-text text-transparent dark:from-white dark:to-dark-secondary"
+        className="gradient-text"
       >
         <h1 className="text-center text-[40px] font-bold">Skills</h1>
         <motion.p
