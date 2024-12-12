@@ -47,7 +47,7 @@ const IntroText = () => {
   const { currentText } = useTypewriter(roles, 50, 1500);
 
   return (
-    <div className="flex h-full flex-col justify-center space-y-4 p-6">
+    <div className="flex h-full flex-col justify-center translate-y-[-50px] space-y-6 p-6">
       {/* Animated container for the name - Slides up and fades in */}
       <motion.div
         initial={{ opacity: 0, y: -20 }} // Start invisible and 20px top to original position
