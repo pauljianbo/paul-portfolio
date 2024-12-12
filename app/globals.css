@@ -2,34 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Swiper navigation and pagination styles */
-.swiper-button-next,
-.swiper-button-prev {
-  color: currentColor !important;
-  scale: 0.7;
+/* Swiper navigation button styles */
+.swiper-button-prev,
+.swiper-button-next {
+  @apply  bg-gradient-to-br 
+  from-light-background-gradient-start 
+  via-light-background-gradient-via 
+  to-light-background-gradient-end
+  dark:from-dark-background-gradient-start 
+  dark:via-dark-background-gradient-via 
+  dark:to-dark-background-gradient-end rounded-full w-20 h-20 hover:scale-105 transition-transform duration-300 ease-in-out shadow-glow-lg dark:shadow-dark-glow-lg !important;
 }
 
-.swiper-pagination-bullet {
-  background: currentColor !important;
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  @apply text-blue-300 hover:text-blue-400 scale-110 transition-colors duration-300 ease-in-out dark:text-white text-[24px] flex items-center justify-center !important;
+  text-shadow: 0 0 4px currentColor;
+  -webkit-text-stroke: 4px currentColor;
 }
 
-.swiper-pagination-bullet-active {
-  background: currentColor !important;
-}
+.swiper-button-next::after{
+  padding-left: 4px;
 
-/* Adjust navigation buttons position for compact layout */
-.skill-category .swiper-button-prev {
-  left: 0;
 }
+.swiper-button-prev::after{
+  padding-right: 4px;
 
-.skill-category .swiper-button-next {
-  right: 0;
-}
-
-/* Optional: Hide navigation arrows on mobile */
-@media (max-width: 640px) {
-  .swiper-button-next,
-  .swiper-button-prev {
-    display: none;
-  }
 }

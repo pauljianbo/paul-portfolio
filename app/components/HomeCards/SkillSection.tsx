@@ -42,7 +42,6 @@ const SkillSection = () => {
     // Practices
     { name: 'Agile', category: 'Practice' },
     { name: 'CI/CD', category: 'Practice' },
-
   ];
 
   return (
@@ -73,15 +72,23 @@ const SkillSection = () => {
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true, amount: 0.3 }}
         transition={{ delay: 0.5, duration: 0.8 }}
-        className="mt-[40px] flex w-[80%] flex-col items-center justify-center gap-8 px-[20px]"
+        className="relative mt-[40px] flex w-[80%] flex-col items-center justify-center gap-8"
       >
         <div className="w-full">
+          <button className="swiper-button-prev absolute translate-x-[-100px] translate-y-[-20px]"></button>
+
+          <button className="swiper-button-next absolute translate-x-[120px] translate-y-[-20px]"></button>
+
           <Swiper
             modules={[Navigation, Pagination]}
             slidesPerView="auto"
-            spaceBetween={30}
+            spaceBetween={35}
             grabCursor={true}
-            className="!ml-0 !mr-0 !py-[20px] !px-[20px]"
+            navigation={{
+              prevEl: '.swiper-button-prev',
+              nextEl: '.swiper-button-next',
+            }}
+            className="!ml-0 !mr-0 !py-[20px] !pl-[20px]"
           >
             {skills.map((skill, index) => (
               <SwiperSlide key={index} className="!w-auto">
