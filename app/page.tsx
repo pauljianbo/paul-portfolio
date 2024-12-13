@@ -13,10 +13,10 @@ const Home = () => {
       <div id="home">
         <AnimatedCubeCard />
       </div>
-      <div id="skills" ref={ref} className=''>
+      <div id="skills" ref={ref} >
         {isInView && <SkillSection />}
       </div>
-      <div id="projects">
+      <div id="projects" >
         <ProjectSection />
       </div>
     </div>

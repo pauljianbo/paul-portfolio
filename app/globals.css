@@ -41,3 +41,8 @@
   padding-right: 4px;
 
 }
+
+/* Adjust the value for navigation to specific id using href, control the how far the page scrolls to the id */
+html {
+  scroll-padding-top: 5rem; /* Adjust this value based on your navbar height */
+}

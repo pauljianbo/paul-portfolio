@@ -78,9 +78,9 @@ const ProjectSection = () => {
   };
 
   return (
-    <section className="py-16 px-4 gradient-text">
+    <section className="py-[30px] px-4 gradient-text">
       <div className="max-w-6xl mx-auto ">
-        <h1 className="text-4xl font-bold text-center mb-12">Projects</h1>
+        <h1 className="text-[40px] font-bold text-center mb-[40px]">Projects</h1>
         
         {/* Grid layout for project cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
@@ -96,8 +96,8 @@ const ProjectSection = () => {
                   <Image
                     src={project.imageUrl}
                     alt={project.title}
-                    width={1000}
-                    height={1000}
+                    width={500}
+                    height={500}
                     className="w-full h-full object-cover transition-transform duration-300"
                   />
                 </div>
