@@ -28,8 +28,8 @@ const Footer = () => {
             - text-sm: Smaller font size
             - text-light/dark-text-secondary: Theme-based text color
           */}
-          <div className="text-sm text-light-text-secondary dark:text-dark-text-secondary">
-            © {new Date().getFullYear()} Your Company Name. All rights reserved.
+          <div className="gradient-text">
+           Copyright © {new Date().getFullYear()} Paul&apos;s Portfolio. All rights reserved.
           </div>
 
           {/* 
@@ -39,22 +39,16 @@ const Footer = () => {
             - md:mt-0: Remove top margin on medium screens
           */}
           <div className="mt-2 flex gap-4 md:mt-0">
-            {/* 
-              Footer links:
-              - hover:text-light/dark-primary: Theme-based hover color
-              - transition-colors: Smooth color transition
-            */}
             <a
-              href="#"
-              className="text-light-text-secondary transition-colors hover:text-light-primary dark:text-dark-text-secondary dark:hover:text-dark-primary"
+              href="https://www.linkedin.com/in/jianbo-cai-4540242a0/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-light-primary hover:text-sky-600 dark:text-dark-text-secondary dark:hover:text-dark-text-primary"
+              aria-label="LinkedIn Profile"
             >
-              Privacy Policy
-            </a>
-            <a
-              href="#"
-              className="text-light-text-secondary transition-colors hover:text-light-primary dark:text-dark-text-secondary dark:hover:text-dark-primary"
-            >
-              Terms of Service
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+              </svg>
             </a>
           </div>
         </div>
