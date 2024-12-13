@@ -3,7 +3,7 @@ import { useRef } from 'react';
 import { useInView } from 'framer-motion';
 import AnimatedCubeCard from './components/HomeCards/AnimatedCubeCard';
 import SkillSection from './components/HomeCards/SkillSection';
-
+import ProjectSection from './components/HomeCards/ProjectSection';
 const Home = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
@@ -15,6 +15,9 @@ const Home = () => {
       </div>
       <div id="skills" ref={ref} className=''>
         {isInView && <SkillSection />}
+      </div>
+      <div id="projects">
+        <ProjectSection />
       </div>
     </div>
   );
