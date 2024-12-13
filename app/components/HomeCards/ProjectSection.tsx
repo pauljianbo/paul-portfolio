@@ -14,6 +14,28 @@ interface Project {
 // Array of project data
 const projects: Project[] = [
   {
+    title: "Ace Coding Academy",
+    description: "An interactive educational platform designed to help students master coding skills. Features comprehensive learning paths for multiple programming languages, interactive coding challenges, detailed programming notes, and curated tech news. The platform includes progress tracking, hands-on exercises, and stays up-to-date with the latest developments in technology and programming trends. Perfect for both beginners and intermediate learners looking to enhance their coding expertise.",
+    imageUrl: "/images/acecoding.png", // Add your image path
+    projectUrl: "https://acecodingacademy.com",
+    technologies: [
+      // Frontend
+      "Next.js",
+      "TypeScript",
+      "TailwindCSS",
+      "Framer Motion",
+      
+      // Backend
+      "Node.js",
+      "Prisma",
+      "MongoDB",
+      "S3",
+      
+      // Services & Tools
+      "Vercel"
+    ],
+  },
+  {
     title: "Pickagoo Delivery Platform",
     description: "A comprehensive delivery management platform featuring multi-role access (customers, drivers, admins). Includes complete order lifecycle management, SingPass integration for verification, and enterprise-level features. Key functionalities: authentication, real-time order tracking, notifications, driver-customer matching, reviews & ratings, credibility scoring system, bulk order processing via Excel, and specialized company contract management for corporate clients.",
     imageUrl: "/images/pickagoo.png",
@@ -39,28 +61,7 @@ const projects: Project[] = [
       "Vercel"
     ],
   },
-  {
-    title: "Ace Coding Academy",
-    description: "An interactive educational platform designed to help students master coding skills. Features comprehensive learning paths for multiple programming languages, interactive coding challenges, detailed programming notes, and curated tech news. The platform includes progress tracking, hands-on exercises, and stays up-to-date with the latest developments in technology and programming trends. Perfect for both beginners and intermediate learners looking to enhance their coding expertise.",
-    imageUrl: "/images/acecoding.png", // Add your image path
-    projectUrl: "https://acecodingacademy.com",
-    technologies: [
-      // Frontend
-      "Next.js",
-      "TypeScript",
-      "TailwindCSS",
-      "Framer Motion",
-      
-      // Backend
-      "Node.js",
-      "Prisma",
-      "MongoDB",
-      "S3",
-      
-      // Services & Tools
-      "Vercel"
-    ],
-  },
+ 
 ];
 
 const ProjectSection = () => {
