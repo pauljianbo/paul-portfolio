@@ -7,8 +7,6 @@ import { motion } from 'framer-motion';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import { div } from 'framer-motion/client';
-
 const SkillSection = () => {
   const skills = [
     // Languages

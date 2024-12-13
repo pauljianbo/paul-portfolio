@@ -1,7 +1,6 @@
 'use client';
 import { useState, useEffect } from 'react';
 import Chip from '../tools/Animation/Chip';
-import Link from 'next/link';
 import ThemeToggle from '../tools/ThemeToggle';
 import Image from 'next/image';
 /**

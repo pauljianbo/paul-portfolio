@@ -2,7 +2,6 @@
 
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
-import AnimatedButton from './Buttons/AnimatedButton';
 import AnimatedBorderButton from './Buttons/AnimatedBorderButton';
 // Custom hook to create typewriter effect
 // Parameters:
@@ -54,7 +53,7 @@ const IntroText = () => {
         animate={{ opacity: 1, y: 0 }} // Animate to fully visible at original position
         transition={{ duration: 0.5 }} // Animation takes 0.5 seconds
       >
-        <motion.h1 className="gradient-text text-[90px] font-bold">Hi, I'm Paul</motion.h1>
+        <motion.h1 className="gradient-text text-[90px] font-bold">Hi, I&apos;m Paul</motion.h1>
       </motion.div>
 
       {/* Animated container for the roles - Fades in after name animation */}
@@ -91,9 +90,7 @@ const IntroText = () => {
         transition={{ delay: 0.9, duration: 0.5 }} // Starts 0.5s after component mount
         className="space-y-2"
       >
-        {/* Animated "Let's Connect" button with 1 second delay */}
-        {/* <AnimatedButton text="Let's Connect" href="/about" delay={1} className="mt-8" /> */}
-        <AnimatedBorderButton>Let's Connect</AnimatedBorderButton>
+        <AnimatedBorderButton>Let&apos;s Connect</AnimatedBorderButton>
       </motion.div>
     </div>
   );
