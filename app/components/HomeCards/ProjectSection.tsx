@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 
 // Define the structure for project data
 interface Project {
@@ -86,8 +87,12 @@ const ProjectSection = () => {
         {/* Grid layout for project cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
           {projects.map((project, index) => (
-            <div 
+            <motion.div 
               key={index}
+              initial={{ x: -100, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.2 }}
               className="rounded-lg overflow-hidden hover-glow"
             >
               {/* Project card with link wrapper */}
@@ -136,7 +141,7 @@ const ProjectSection = () => {
                   )}
                 </div>
               </a>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
