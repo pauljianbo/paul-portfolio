@@ -1,5 +1,5 @@
 import { useState } from 'react';
-
+import Image from 'next/image';
 interface Project {
   title: string;
   description: string;
@@ -76,24 +76,26 @@ const ProjectSection = () => {
       <div className="max-w-6xl mx-auto">
         <h1 className="text-4xl font-bold text-center mb-12">Projects</h1>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
           {projects.map((project, index) => (
             <div 
               key={index}
-              className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
+              className="rounded-lg overflow-hidden hover-glow"
             >
               <a href={project.projectUrl} target="_blank" rel="noopener noreferrer">
-                <div className="relative h-56 overflow-hidden">
-                  <img
+                <div className="relative h-[350px] overflow-hidden">
+                  <Image
                     src={project.imageUrl}
                     alt={project.title}
+                    width={1000}
+                    height={1000}
                     className="w-full h-full object-cover transition-transform duration-300"
                   />
                 </div>
                 
                 <div className="p-6">
                   <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-                  <p className={`text-gray-600 mb-4 ${!expandedCards.includes(index) ? 'line-clamp-3' : ''}`}>
+                  <p className={`mb-4 text-[16px] leading-[24px] ${!expandedCards.includes(index) ? 'line-clamp-3' : ''}`}>
                     {project.description}
                   </p>
                   <button 
@@ -101,7 +103,7 @@ const ProjectSection = () => {
                       e.preventDefault();
                       toggleCard(index);
                     }}
-                    className="text-blue-600 hover:text-blue-800 text-sm mb-4"
+                    className="text-light-primary hover:text-sky-600 mb-4"
                   >
                     {expandedCards.includes(index) ? 'Show less' : 'Read more'}
                   </button>
@@ -111,7 +113,7 @@ const ProjectSection = () => {
                       {project.technologies.map((tech, techIndex) => (
                         <span
                           key={techIndex}
-                          className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm"
+                          className="px-3 py-1 rounded-full shadow-sm"
                         >
                           {tech}
                         </span>
