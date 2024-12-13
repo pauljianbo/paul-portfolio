@@ -13,10 +13,8 @@ import Image from 'next/image';
  * @type {Array<{text: string, href: string}>}
  */
 const navItems = [
-  { text: 'Home', href: '/' },
-  { text: 'Search', href: '/search' },
-  { text: 'About', href: '/about' },
-  { text: 'FAQ', href: '/faq' },
+  { text: 'Home', href: '#home' },
+  { text: 'Skills', href: '#skills' },
 ];
 
 /**
@@ -55,9 +53,19 @@ const Navbar = (): JSX.Element => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, item: { text: string, href: string }) => {
+    e.preventDefault();
+    const element = document.querySelector(item.href);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+      setSelected(item.text);
+    }
+  };
+
   return (
-    <nav className={`fixed top-0 w-full px-6 py-4 transition-all duration-300 z-50 
-      ${scrolled ? 'bg-white/50 dark:bg-gray-900/50 backdrop-blur-sm shadow-md' : 'bg-transparent'}`}>
+    <nav
+      className={`fixed top-0 z-50 w-full px-6 py-4 transition-all duration-300 ${scrolled ? 'bg-white/50 shadow-md backdrop-blur-sm dark:bg-dark-border/50' : 'bg-transparent'}`}
+    >
       <div className="mx-auto flex max-w-7xl items-center justify-between">
         {/* Logo */}
 
@@ -65,9 +73,17 @@ const Navbar = (): JSX.Element => {
         {/* Navigation chips */}
         <div className="flex items-center gap-2">
           {navItems.map((item) => (
-            <Link href={item.href} key={item.text}>
-              <Chip text={item.text} selected={selected === item.text} onClick={() => setSelected(item.text)} />
-            </Link>
+            <a 
+              href={item.href} 
+              key={item.text}
+              onClick={(e) => handleNavClick(e, item)}
+            >
+              <Chip 
+                text={item.text} 
+                selected={selected === item.text} 
+                onClick={() => setSelected(item.text)} 
+              />
+            </a>
           ))}
         </div>
         <ThemeToggle />

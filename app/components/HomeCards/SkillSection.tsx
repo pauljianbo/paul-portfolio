@@ -7,6 +7,7 @@ import { motion } from 'framer-motion';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import { div } from 'framer-motion/client';
 
 const SkillSection = () => {
   const skills = [
@@ -45,7 +46,7 @@ const SkillSection = () => {
   ];
 
   return (
-    <div className="mx-auto flex max-w-7xl flex-col items-center rounded-[20px] px-[40px] py-[60px] shadow-glow-sm transition-shadow duration-300 hover:shadow-glow-lg dark:shadow-dark-glow-sm dark:hover:shadow-dark-glow-lg">
+    <div className="hover-glow mx-auto flex max-w-7xl flex-col items-center rounded-[20px] px-[40px] py-[60px]">
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}

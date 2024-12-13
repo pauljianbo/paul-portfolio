@@ -15,6 +15,9 @@
     dark:via-dark-background-gradient-via 
     dark:to-dark-background-gradient-end ;
   }
+  .hover-glow {
+    @apply shadow-glow-sm transition-shadow duration-300 hover:shadow-glow-lg dark:shadow-dark-glow-sm dark:hover:shadow-dark-glow-lg;
+  }
 }
 
 /* Swiper navigation button styles */

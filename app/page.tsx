@@ -10,8 +10,10 @@ const Home = () => {
 
   return (
     <div className="">
-      <AnimatedCubeCard />
-      <div ref={ref}>
+      <div id="home">
+        <AnimatedCubeCard />
+      </div>
+      <div id="skills" ref={ref} className=''>
         {isInView && <SkillSection />}
       </div>
     </div>
