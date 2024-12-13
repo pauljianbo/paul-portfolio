@@ -69,6 +69,7 @@ const ProjectSection = () => {
 
   // Toggle the expansion state of a card
   // If card is expanded, remove it from array; if collapsed, add it
+  // adding the index for those cards that are expanded
   const toggleCard = (index: number) => {
     setExpandedCards(prev => 
       prev.includes(index) 
@@ -78,8 +79,8 @@ const ProjectSection = () => {
   };
 
   return (
-    <section className="py-[30px] px-4 gradient-text">
-      <div className="max-w-6xl mx-auto ">
+    <section className="py-[50px] px-4 gradient-text">
+      <div className="max-w-7xl mx-auto ">
         <h1 className="text-[40px] font-bold text-center mb-[40px]">Projects</h1>
         
         {/* Grid layout for project cards */}
@@ -92,7 +93,7 @@ const ProjectSection = () => {
               {/* Project card with link wrapper */}
               <a href={project.projectUrl} target="_blank" rel="noopener noreferrer">
                 {/* Image container with fixed height */}
-                <div className="relative h-[350px] overflow-hidden">
+                <div className="relative h-[400px] overflow-hidden">
                   <Image
                     src={project.imageUrl}
                     alt={project.title}

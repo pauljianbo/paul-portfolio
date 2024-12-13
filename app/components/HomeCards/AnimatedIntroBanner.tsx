@@ -2,7 +2,7 @@
 // import AnimatedCube from '../tools/Animation/3D/AnimatedCube';
 import IntroText from '../tools/Animation/IntroText';
 import AnimatedCharacter from '../tools/Animation/3D/AnimatedCharacter';
-const AnimatedCubeCard = () => {
+const AnimatedIntroBanner = () => {
   return (
     <div className="flex max-w-7xl  mx-auto h-screen">
       <div className="w-1/2 aspect-square ">
@@ -18,4 +18,4 @@ const AnimatedCubeCard = () => {
   );
 };
 
-export default AnimatedCubeCard;
+export default AnimatedIntroBanner;
