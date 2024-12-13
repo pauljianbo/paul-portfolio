@@ -36,7 +36,7 @@ function Model() {
   return <primitive 
     ref={modelRef}           // Attach our reference for animations
     object={scene}          // The actual 3D model to render
-    scale={2}              // Size multiplier for the model
+    scale={1.8}              // Size multiplier for the model
   />;
 }
 

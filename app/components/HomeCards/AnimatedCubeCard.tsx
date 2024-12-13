@@ -4,11 +4,11 @@ import IntroText from '../tools/Animation/IntroText';
 import AnimatedCharacter from '../tools/Animation/3D/AnimatedCharacter';
 const AnimatedCubeCard = () => {
   return (
-    <div className="flex max-w-7xl  mx-auto h-[calc(100vh-72px)]">
+    <div className="flex max-w-7xl  mx-auto h-screen">
       <div className="w-1/2 aspect-square ">
         <IntroText />
       </div>
-      <div className="aspect-square w-1/2 flex items-center">
+      <div className="aspect-square w-1/2 flex items-center translate-y-[40px]">
         <AnimatedCharacter />
       </div>
       {/* <div className="aspect-square w-1/2">
