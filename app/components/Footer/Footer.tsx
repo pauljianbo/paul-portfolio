@@ -28,7 +28,7 @@ const Footer = () => {
             - text-sm: Smaller font size
             - text-light/dark-text-secondary: Theme-based text color
           */}
-          <div className="text-sm text-light-text-secondary dark:text-dark-text-secondary">
+          <div className="gradient-text">
            Copyright © {new Date().getFullYear()} Paul&apos;s Portfolio. All rights reserved.
           </div>
 
@@ -43,7 +43,7 @@ const Footer = () => {
               href="https://www.linkedin.com/in/jianbo-cai-4540242a0/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-light-text-secondary hover:text-light-text-primary dark:text-dark-text-secondary dark:hover:text-dark-text-primary"
+              className="text-light-primary hover:text-sky-600 dark:text-dark-text-secondary dark:hover:text-dark-text-primary"
               aria-label="LinkedIn Profile"
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
