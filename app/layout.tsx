@@ -6,7 +6,7 @@ import Footer from '@/app/components/Footer/Footer';
 import Navbar from '@/app/components/Headers/NavBar';
 // Define metadata for the application
 export const metadata: Metadata = {
-  title: 'Portfolio',
+  title: 'Paul | Portfolio',
   description: 'Portfolio of Paul',
 };
 

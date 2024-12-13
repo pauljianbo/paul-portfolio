@@ -53,7 +53,7 @@ const Navbar = (): JSX.Element => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, item: { text: string, href: string }) => {
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, item: { text: string; href: string }) => {
     e.preventDefault();
     const element = document.querySelector(item.href);
     if (element) {
@@ -68,21 +68,14 @@ const Navbar = (): JSX.Element => {
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between">
         {/* Logo */}
-
-        <Image src="/icon1.png" alt="Logo" width={40} height={40} />
+        <div className="h-[40px] w-[40px] bg-white rounded-full overflow-hidden">
+          <Image src="/apple-icon.png" alt="Logo" width={40} height={40} />
+        </div>
         {/* Navigation chips */}
         <div className="flex items-center gap-2">
           {navItems.map((item) => (
-            <a 
-              href={item.href} 
-              key={item.text}
-              onClick={(e) => handleNavClick(e, item)}
-            >
-              <Chip 
-                text={item.text} 
-                selected={selected === item.text} 
-                onClick={() => setSelected(item.text)} 
-              />
+            <a href={item.href} key={item.text} onClick={(e) => handleNavClick(e, item)}>
+              <Chip text={item.text} selected={selected === item.text} onClick={() => setSelected(item.text)} />
             </a>
           ))}
         </div>
