@@ -7,10 +7,13 @@ import SkillSection from './components/HomeCards/SkillSection';
 import ProjectSection from './components/HomeCards/ProjectSection';
 
 const Home = () => {
-  // Create a reference to track the skills section element
-  const ref = useRef(null);
-  // Track if the referenced element is in viewport, 'once: true' means it only triggers once
-  const isInView = useInView(ref, { once: true });
+  // Create references to track both skills and projects sections
+  const skillsRef = useRef(null);
+  const projectsRef = useRef(null);
+  
+  // Track if each referenced element is in viewport
+  const isSkillsInView = useInView(skillsRef, { once: true });
+  const isProjectsInView = useInView(projectsRef, { once: true });
 
   useEffect(() => {
     // Scroll to top when component mounts
@@ -33,14 +36,14 @@ const Home = () => {
       </div>
 
       {/* Skills section that lazy loads when in view */}
-      <div id="skills" ref={ref}>
+      <div id="skills" ref={skillsRef}>
         {/* Only render SkillSection when it comes into view */}
-        {isInView && <SkillSection />}
+        {isSkillsInView && <SkillSection />}
       </div>
 
       {/* Projects section */}
-      <div id="projects">
-        <ProjectSection />
+      <div id="projects" ref={projectsRef}>
+        {isProjectsInView && <ProjectSection />}
       </div>
     </div>
   );
