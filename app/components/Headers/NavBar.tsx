@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Chip from '../tools/Animation/Chip';
 import Link from 'next/link';
 import ThemeToggle from '../tools/ThemeToggle';
@@ -43,9 +43,21 @@ const Navbar = (): JSX.Element => {
    * @type {Array<string|Function>}
    */
   const [selected, setSelected] = useState(navItems[0].text);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const isScrolled = window.scrollY > 0;
+      setScrolled(isScrolled);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
-    <nav className="w-full px-6 py-4">
+    <nav className={`fixed top-0 w-full px-6 py-4 transition-all duration-300 z-50 
+      ${scrolled ? 'bg-white/50 dark:bg-gray-900/50 backdrop-blur-sm shadow-md' : 'bg-transparent'}`}>
       <div className="mx-auto flex max-w-7xl items-center justify-between">
         {/* Logo */}
 
