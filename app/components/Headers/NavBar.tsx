@@ -1,7 +1,6 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Chip from '../tools/Animation/Chip';
-import Link from 'next/link';
 import ThemeToggle from '../tools/ThemeToggle';
 import Image from 'next/image';
 /**
@@ -13,10 +12,9 @@ import Image from 'next/image';
  * @type {Array<{text: string, href: string}>}
  */
 const navItems = [
-  { text: 'Home', href: '/' },
-  { text: 'Search', href: '/search' },
-  { text: 'About', href: '/about' },
-  { text: 'FAQ', href: '/faq' },
+  { text: 'Home', href: '#home' },
+  { text: 'Skills', href: '#skills' },
+  { text: 'Projects', href: '#projects' },
 ];
 
 /**
@@ -29,38 +27,63 @@ const navItems = [
  * - A theme toggle button
  * The component maintains a selected state for the navigation items and
  * supports both light and dark themes.
- * 
+ *
  * @example
  * ```jsx
  * <Navbar />
  * ```
- * 
+ *
  * @returns {JSX.Element} A navigation bar component with logo, navigation links, and theme toggle
  */
 const Navbar = (): JSX.Element => {
-/** 
- * useState hook for selected nav item
- * @type {Array<string|Function>}
- */
+  /**
+   * useState hook for selected nav item
+   * @type {Array<string|Function>}
+   */
   const [selected, setSelected] = useState(navItems[0].text);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const isScrolled = window.scrollY > 0;
+      setScrolled(isScrolled);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, item: { text: string, href: string }) => {
+    e.preventDefault();
+    const element = document.querySelector(item.href);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+      setSelected(item.text);
+    }
+  };
 
   return (
-    <nav className="w-full border-b  bg-light-paper/30 px-6 py-4  dark:bg-dark-paper/30 ">
+    <nav
+      className={`fixed top-0 z-50 w-full px-6 py-4 transition-all duration-300 ${scrolled ? 'bg-white/50 shadow-md backdrop-blur-sm dark:bg-dark-border/50' : 'bg-transparent'}`}
+    >
       <div className="mx-auto flex max-w-7xl items-center justify-between">
         {/* Logo */}
-       
-        <Image
-          src="/icon1.png"
-          alt="Logo"
-          width={40}
-          height={40}
-        />
+
+        <Image src="/icon1.png" alt="Logo" width={40} height={40} />
         {/* Navigation chips */}
         <div className="flex items-center gap-2">
           {navItems.map((item) => (
-            <Link href={item.href} key={item.text}>
-              <Chip text={item.text} selected={selected === item.text} onClick={() => setSelected(item.text)} />
-            </Link>
+            <a 
+              href={item.href} 
+              key={item.text}
+              onClick={(e) => handleNavClick(e, item)}
+            >
+              <Chip 
+                text={item.text} 
+                selected={selected === item.text} 
+                onClick={() => setSelected(item.text)} 
+              />
+            </a>
           ))}
         </div>
         <ThemeToggle />

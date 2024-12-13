@@ -28,14 +28,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           - dark:via-dark-background-gradient-via
           - dark:to-dark-background-gradient-end
       */}
-      <body className="min-h-screen flex flex-col 
-        bg-gradient-to-br 
-        from-light-background-gradient-start 
-        via-light-background-gradient-via 
-        to-light-background-gradient-end
-        dark:from-dark-background-gradient-start 
-        dark:via-dark-background-gradient-via 
-        dark:to-dark-background-gradient-end">
+      <body className="gradient-bg flex min-h-screen flex-col">
         <ThemeProvider>
           <Navbar />
           <main className="flex-grow">{children}</main>
