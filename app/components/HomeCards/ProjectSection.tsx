@@ -1,13 +1,16 @@
 import { useState } from 'react';
 import Image from 'next/image';
+
+// Define the structure for project data
 interface Project {
   title: string;
   description: string;
   imageUrl: string;
   projectUrl: string;
-  technologies?: string[];
+  technologies?: string[]; // Optional array of technology strings
 }
 
+// Array of project data
 const projects: Project[] = [
   {
     title: "Pickagoo Delivery Platform",
@@ -57,12 +60,15 @@ const projects: Project[] = [
       "Vercel"
     ],
   },
-  // Add more projects as needed
 ];
 
 const ProjectSection = () => {
+  // State to track which cards are expanded to show full description
+  // Stores an array of indices corresponding to expanded cards
   const [expandedCards, setExpandedCards] = useState<number[]>([]);
 
+  // Toggle the expansion state of a card
+  // If card is expanded, remove it from array; if collapsed, add it
   const toggleCard = (index: number) => {
     setExpandedCards(prev => 
       prev.includes(index) 
@@ -72,17 +78,20 @@ const ProjectSection = () => {
   };
 
   return (
-    <section className="py-16 px-4">
-      <div className="max-w-6xl mx-auto">
+    <section className="py-16 px-4 gradient-text">
+      <div className="max-w-6xl mx-auto ">
         <h1 className="text-4xl font-bold text-center mb-12">Projects</h1>
         
+        {/* Grid layout for project cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
           {projects.map((project, index) => (
             <div 
               key={index}
               className="rounded-lg overflow-hidden hover-glow"
             >
+              {/* Project card with link wrapper */}
               <a href={project.projectUrl} target="_blank" rel="noopener noreferrer">
+                {/* Image container with fixed height */}
                 <div className="relative h-[350px] overflow-hidden">
                   <Image
                     src={project.imageUrl}
@@ -93,14 +102,17 @@ const ProjectSection = () => {
                   />
                 </div>
                 
+                {/* Project details section */}
                 <div className="p-6">
                   <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
+                  {/* Description with conditional line clamping based on expanded state */}
                   <p className={`mb-4 text-[16px] leading-[24px] ${!expandedCards.includes(index) ? 'line-clamp-3' : ''}`}>
                     {project.description}
                   </p>
+                  {/* Toggle button for expanding/collapsing description */}
                   <button 
                     onClick={(e) => {
-                      e.preventDefault();
+                      e.preventDefault(); // Prevent link navigation when clicking button
                       toggleCard(index);
                     }}
                     className="text-light-primary hover:text-sky-600 mb-4"
@@ -108,6 +120,7 @@ const ProjectSection = () => {
                     {expandedCards.includes(index) ? 'Show less' : 'Read more'}
                   </button>
                   
+                  {/* Technologies tags section */}
                   {project.technologies && (
                     <div className="flex flex-wrap gap-2">
                       {project.technologies.map((tech, techIndex) => (
