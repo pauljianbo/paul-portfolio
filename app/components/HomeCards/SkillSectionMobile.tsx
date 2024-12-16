@@ -63,7 +63,7 @@ const SkillSectionMobile = () => {
         <motion.button
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.8 }}
+          transition={{ delay: 0.5 }}
           onClick={() => setShowAll(!showAll)}
           className="mt-6 flex w-full justify-center"
         >
