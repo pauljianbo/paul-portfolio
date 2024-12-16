@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import AnimatedMaskButton from '../tools/Animation/Buttons/AnimatedMaskButton';
-import AnimatedBorderButton from '../tools/Animation/Buttons/AnimatedBorderButton';
+import AnimatedMaskButton from '../../tools/Animation/Buttons/AnimatedMaskButton';
+import AnimatedBorderButton from '../../tools/Animation/Buttons/AnimatedBorderButton';
 const SkillSectionMobile = () => {
   const [showAll, setShowAll] = useState(false);
 
