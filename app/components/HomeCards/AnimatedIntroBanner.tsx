@@ -12,7 +12,7 @@ const AnimatedCharacter = dynamic(
 import IntroTextMobile from './Mobile/IntroTextMobile';
 const AnimatedIntroBanner = () => {
   return (
-    <div className="mx-auto mt-20 flex max-w-7xl md:mt-0 md:h-screen">
+    <div className="mx-auto mt-[40px] flex max-w-7xl md:mt-0 md:h-screen">
       <div className="hidden aspect-square w-full md:w-1/2 md:block">
         <IntroText />
       </div>

@@ -81,9 +81,9 @@ const ProjectSection = () => {
   };
 
   return (
-    <section className="py-[50px] px-4 gradient-text">
+    <section className="py-[30px] md:py-[50px] px-4 gradient-text">
       <div className="max-w-7xl mx-auto ">
-        <h1 className="text-[28px] md:text-[40px] font-bold text-center mb-[40px]">Projects</h1>
+        <h1 className="text-[28px] md:text-[40px] font-bold text-center mb-[20px] md:mb-[40px]">Projects</h1>
         
         {/* Grid layout for project cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
