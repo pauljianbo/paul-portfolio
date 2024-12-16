@@ -52,17 +52,6 @@ const SkillSectionMobile = () => {
         className="gradient-text"
       >
         <h1 className="text-center text-[28px] font-bold">Skills</h1>
-        <motion.p
-          initial={{ opacity: 0, x: -20 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ delay: 0.3, duration: 0.5 }}
-          className="mx-auto mt-[15px] w-full text-center text-[16px] leading-[24px]"
-        >
-          I am a software engineer with a passion for creating beautiful and functional web applications. I have a
-          strong background in front-end development, but I am also comfortable with back-end development. I am a quick
-          learner and I am always looking to expand my skills.
-        </motion.p>
       </motion.div>
 
       <motion.div
