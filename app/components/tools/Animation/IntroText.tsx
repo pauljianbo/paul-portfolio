@@ -46,16 +46,10 @@ const IntroText = () => {
   const { currentText } = useTypewriter(roles, 50, 1500);
 
   return (
-    <div className="flex h-full flex-col justify-center space-y-6 p-6">
+    <div className="gradient-text flex h-full flex-col justify-center space-y-6 p-6">
       {/* Name heading - responsive text sizes */}
-      <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-      >
-        <motion.h1 className="gradient-text text-4xl sm:text-5xl md:text-6xl lg:text-[90px] font-bold">
-          Hi, I&apos;m Paul
-        </motion.h1>
+      <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
+        <motion.h1 className="text-4xl font-bold sm:text-5xl md:text-6xl lg:text-[90px]">Hi, I&apos;m Paul</motion.h1>
       </motion.div>
 
       {/* Roles - responsive text sizes */}
@@ -65,7 +59,7 @@ const IntroText = () => {
         transition={{ delay: 0.5, duration: 0.5 }}
         className="space-y-2"
       >
-        <div className="gradient-text flex items-center space-x-2 text-xl sm:text-2xl md:text-3xl lg:text-[40px] font-bold">
+        <div className="flex items-center space-x-2 text-xl font-bold sm:text-2xl md:text-3xl lg:text-[40px]">
           <span>▹</span>
           <span>{currentText}</span>
         </div>
@@ -78,7 +72,7 @@ const IntroText = () => {
         transition={{ delay: 0.7, duration: 0.5 }}
         className="space-y-2"
       >
-        <p className="gradient-text text-base sm:text-lg md:text-xl lg:text-[20px] leading-relaxed">
+        <p className="text-base leading-relaxed sm:text-lg md:text-xl lg:text-[20px]">
           As a Full Stack Developer, I craft seamless digital experiences by bridging elegant front-end designs with
           robust back-end solutions. With a passion for clean code and innovative technologies, I transform complex
           problems into user-friendly applications that make a real impact.
