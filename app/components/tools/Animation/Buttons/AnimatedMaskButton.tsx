@@ -18,8 +18,8 @@ const AnimatedMaskButton = ({ text, className = '' }: AnimatedMaskButtonProps) =
           }
           .fancy-glow {
             position: relative;
-            min-width: 200px;
-            min-height: 200px;
+            // min-width: 200px;
+            // min-height: 200px;
             z-index: 0;
             border-radius: 50%;
             overflow: hidden;
@@ -74,7 +74,7 @@ const AnimatedMaskButton = ({ text, className = '' }: AnimatedMaskButtonProps) =
 
       <div className={`flex items-center justify-center`}>
         <div
-          className={`fancy-glow text-[20px] ${className} gradient-text flex items-center justify-center transition-all duration-300 hover:scale-105`}
+          className={`fancy-glow ${className} gradient-text flex items-center justify-center transition-all duration-300 hover:scale-105`}
         >
           {text}
         </div>
