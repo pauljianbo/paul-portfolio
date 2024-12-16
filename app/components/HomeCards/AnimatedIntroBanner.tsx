@@ -9,11 +9,15 @@ const AnimatedCharacter = dynamic(
     loading: () => <div>Loading...</div> // Add loading placeholder
   }
 )
+import IntroTextMobile from './Mobile/IntroTextMobile';
 const AnimatedIntroBanner = () => {
   return (
     <div className="mx-auto mt-20 flex max-w-7xl md:mt-0 md:h-screen">
-      <div className="aspect-square w-full md:w-1/2">
+      <div className="hidden aspect-square w-full md:w-1/2 md:block">
         <IntroText />
+      </div>
+      <div className="block aspect-square w-full md:w-1/2 md:hidden">
+        <IntroTextMobile />
       </div>
       <div className="hidden aspect-square w-1/2 translate-y-[40px] items-center md:flex">
         <AnimatedCharacter />

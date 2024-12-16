@@ -10,7 +10,7 @@ const AnimatedIntroBanner = dynamic(() => import('./components/HomeCards/Animate
 const SkillSection = dynamic(() => import('./components/HomeCards/SkillSection'), { ssr: false });
 
 const ProjectSection = dynamic(() => import('./components/HomeCards/ProjectSection'), { ssr: false });
-const SkillSectionMobile = dynamic(() => import('./components/HomeCards/SkillSectionMobile'), { ssr: false });
+const SkillSectionMobile = dynamic(() => import('./components/HomeCards/Mobile/SkillSectionMobile'), { ssr: false });
 const Home = () => {
   const skillsRef = useRef(null);
   const projectsRef = useRef(null);
