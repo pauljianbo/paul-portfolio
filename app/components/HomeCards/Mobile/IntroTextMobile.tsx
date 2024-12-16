@@ -34,7 +34,7 @@ const IntroTextMobile = () => {
   const { currentText } = useTypewriter(roles, 50, 1500);
 
   return (
-    <div className="gradient-text flex h-full flex-col justify-center space-y-6 p-6">
+    <div className="gradient-text flex h-full flex-col justify-center space-y-6 p-6 ">
       {/* Name heading */}
       <div>
         <h1 className="text-4xl font-bold sm:text-5xl md:text-6xl lg:text-[90px]">Hi, I&apos;m Paul</h1>
