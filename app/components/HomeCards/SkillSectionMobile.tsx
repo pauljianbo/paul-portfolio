@@ -1,13 +1,10 @@
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination } from 'swiper/modules';
-import AnimatedMaskButton from '../tools/Animation/Buttons/AnimatedMaskButton';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
+import AnimatedMaskButton from '../tools/Animation/Buttons/AnimatedMaskButton';
+import AnimatedBorderButton from '../tools/Animation/Buttons/AnimatedBorderButton';
+const SkillSectionMobile = () => {
+  const [showAll, setShowAll] = useState(false);
 
-// Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-const SkillSection = () => {
   const skills = [
     // Languages
     { name: 'TypeScript', category: 'Language' },
@@ -43,8 +40,10 @@ const SkillSection = () => {
     { name: 'CI/CD', category: 'Practice' },
   ];
 
+  const displayedSkills = showAll ? skills : skills.slice(0, 6);
+
   return (
-    <div className="hover-glow mx-auto flex max-w-7xl flex-col items-center rounded-[20px] px-[20px] py-[30px] sm:px-[40px] sm:py-[60px]">
+    <div className="hover-glow mx-auto flex max-w-7xl flex-col items-center rounded-[20px] px-[20px] py-[30px]">
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -52,13 +51,13 @@ const SkillSection = () => {
         transition={{ duration: 0.5 }}
         className="gradient-text"
       >
-        <h1 className="text-center text-[28px] font-bold sm:text-[32px] md:text-[36px] lg:text-[40px]">Skills</h1>
+        <h1 className="text-center text-[28px] font-bold">Skills</h1>
         <motion.p
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ delay: 0.3, duration: 0.5 }}
-          className="mx-auto mt-[15px] w-full text-center text-[16px] leading-[24px] sm:mt-[20px] sm:w-3/4 sm:text-[18px] sm:leading-[30px] md:text-[20px]"
+          className="mx-auto mt-[15px] w-full text-center text-[16px] leading-[24px]"
         >
           I am a software engineer with a passion for creating beautiful and functional web applications. I have a
           strong background in front-end development, but I am also comfortable with back-end development. I am a quick
@@ -71,34 +70,35 @@ const SkillSection = () => {
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true, amount: 0.3 }}
         transition={{ delay: 0.5, duration: 0.8 }}
-        className="relative mt-[20px] flex w-[95%] flex-col items-center justify-center gap-4 sm:mt-[40px] sm:w-[80%] sm:gap-8"
+        className="mt-[20px] w-full"
       >
-        <div className="w-full">
-          <button className="swiper-button-prev absolute translate-x-[-100px] translate-y-[-20px]"></button>
-
-          <button className="swiper-button-next absolute translate-x-[120px] translate-y-[-20px]"></button>
-
-          <Swiper
-            modules={[Navigation, Pagination]}
-            slidesPerView="auto"
-            spaceBetween={35}
-            grabCursor={true}
-            navigation={{
-              prevEl: '.swiper-button-prev',
-              nextEl: '.swiper-button-next',
-            }}
-            className="!ml-0 !mr-0 !py-[20px] !pl-[20px]"
-          >
-            {skills.map((skill, index) => (
-              <SwiperSlide key={index} className="!w-auto">
-                <AnimatedMaskButton text={skill.name} className='w-[200px] h-[200px] text-[20px]'/>
-              </SwiperSlide>
-            ))}
-          </Swiper>
+        <div className="grid grid-cols-2 gap-4">
+          {displayedSkills.map((skill, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.1 }}
+            >
+              <AnimatedMaskButton text={skill.name} className="h-[140px] w-[140px] shrink-0" />
+            </motion.div>
+          ))}
         </div>
+
+        {skills.length > 6 && (
+          <motion.button
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.8 }}
+            onClick={() => setShowAll(!showAll)}
+            className='mt-6 w-full flex justify-center'
+          >
+            <AnimatedBorderButton>{showAll ? 'Show Less' : 'Show More'}</AnimatedBorderButton>
+          </motion.button>
+        )}
       </motion.div>
     </div>
   );
 };
 
-export default SkillSection;
+export default SkillSectionMobile;
