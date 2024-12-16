@@ -83,7 +83,7 @@ const ProjectSection = () => {
   return (
     <section className="py-[50px] px-4 gradient-text">
       <div className="max-w-7xl mx-auto ">
-        <h1 className="text-[40px] font-bold text-center mb-[40px]">Projects</h1>
+        <h1 className="text-[28px] md:text-[40px] font-bold text-center mb-[40px]">Projects</h1>
         
         {/* Grid layout for project cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
@@ -99,7 +99,7 @@ const ProjectSection = () => {
               {/* Project card with link wrapper */}
               <a href={project.projectUrl} target="_blank" rel="noopener noreferrer">
                 {/* Image container with fixed height */}
-                <div className="relative h-[400px] overflow-hidden">
+                <div className="relative h-[250px] md:h-[400px] overflow-hidden">
                   <Image
                     src={project.imageUrl}
                     alt={project.title}
