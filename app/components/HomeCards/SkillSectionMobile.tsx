@@ -44,59 +44,32 @@ const SkillSectionMobile = () => {
 
   return (
     <div className="hover-glow mx-auto flex max-w-7xl flex-col items-center rounded-[20px] px-[20px] py-[30px]">
-      <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 0.5 }}
-        className="gradient-text"
-      >
-        <h1 className="text-center text-[28px] font-bold">Skills</h1>
-        <motion.p
-          initial={{ opacity: 0, x: -20 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ delay: 0.3, duration: 0.5 }}
-          className="mx-auto mt-[15px] w-full text-center text-[16px] leading-[24px]"
-        >
-          I am a software engineer with a passion for creating beautiful and functional web applications. I have a
-          strong background in front-end development, but I am also comfortable with back-end development. I am a quick
-          learner and I am always looking to expand my skills.
-        </motion.p>
-      </motion.div>
+      <h1 className="gradient-text text-center text-[28px] font-bold">Skills</h1>
 
-      <motion.div
-        initial={{ opacity: 0, x: -50 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true, amount: 0.3 }}
-        transition={{ delay: 0.5, duration: 0.8 }}
-        className="mt-[20px] w-full"
-      >
-        <div className="grid grid-cols-2 gap-4">
-          {displayedSkills.map((skill, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
-            >
-              <AnimatedMaskButton text={skill.name} className="h-[140px] w-[140px] shrink-0" />
-            </motion.div>
-          ))}
-        </div>
-
-        {skills.length > 6 && (
-          <motion.button
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.8 }}
-            onClick={() => setShowAll(!showAll)}
-            className='mt-6 w-full flex justify-center'
+      <div className="grid grid-cols-2 gap-8">
+        {displayedSkills.map((skill, index) => (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: index * 0.1 }}
           >
-            <AnimatedBorderButton>{showAll ? 'Show Less' : 'Show More'}</AnimatedBorderButton>
-          </motion.button>
-        )}
-      </motion.div>
+            <AnimatedMaskButton text={skill.name} className="h-[140px] w-[140px] shrink-0" />
+          </motion.div>
+        ))}
+      </div>
+
+      {skills.length > 6 && (
+        <motion.button
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.5 }}
+          onClick={() => setShowAll(!showAll)}
+          className="mt-6 flex w-full justify-center"
+        >
+          <AnimatedBorderButton>{showAll ? 'Show Less' : 'Show More'}</AnimatedBorderButton>
+        </motion.button>
+      )}
     </div>
   );
 };
