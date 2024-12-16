@@ -68,7 +68,7 @@ const Navbar = (): JSX.Element => {
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between">
         {/* Logo */}
-        <div className="h-[40px] w-[40px] bg-white rounded-full overflow-hidden">
+        <div className="h-[40px] w-[40px] bg-white rounded-full overflow-hidden hidden md:block">
           <Image src="/apple-icon.png" alt="Logo" width={40} height={40} />
         </div>
         {/* Navigation chips */}

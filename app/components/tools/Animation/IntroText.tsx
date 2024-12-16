@@ -47,37 +47,38 @@ const IntroText = () => {
 
   return (
     <div className="flex h-full flex-col justify-center space-y-6 p-6">
-      {/* Animated container for the name - Slides up and fades in */}
+      {/* Name heading - responsive text sizes */}
       <motion.div
-        initial={{ opacity: 0, y: -20 }} // Start invisible and 20px top to original position
-        animate={{ opacity: 1, y: 0 }} // Animate to fully visible at original position
-        transition={{ duration: 0.5 }} // Animation takes 0.5 seconds
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
       >
-        <motion.h1 className="gradient-text text-[90px] font-bold">Hi, I&apos;m Paul</motion.h1>
+        <motion.h1 className="gradient-text text-4xl sm:text-5xl md:text-6xl lg:text-[90px] font-bold">
+          Hi, I&apos;m Paul
+        </motion.h1>
       </motion.div>
 
-      {/* Animated container for the roles - Fades in after name animation */}
+      {/* Roles - responsive text sizes */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 0.5, duration: 0.5 }} // Starts 0.5s after component mount
+        transition={{ delay: 0.5, duration: 0.5 }}
         className="space-y-2"
       >
-        {/* Container for the typewriter text with arrow prefix */}
-        <div className="gradient-text flex items-center space-x-2 text-[40px] font-bold">
+        <div className="gradient-text flex items-center space-x-2 text-xl sm:text-2xl md:text-3xl lg:text-[40px] font-bold">
           <span>▹</span>
           <span>{currentText}</span>
         </div>
       </motion.div>
 
+      {/* Description - responsive text sizes */}
       <motion.div
-        initial={{ opacity: 0, x: -20 }} // Start invisible and 20px left to original position
-        animate={{ opacity: 1, x: 0 }} // Animate to fully visible at original position
-        transition={{ delay: 0.7, duration: 0.5 }} // Starts 0.5s after component mount
+        initial={{ opacity: 0, x: -20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ delay: 0.7, duration: 0.5 }}
         className="space-y-2"
       >
-        {/* Description paragraph with gradient text */}
-        <p className="gradient-text text-[20px] leading-[30px]">
+        <p className="gradient-text text-base sm:text-lg md:text-xl lg:text-[20px] leading-relaxed">
           As a Full Stack Developer, I craft seamless digital experiences by bridging elegant front-end designs with
           robust back-end solutions. With a passion for clean code and innovative technologies, I transform complex
           problems into user-friendly applications that make a real impact.
@@ -85,9 +86,9 @@ const IntroText = () => {
       </motion.div>
 
       <motion.div
-        initial={{ opacity: 0, y: 20 }} // Start invisible and 20px below
-        animate={{ opacity: 1, y: 0 }} // Animate to fully visible at original position
-        transition={{ delay: 0.9, duration: 0.5 }} // Starts 0.5s after component mount
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.9, duration: 0.5 }}
         className="space-y-2"
       >
         <AnimatedBorderButton>Let&apos;s Connect</AnimatedBorderButton>
