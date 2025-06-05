@@ -1,10 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Code2, Database, Server, Wrench, BookOpen, Star, Sparkles, Zap } from 'lucide-react';
 
 const SkillSection = () => {
   const [activeCategory, setActiveCategory] = useState('All');
-  const [hoveredSkill, setHoveredSkill] = useState<string | null>(null);
 
   const skills = [
     // Languages
@@ -292,13 +291,7 @@ const SkillSection = () => {
             className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
           >
             {filteredSkills.map((skill, index) => (
-              <motion.div
-                key={`${skill.name}-${activeCategory}`}
-                variants={skillVariants}
-                className="group relative"
-                onMouseEnter={() => setHoveredSkill(skill.name)}
-                onMouseLeave={() => setHoveredSkill(null)}
-              >
+              <motion.div key={`${skill.name}-${activeCategory}`} variants={skillVariants} className="group relative">
                 <div className="relative overflow-hidden rounded-2xl border border-blue-200/50 bg-white/70 p-6 shadow-lg backdrop-blur-xl transition-all duration-500 dark:border-slate-700/50 dark:bg-slate-900/70">
                   {/* Gradient Overlay */}
                   <div
@@ -401,7 +394,7 @@ const SkillSection = () => {
               href="#contact"
               className="font-medium text-blue-600 transition-colors duration-300 hover:text-blue-700 dark:text-cyan-300 dark:hover:text-cyan-100"
             >
-              Let's collaborate →
+              Let&apos;s collaborate →
             </a>
           </div>
         </motion.div>

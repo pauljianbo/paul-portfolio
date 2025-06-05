@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ExternalLink, Code, Zap, ChevronRight, Eye, ArrowUpRight, Sparkles } from 'lucide-react';
+import { Zap, ChevronRight, Eye, ArrowUpRight, Sparkles } from 'lucide-react';
 
 // Define the structure for project data
 interface Project {
@@ -271,7 +271,7 @@ const ProjectSection = () => {
               href="#contact"
               className="font-medium text-blue-600 transition-colors duration-300 hover:text-blue-700 dark:text-cyan-300 dark:hover:text-cyan-100"
             >
-              Let's collaborate →
+              Let&apos;s collaborate →
             </a>
           </div>
         </div>
