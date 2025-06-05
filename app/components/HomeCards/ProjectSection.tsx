@@ -28,7 +28,9 @@ const projects: Project[] = [
     accentColor: 'blue',
     technologies: [
       'Next.js',
+      'React',
       'TypeScript',
+      'Three.js',
       'TailwindCSS',
       'Framer Motion',
       'Node.js',
@@ -50,6 +52,7 @@ const projects: Project[] = [
     accentColor: 'cyan',
     technologies: [
       'Next.js',
+      'React',
       'TypeScript',
       'TailwindCSS',
       'Framer Motion',
