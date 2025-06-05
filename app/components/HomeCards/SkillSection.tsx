@@ -30,20 +30,7 @@ const SkillSection = () => {
     },
 
     // Frontend
-    {
-      name: 'HTML',
-      category: 'Frontend',
-      level: 100,
-      icon: '📄',
-      description: 'Markup language for structuring web content',
-    },
-    {
-      name: 'CSS',
-      category: 'Frontend',
-      level: 100,
-      icon: '🎨',
-      description: 'Style sheet language for designing web pages',
-    },
+
     {
       name: 'React.js',
       category: 'Frontend',
@@ -78,6 +65,20 @@ const SkillSection = () => {
       level: 75,
       icon: '🌐',
       description: 'Web Graphics Library for rendering interactive 2D and 3D graphics',
+    },
+    {
+      name: 'HTML',
+      category: 'Frontend',
+      level: 100,
+      icon: '📄',
+      description: 'Markup language for structuring web content',
+    },
+    {
+      name: 'CSS',
+      category: 'Frontend',
+      level: 100,
+      icon: '🎨',
+      description: 'Style sheet language for designing web pages',
     },
 
     // Backend
@@ -236,7 +237,7 @@ const SkillSection = () => {
 
   return (
     <section className="relative overflow-hidden bg-gradient-to-br from-blue-50 via-sky-50 to-cyan-50 px-4 py-16 dark:bg-gradient-to-br dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 md:py-24">
-      <div className="relative z-10 mx-auto max-w-7xl">
+      <div className="container relative z-10 mx-auto">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: -50 }}
@@ -250,15 +251,9 @@ const SkillSection = () => {
             <span className="text-sm font-medium text-blue-700 dark:text-slate-200">Technical Expertise</span>
           </div>
 
-          <h1 className="mb-6 bg-gradient-to-r from-blue-600 via-sky-600 to-cyan-600 bg-clip-text text-4xl font-bold text-transparent dark:from-cyan-400 dark:via-blue-400 dark:to-sky-400 md:text-6xl">
+          <h2 className="mb-6 bg-gradient-to-r from-blue-500 via-sky-500 to-cyan-500 bg-clip-text text-6xl font-bold text-transparent dark:from-cyan-200 dark:via-blue-200 dark:to-blue-100">
             Skills & Technologies
-          </h1>
-
-          <p className="mx-auto max-w-3xl text-xl leading-relaxed text-blue-700/80 dark:text-slate-300/80">
-            I am a software engineer with a passion for creating beautiful and functional web applications. I have a
-            strong background in front-end development, but I am also comfortable with back-end development. I am a
-            quick learner and I am always looking to expand my skills.
-          </p>
+          </h2>
         </motion.div>
 
         {/* Category Filter */}

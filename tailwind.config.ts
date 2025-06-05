@@ -9,9 +9,6 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      screens: {
-        max1280: { max: '1280px' },
-      },
       boxShadow: {
         // === Light Mode Shadows - Sky Blue Theme ===
         // Color: Sky-500 (#0ea5e9)
@@ -59,11 +56,11 @@ const config: Config = {
           // Light mode elevated surface - clean white
           // Usage: bg-light-paper
 
-          primary: '#0ea5e9', // Sky-500
+          primary: '#38bdf8', // Sky-500
           // Light mode primary actions - vibrant sky blue
           // Usage: bg-light-primary, text-light-primary
 
-          secondary: '#14b8a6', // Teal-500
+          secondary: '#1d4ed8', // sky-300
           // Light mode secondary actions - lighter sky blue
           // Usage: bg-light-secondary, text-light-secondary
 

@@ -45,6 +45,15 @@ const IntroText = () => {
   // Use typewriter hook with custom timing (50ms per character, 1500ms between texts)
   const { currentText } = useTypewriter(roles, 50, 1500);
 
+  // Handler for smooth scroll to #contact
+  const handleConnectClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const element = document.querySelector('#contact');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <div className="gradient-text flex h-full flex-col justify-center space-y-6 p-6">
       {/* Name heading - responsive text sizes */}
@@ -79,14 +88,16 @@ const IntroText = () => {
         </p>
       </motion.div>
 
-      <motion.div
+      <motion.a
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.9, duration: 0.5 }}
         className="space-y-2"
+        href="#contact"
+        onClick={handleConnectClick}
       >
         <AnimatedBorderButton>Let&apos;s Connect</AnimatedBorderButton>
-      </motion.div>
+      </motion.a>
     </div>
   );
 };
