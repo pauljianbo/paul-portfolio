@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, Code, Zap, ChevronRight, Globe } from 'lucide-react';
+import { ExternalLink, Code, Zap, ChevronRight } from 'lucide-react';
 
 // Define the structure for project data
 interface Project {
