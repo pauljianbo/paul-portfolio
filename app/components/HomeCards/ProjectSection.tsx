@@ -67,6 +67,18 @@ const projects: Project[] = [
       'Vercel',
     ],
   },
+  {
+    title: '最爱小说网',
+    description:
+      'A free online novel reading website allowing users to read a wide range of novels. Built with Next.js, React, and TypeScript, it leverages the Cheerio JavaScript library for web scraping to aggregate and serve novel content. Hosted on Vercel, the platform provides a seamless and fast reading experience for users seeking Chinese web novels.',
+    projectUrl: 'https://novel-xiaoshuo.vercel.app/',
+    imageUrl: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&h=600&fit=crop&crop=center',
+    category: 'Novel Website',
+    status: 'Live',
+    gradient: 'from-cyan-400 via-blue-400 to-indigo-400',
+    accentColor: 'cyan',
+    technologies: ['Next.js', 'React', 'TypeScript', 'Cheerio', 'Vercel', 'TailwindCSS', 'Framer Motion', 'Node.js'],
+  },
 ];
 
 const ProjectSection = () => {
