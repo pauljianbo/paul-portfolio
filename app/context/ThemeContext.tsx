@@ -56,7 +56,7 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
    * - Updates theme state
    * - Saves new preference to localStorage
    * - Updates DOM classes for styling
-   * 
+   *
    * Class Toggle Behavior:
    * - When toggling from light → dark: adds the 'dark' class to html element
    * - When toggling from dark → light: removes the 'dark' class from html element

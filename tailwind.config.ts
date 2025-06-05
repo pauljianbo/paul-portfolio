@@ -10,7 +10,7 @@ const config: Config = {
   theme: {
     extend: {
       screens: {
-        'max1280': { max: "1280px" },
+        max1280: { max: '1280px' },
       },
       boxShadow: {
         // === Light Mode Shadows - Sky Blue Theme ===
@@ -18,25 +18,25 @@ const config: Config = {
         'glow-sm': '0 0 15px rgba(14,165,233,0.5)',
         // Small subtle glow effect for light mode
         // Usage: shadow-glow-sm
-        
-        'glow': '0 0 20px rgba(14,165,233,0.5)',
+
+        glow: '0 0 20px rgba(14,165,233,0.5)',
         // Medium glow effect for light mode
         // Usage: shadow-glow
-        
+
         'glow-lg': '0 0 20px rgba(14,165,233,0.5), 0 0 40px rgba(14,165,233,0.3)',
         // Large double-layered glow effect for light mode
         // Usage: shadow-glow-lg
-        
+
         // === Dark Mode Shadows - Cosmic Purple Theme ===
         // Color: Violet-400 (#a78bfa)
         'dark-glow-sm': '0 0 15px rgba(167,139,250,0.5)',
         // Small subtle glow effect for dark mode
         // Usage: shadow-dark-glow-sm
-        
+
         'dark-glow': '0 0 20px rgba(167,139,250,0.5)',
         // Medium glow effect for dark mode
         // Usage: shadow-dark-glow
-        
+
         'dark-glow-lg': '0 0 20px rgba(167,139,250,0.5), 0 0 40px rgba(167,139,250,0.3)',
         // Large double-layered glow effect for dark mode
         // Usage: shadow-dark-glow-lg
@@ -129,7 +129,6 @@ const config: Config = {
           // Usage: dark:border-dark-border
         },
       },
-      
     },
   },
   plugins: [],
