@@ -9,6 +9,20 @@ const SkillSection = () => {
   const skills = [
     // Languages
     {
+      name: 'HTML',
+      category: 'Language',
+      level: 100,
+      icon: '📄',
+      description: 'Markup language for structuring web content',
+    },
+    {
+      name: 'CSS',
+      category: 'Language',
+      level: 100,
+      icon: '🎨',
+      description: 'Style sheet language for designing web pages',
+    },
+    {
       name: 'TypeScript',
       category: 'Language',
       level: 90,
@@ -18,53 +32,60 @@ const SkillSection = () => {
     {
       name: 'JavaScript',
       category: 'Language',
-      level: 95,
+      level: 99,
       icon: '🟨',
       description: 'Core language for web development and modern applications',
     },
     {
       name: 'Python',
       category: 'Language',
-      level: 85,
+      level: 90,
       icon: '🐍',
       description: 'Versatile language for backend and data processing',
     },
 
     // Frontend
     {
+      name: 'HTML',
+      category: 'Frontend',
+      level: 100,
+      icon: '📄',
+      description: 'Markup language for structuring web content',
+    },
+    {
+      name: 'CSS',
+      category: 'Frontend',
+      level: 100,
+      icon: '🎨',
+      description: 'Style sheet language for designing web pages',
+    },
+    {
       name: 'React.js',
       category: 'Frontend',
-      level: 92,
+      level: 96,
       icon: '⚛️',
       description: 'Modern library for building interactive user interfaces',
     },
     {
       name: 'Next.js',
       category: 'Frontend',
-      level: 88,
+      level: 100,
       icon: '🔺',
       description: 'Full-stack React framework with server-side rendering',
     },
     {
       name: 'Tailwind CSS',
       category: 'Frontend',
-      level: 90,
+      level: 100,
       icon: '🎨',
       description: 'Utility-first CSS framework for rapid UI development',
-    },
-    {
-      name: 'jQuery',
-      category: 'Frontend',
-      level: 80,
-      icon: '💎',
-      description: 'Classic JavaScript library for DOM manipulation',
     },
 
     // Backend
     {
       name: 'Node.js',
       category: 'Backend',
-      level: 85,
+      level: 90,
       icon: '🟢',
       description: 'JavaScript runtime for server-side development',
     },
@@ -78,7 +99,7 @@ const SkillSection = () => {
     {
       name: 'REST APIs',
       category: 'Backend',
-      level: 88,
+      level: 95,
       icon: '🔗',
       description: 'RESTful web services and API design principles',
     },
@@ -99,19 +120,12 @@ const SkillSection = () => {
       description: 'In-memory data structure store for caching',
     },
     { name: 'SQL', category: 'Database', level: 80, icon: '🗄️', description: 'Relational database query language' },
-    {
-      name: 'Firebase',
-      category: 'Database',
-      level: 78,
-      icon: '🔥',
-      description: 'Backend-as-a-Service platform by Google',
-    },
 
     // Tools
     {
       name: 'Git',
       category: 'Tool',
-      level: 90,
+      level: 95,
       icon: '🌿',
       description: 'Version control system for tracking changes',
     },
@@ -139,7 +153,7 @@ const SkillSection = () => {
     {
       name: 'Postman',
       category: 'Tool',
-      level: 85,
+      level: 95,
       icon: '📮',
       description: 'API testing and development environment',
     },
