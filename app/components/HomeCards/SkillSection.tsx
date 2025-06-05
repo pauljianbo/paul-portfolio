@@ -250,15 +250,9 @@ const SkillSection = () => {
             <span className="text-sm font-medium text-blue-700 dark:text-slate-200">Technical Expertise</span>
           </div>
 
-          <h1 className="mb-6 bg-gradient-to-r from-blue-600 via-sky-600 to-cyan-600 bg-clip-text text-4xl font-bold text-transparent dark:from-cyan-400 dark:via-blue-400 dark:to-sky-400 md:text-6xl">
+          <h2 className="mb-6 bg-gradient-to-r from-blue-500 via-sky-500 to-cyan-500  bg-clip-text text-6xl font-bold text-transparent dark:from-cyan-200 dark:via-blue-200 dark:to-blue-100">
             Skills & Technologies
-          </h1>
-
-          <p className="hidden md:block mx-auto max-w-3xl text-xl leading-relaxed text-blue-700/80 dark:text-slate-300/80">
-            I am a software engineer with a passion for creating beautiful and functional web applications. I have a
-            strong background in front-end development, but I am also comfortable with back-end development. I am a
-            quick learner and I am always looking to expand my skills.
-          </p>
+          </h2>
         </motion.div>
 
         {/* Category Filter */}
