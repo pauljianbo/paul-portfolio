@@ -1,5 +1,5 @@
 import React from 'react';
-import { Mail, Phone, MapPin, Github, Linkedin, Twitter, Star, Globe, Coffee, MessageCircle } from 'lucide-react';
+import { Mail, Phone, MapPin, Github, Linkedin, Star, Globe, Coffee, MessageCircle } from 'lucide-react';
 
 const ContactSection = () => {
   return (
@@ -22,7 +22,7 @@ const ContactSection = () => {
             </span>
           </div>
           <h2 className="mb-6 bg-gradient-to-r from-blue-900 via-blue-700 to-cyan-700 bg-clip-text text-6xl font-bold text-transparent dark:from-cyan-200 dark:via-blue-200 dark:to-blue-100">
-            Let's Create Something
+            Let&apos;s Create Something
             <span className="block bg-gradient-to-r from-blue-500 to-cyan-500 bg-clip-text pb-2 text-transparent dark:from-cyan-300 dark:to-blue-300">
               Amazing Together
             </span>
@@ -40,7 +40,7 @@ const ContactSection = () => {
                 </div>
                 <div className="ml-6">
                   <h3 className="text-2xl font-bold text-blue-900 dark:text-cyan-100">Get in Touch</h3>
-                  <p className="text-blue-700 dark:text-cyan-200">Let's start a conversation</p>
+                  <p className="text-blue-700 dark:text-cyan-200">Let&apos;s start a conversation</p>
                 </div>
               </div>
 
