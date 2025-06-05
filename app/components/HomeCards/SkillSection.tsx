@@ -254,7 +254,7 @@ const SkillSection = () => {
             Skills & Technologies
           </h1>
 
-          <p className="mx-auto max-w-3xl text-xl leading-relaxed text-blue-700/80 dark:text-slate-300/80">
+          <p className="hidden md:block mx-auto max-w-3xl text-xl leading-relaxed text-blue-700/80 dark:text-slate-300/80">
             I am a software engineer with a passion for creating beautiful and functional web applications. I have a
             strong background in front-end development, but I am also comfortable with back-end development. I am a
             quick learner and I am always looking to expand my skills.

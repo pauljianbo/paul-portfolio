@@ -3,7 +3,7 @@ import { Mail, Phone, MapPin, Github, Linkedin, Star, Globe, Coffee, MessageCirc
 
 const ContactSection = () => {
   return (
-    <div className="relative min-h-screen overflow-hidden bg-gradient-to-br from-blue-100 via-blue-200 to-cyan-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+    <div className="relative min-h-screen overflow-hidden bg-gradient-to-br  dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
       {/* Enhanced Animated Background */}
       <div className="absolute inset-0">
         {/* Floating orbs */}
