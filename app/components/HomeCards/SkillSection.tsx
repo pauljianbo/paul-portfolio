@@ -30,20 +30,7 @@ const SkillSection = () => {
     },
 
     // Frontend
-    {
-      name: 'HTML',
-      category: 'Frontend',
-      level: 100,
-      icon: '📄',
-      description: 'Markup language for structuring web content',
-    },
-    {
-      name: 'CSS',
-      category: 'Frontend',
-      level: 100,
-      icon: '🎨',
-      description: 'Style sheet language for designing web pages',
-    },
+
     {
       name: 'React.js',
       category: 'Frontend',
@@ -78,6 +65,20 @@ const SkillSection = () => {
       level: 75,
       icon: '🌐',
       description: 'Web Graphics Library for rendering interactive 2D and 3D graphics',
+    },
+    {
+      name: 'HTML',
+      category: 'Frontend',
+      level: 100,
+      icon: '📄',
+      description: 'Markup language for structuring web content',
+    },
+    {
+      name: 'CSS',
+      category: 'Frontend',
+      level: 100,
+      icon: '🎨',
+      description: 'Style sheet language for designing web pages',
     },
 
     // Backend
@@ -250,7 +251,7 @@ const SkillSection = () => {
             <span className="text-sm font-medium text-blue-700 dark:text-slate-200">Technical Expertise</span>
           </div>
 
-          <h2 className="mb-6 bg-gradient-to-r from-blue-500 via-sky-500 to-cyan-500  bg-clip-text text-6xl font-bold text-transparent dark:from-cyan-200 dark:via-blue-200 dark:to-blue-100">
+          <h2 className="mb-6 bg-gradient-to-r from-blue-500 via-sky-500 to-cyan-500 bg-clip-text text-6xl font-bold text-transparent dark:from-cyan-200 dark:via-blue-200 dark:to-blue-100">
             Skills & Technologies
           </h2>
         </motion.div>
