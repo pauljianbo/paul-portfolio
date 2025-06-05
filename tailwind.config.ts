@@ -86,46 +86,46 @@ const config: Config = {
           // Usage: border-light-border
         },
         dark: {
-          // === Dark Mode Color Scheme - Cosmic Purple Theme ===
+          // === Dark Mode Color Scheme - Blue/Cyan/Green Theme ===
           background: {
-            DEFAULT: '#1e1b4b', // Fallback color (Indigo-950)
+            DEFAULT: '#0f172a', // Slate-900
             gradient: {
-              start: '#312e81', // Indigo-900
-              via: '#6b21a8', // Purple-800
-              end: '#4c1d95', // Purple-900
+              start: '#0f172a', // Slate-900
+              via: '#0369a1', // Sky-800
+              end: '#0e7490', // Cyan-900
             },
           },
           // Usage: dark:bg-gradient-to-br from-dark-background-gradient-start
           // via-dark-background-gradient-via to-dark-background-gradient-end
 
-          paper: '#312e81', // Indigo-900
-          // Dark mode elevated surface - cosmic purple
+          paper: '#1e293b', // Slate-800
+          // Dark mode elevated surface - deep slate
           // Usage: dark:bg-dark-paper
 
-          primary: '#a78bfa', // Violet-400 for a bright stellar glow
-          // Dark mode primary actions - bright star
+          primary: '#22d3ee', // Cyan-400 for a bright accent
+          // Dark mode primary actions - bright cyan
           // Usage: dark:bg-dark-primary, dark:text-dark-primary
 
-          secondary: '#e879f9', // Pink-400 for cosmic accent
-          // Dark mode secondary actions - cosmic energy
+          secondary: '#38bdf8', // Sky-400 for blue accent
+          // Dark mode secondary actions - blue accent
           // Usage: dark:bg-dark-secondary, dark:text-dark-secondary
 
           text: {
-            primary: '#faf5ff', // Purple-50 with max brightness
-            // Dark mode main text - starlight
+            primary: '#f1f5f9', // Slate-50
+            // Dark mode main text - bright slate
             // Usage: dark:text-dark-text-primary
 
-            secondary: '#c4b5fd', // Violet-300 for subtle cosmic dust
-            // Dark mode secondary text - cosmic dust
+            secondary: '#bae6fd', // Cyan-200
+            // Dark mode secondary text - soft cyan
             // Usage: dark:text-dark-text-secondary
 
-            disabled: '#7c3aed', // Violet-600 for distant elements
-            // Dark mode disabled text - distant matter
+            disabled: '#64748b', // Slate-500
+            // Dark mode disabled text - muted slate
             // Usage: dark:text-dark-text-disabled
           },
 
-          border: '#4c1d95', // Purple-900 for cosmic boundaries
-          // Dark mode borders - space boundaries
+          border: '#334155', // Slate-700 for boundaries
+          // Dark mode borders - slate boundaries
           // Usage: dark:border-dark-border
         },
       },

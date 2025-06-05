@@ -145,7 +145,13 @@ const SkillSection = () => {
     },
 
     // Practices
-    { name: 'Agile', category: 'Practice', level: 88, icon: '🔄', description: 'Iterative development methodology for software development' },
+    {
+      name: 'Agile',
+      category: 'Practice',
+      level: 88,
+      icon: '🔄',
+      description: 'Iterative development methodology for software development',
+    },
     {
       name: 'CI/CD',
       category: 'Practice',
@@ -210,7 +216,7 @@ const SkillSection = () => {
   };
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-blue-50 via-sky-50 to-cyan-50 px-4 py-16 md:py-24">
+    <section className="relative overflow-hidden bg-gradient-to-br from-blue-50 via-sky-50 to-cyan-50 px-4 py-16 dark:bg-gradient-to-br dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 md:py-24">
       <div className="relative z-10 mx-auto max-w-7xl">
         {/* Header */}
         <motion.div
@@ -220,16 +226,16 @@ const SkillSection = () => {
           transition={{ duration: 0.8 }}
           className="mb-16 text-center"
         >
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-200/60 bg-blue-100/80 px-4 py-2 backdrop-blur-sm">
-            <Zap className="h-4 w-4 text-blue-600" />
-            <span className="text-sm font-medium text-blue-700">Technical Expertise</span>
+          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-200/60 bg-blue-100/80 px-4 py-2 backdrop-blur-sm dark:border-slate-700/60 dark:bg-slate-800/80">
+            <Zap className="h-4 w-4 text-blue-600 dark:text-cyan-400" />
+            <span className="text-sm font-medium text-blue-700 dark:text-slate-200">Technical Expertise</span>
           </div>
 
-          <h1 className="mb-6 bg-gradient-to-r from-blue-600 via-sky-600 to-cyan-600 bg-clip-text text-4xl font-bold text-transparent md:text-6xl">
+          <h1 className="mb-6 bg-gradient-to-r from-blue-600 via-sky-600 to-cyan-600 bg-clip-text text-4xl font-bold text-transparent dark:from-cyan-400 dark:via-blue-400 dark:to-sky-400 md:text-6xl">
             Skills & Technologies
           </h1>
 
-          <p className="mx-auto max-w-3xl text-xl leading-relaxed text-blue-700/80">
+          <p className="mx-auto max-w-3xl text-xl leading-relaxed text-blue-700/80 dark:text-slate-300/80">
             I am a software engineer with a passion for creating beautiful and functional web applications. I have a
             strong background in front-end development, but I am also comfortable with back-end development. I am a
             quick learner and I am always looking to expand my skills.
@@ -254,12 +260,12 @@ const SkillSection = () => {
                 onClick={() => setActiveCategory(category)}
                 className={`group relative overflow-hidden rounded-full border px-6 py-3 font-medium backdrop-blur-sm transition-all duration-300 ${
                   isActive
-                    ? 'border-blue-300/60 bg-white/80 text-blue-700 shadow-lg'
-                    : 'border-blue-200/40 bg-blue-50/50 text-blue-600 hover:border-blue-300/50 hover:bg-white/60'
+                    ? 'border-blue-300/60 bg-white/80 text-blue-700 shadow-lg dark:border-cyan-400/60 dark:bg-slate-900/80 dark:text-cyan-300 dark:shadow-cyan-900/30'
+                    : 'border-blue-200/40 bg-blue-50/50 text-blue-600 hover:border-blue-300/50 hover:bg-white/60 dark:border-slate-700/40 dark:bg-slate-800/50 dark:text-cyan-200 dark:hover:border-cyan-400/50 dark:hover:bg-slate-900/60'
                 } `}
               >
                 <div
-                  className={`absolute inset-0 bg-gradient-to-r ${categoryColors[category]} opacity-0 transition-opacity duration-300 group-hover:opacity-10`}
+                  className={`absolute inset-0 bg-gradient-to-r ${categoryColors[category]} opacity-0 transition-opacity duration-300 group-hover:opacity-10 dark:from-cyan-900 dark:to-blue-900`}
                 ></div>
                 <div className="relative flex items-center gap-2">
                   <IconComponent className="h-4 w-4" />
@@ -267,7 +273,7 @@ const SkillSection = () => {
                   {isActive && (
                     <motion.div
                       layoutId="activeIndicator"
-                      className="absolute -bottom-1 left-0 right-0 h-0.5 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500"
+                      className="absolute -bottom-1 left-0 right-0 h-0.5 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 dark:from-cyan-400 dark:to-blue-400"
                     />
                   )}
                 </div>
@@ -293,10 +299,10 @@ const SkillSection = () => {
                 onMouseEnter={() => setHoveredSkill(skill.name)}
                 onMouseLeave={() => setHoveredSkill(null)}
               >
-                <div className="relative overflow-hidden rounded-2xl border border-blue-200/50 bg-white/70 p-6 shadow-lg backdrop-blur-xl transition-all duration-500">
+                <div className="relative overflow-hidden rounded-2xl border border-blue-200/50 bg-white/70 p-6 shadow-lg backdrop-blur-xl transition-all duration-500 dark:border-slate-700/50 dark:bg-slate-900/70">
                   {/* Gradient Overlay */}
                   <div
-                    className={`absolute inset-0 bg-gradient-to-br ${categoryColors[skill.category as Category]} opacity-0 transition-opacity duration-500 group-hover:opacity-10`}
+                    className={`absolute inset-0 bg-gradient-to-br ${categoryColors[skill.category as Category]} opacity-0 transition-opacity duration-500 group-hover:opacity-10 dark:from-cyan-900 dark:to-blue-900`}
                   ></div>
                   {/* Skill Content */}
                   <div className="relative z-10">
@@ -304,10 +310,10 @@ const SkillSection = () => {
                     <div className="mb-4 flex items-center gap-3">
                       <div className="text-2xl">{skill.icon}</div>
                       <div>
-                        <h3 className="font-bold text-blue-900 transition-colors duration-300 group-hover:text-blue-800">
+                        <h3 className="font-bold text-blue-900 transition-colors duration-300 group-hover:text-blue-800 dark:text-cyan-200 dark:group-hover:text-cyan-100">
                           {skill.name}
                         </h3>
-                        <span className="rounded-full bg-blue-100/60 px-2 py-1 text-xs font-medium text-blue-600">
+                        <span className="rounded-full bg-blue-100/60 px-2 py-1 text-xs font-medium text-blue-600 dark:bg-slate-800/60 dark:text-cyan-300">
                           {skill.category}
                         </span>
                       </div>
@@ -316,12 +322,12 @@ const SkillSection = () => {
                     {/* Progress Bar */}
                     <div className="mb-4">
                       <div className="mb-2 flex items-center justify-between">
-                        <span className="text-sm font-medium text-blue-700">Proficiency</span>
-                        <span className="text-sm font-bold text-blue-800">{skill.level}%</span>
+                        <span className="text-sm font-medium text-blue-700 dark:text-cyan-200">Proficiency</span>
+                        <span className="text-sm font-bold text-blue-800 dark:text-cyan-100">{skill.level}%</span>
                       </div>
-                      <div className="h-2 w-full overflow-hidden rounded-full bg-blue-100/60">
+                      <div className="h-2 w-full overflow-hidden rounded-full bg-blue-100/60 dark:bg-slate-800/60">
                         <motion.div
-                          className={`h-2 bg-gradient-to-r ${categoryColors[skill.category as Category]} rounded-full`}
+                          className={`h-2 bg-gradient-to-r ${categoryColors[skill.category as Category]} rounded-full dark:from-cyan-700 dark:to-blue-700`}
                           initial={{ width: 0 }}
                           whileInView={{ width: `${skill.level}%` }}
                           viewport={{ once: true }}
@@ -331,7 +337,9 @@ const SkillSection = () => {
                     </div>
 
                     {/* Description */}
-                    <p className="text-sm leading-relaxed text-blue-700/80">{skill.description}</p>
+                    <p className="text-sm leading-relaxed text-blue-700/80 dark:text-slate-300/80">
+                      {skill.description}
+                    </p>
                   </div>
                 </div>
               </motion.div>
@@ -362,11 +370,11 @@ const SkillSection = () => {
           ].map((stat, index) => (
             <div
               key={index}
-              className="rounded-2xl border border-blue-200/50 bg-white/70 p-6 text-center backdrop-blur-xl"
+              className="rounded-2xl border border-blue-200/50 bg-white/70 p-6 text-center backdrop-blur-xl dark:border-slate-700/50 dark:bg-slate-900/70"
             >
               <div className="mb-2 text-3xl">{stat.icon}</div>
               <motion.div
-                className="mb-1 text-3xl font-bold text-blue-800"
+                className="mb-1 text-3xl font-bold text-blue-800 dark:text-cyan-200"
                 initial={{ opacity: 0, scale: 0.5 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
@@ -374,7 +382,7 @@ const SkillSection = () => {
               >
                 {stat.count}+
               </motion.div>
-              <div className="text-sm font-medium text-blue-600">{stat.label}</div>
+              <div className="text-sm font-medium text-blue-600 dark:text-cyan-300">{stat.label}</div>
             </div>
           ))}
         </motion.div>
@@ -387,9 +395,12 @@ const SkillSection = () => {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="mt-16 text-center"
         >
-          <div className="inline-flex items-center gap-3 rounded-full border border-blue-200/60 bg-blue-100/80 px-6 py-3 backdrop-blur-sm">
-            <span className="text-blue-800">Ready to work together?</span>
-            <a href="#contact" className="font-medium text-blue-600 transition-colors duration-300 hover:text-blue-700">
+          <div className="inline-flex items-center gap-3 rounded-full border border-blue-200/60 bg-blue-100/80 px-6 py-3 backdrop-blur-sm dark:border-slate-700/60 dark:bg-slate-800/80">
+            <span className="text-blue-800 dark:text-cyan-200">Ready to work together?</span>
+            <a
+              href="#contact"
+              className="font-medium text-blue-600 transition-colors duration-300 hover:text-blue-700 dark:text-cyan-300 dark:hover:text-cyan-100"
+            >
               Let's collaborate →
             </a>
           </div>
