@@ -104,7 +104,7 @@ const ContactSection = () => {
                   </a>
                   {/* Telegram */}
                   <a
-                    href="https://t.me/caijianbopaul"
+                    href="https://t.me/LboVboE"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="group flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-r from-blue-200 to-blue-400 shadow-lg transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:shadow-blue-300/25 dark:from-blue-900 dark:to-cyan-900 dark:hover:shadow-cyan-900/25"
