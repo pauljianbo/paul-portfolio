@@ -78,7 +78,7 @@ const ContactSection = () => {
                     <Github className="h-8 w-8 text-blue-900 transition-transform duration-300 group-hover:scale-110 dark:text-cyan-100" />
                   </a>
                   <a
-                    href="#"
+                    href="https://www.linkedin.com/in/jianbo-cai-4540242a0/"
                     className="group flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-r from-blue-300 to-blue-500 shadow-lg transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:shadow-blue-300/25 dark:from-blue-800 dark:to-blue-700 dark:hover:shadow-cyan-900/25"
                   >
                     <Linkedin className="h-8 w-8 text-blue-900 transition-transform duration-300 group-hover:scale-110 dark:text-cyan-100" />
@@ -104,7 +104,7 @@ const ContactSection = () => {
                   </a>
                   {/* Telegram */}
                   <a
-                    href="https://t.me/caijianbopaul"
+                    href="https://t.me/LboVboE"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="group flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-r from-blue-200 to-blue-400 shadow-lg transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:shadow-blue-300/25 dark:from-blue-900 dark:to-cyan-900 dark:hover:shadow-cyan-900/25"
