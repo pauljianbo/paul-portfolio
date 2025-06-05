@@ -131,7 +131,7 @@ const ProjectSection = () => {
         <div className="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.05)_1px,transparent_1px)] bg-[size:60px_60px] dark:bg-[linear-gradient(rgba(30,41,59,0.15)_1px,transparent_1px),linear-gradient(90deg,rgba(30,41,59,0.15)_1px,transparent_1px)]"></div>
       </div>
 
-      <div className="relative z-10 mx-auto max-w-7xl px-4 py-20 md:py-32">
+      <div className="container relative z-10 mx-auto px-4 py-20 md:py-32">
         {/* Header */}
         <div className="animate-fade-in mb-20 text-center">
           <div className="mb-8 inline-flex items-center gap-3 rounded-full border border-blue-200/60 bg-white/70 px-6 py-3 shadow-lg backdrop-blur-xl dark:border-blue-700/60 dark:bg-slate-800/80">

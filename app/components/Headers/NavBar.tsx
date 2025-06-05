@@ -65,11 +65,11 @@ const Navbar = (): JSX.Element => {
 
   return (
     <nav
-      className={`fixed top-0 z-50 w-full px-6 py-4 transition-all duration-300 ${scrolled ? 'bg-white/50 shadow-md backdrop-blur-sm dark:bg-dark-border/50' : 'bg-transparent'}`}
+      className={`fixed top-0 z-50 w-full px-6 py-5 transition-all duration-300 ${scrolled ? 'bg-white/50 shadow-md backdrop-blur-sm dark:bg-dark-border/50' : 'bg-transparent'}`}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between">
+      <div className="container mx-auto flex items-center justify-between">
         {/* Logo */}
-        <div className="h-[40px] w-[40px] bg-white rounded-full overflow-hidden hidden md:block">
+        <div className="hidden h-[40px] w-[40px] overflow-hidden rounded-full bg-white md:block">
           <Image src="/apple-icon.png" alt="Logo" width={40} height={40} />
         </div>
         {/* Navigation chips */}

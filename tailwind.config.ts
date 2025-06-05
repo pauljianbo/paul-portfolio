@@ -9,9 +9,6 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      screens: {
-        max1280: { max: '1280px' },
-      },
       boxShadow: {
         // === Light Mode Shadows - Sky Blue Theme ===
         // Color: Sky-500 (#0ea5e9)

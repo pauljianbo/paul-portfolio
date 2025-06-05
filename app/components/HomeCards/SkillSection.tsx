@@ -236,7 +236,7 @@ const SkillSection = () => {
 
   return (
     <section className="relative overflow-hidden bg-gradient-to-br from-blue-50 via-sky-50 to-cyan-50 px-4 py-16 dark:bg-gradient-to-br dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 md:py-24">
-      <div className="relative z-10 mx-auto max-w-7xl">
+      <div className="container relative z-10 mx-auto">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: -50 }}

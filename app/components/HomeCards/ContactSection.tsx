@@ -12,7 +12,7 @@ const ContactSection = () => {
         <div className="animation-delay-4000 absolute bottom-20 left-1/3 h-72 w-72 animate-pulse rounded-full bg-gradient-to-r from-cyan-400/20 to-blue-400/20 blur-3xl dark:from-cyan-900/30 dark:to-blue-900/30"></div>
       </div>
 
-      <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+      <div className="container relative mx-auto px-4 py-20 sm:px-6 lg:px-8">
         {/* Enhanced Header */}
         <div className="mb-10 text-center">
           <div className="mb-6">
