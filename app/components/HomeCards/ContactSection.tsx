@@ -158,16 +158,6 @@ const ContactSection = () => {
             </div>
           </div>
         </div>
-
-        {/* Call to Action */}
-        <div className="mt-16 text-center">
-          <div className="inline-flex items-center rounded-full bg-gradient-to-r from-blue-200/40 to-cyan-200/40 px-8 py-4 ring-1 ring-blue-300/40 dark:from-blue-900/40 dark:to-cyan-900/40 dark:ring-blue-900/40">
-            <div className="mr-3 h-3 w-3 animate-pulse rounded-full bg-green-400 dark:bg-green-500"></div>
-            <span className="text-lg font-semibold text-blue-700 dark:text-cyan-100">
-              Currently accepting new projects
-            </span>
-          </div>
-        </div>
       </div>
 
       <style jsx>{`
