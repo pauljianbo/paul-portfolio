@@ -1,12 +1,13 @@
 'use client';
 import IntroText from '../tools/Animation/IntroText';
 import dynamic from 'next/dynamic'
+import LoadingSpinner from '../tools/Animation/Loading/Loading';
 // Move AnimatedCharacter to dynamic import
 const AnimatedCharacter = dynamic(
   () => import('../tools/Animation/3D/AnimatedCharacter'),
   {
     ssr: false, // Disable server-side rendering
-    loading: () => <div>Loading...</div> // Add loading placeholder
+    loading: () => <LoadingSpinner></LoadingSpinner> // Add loading placeholder
   }
 )
 import IntroTextMobile from './Mobile/IntroTextMobile';

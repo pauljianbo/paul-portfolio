@@ -14,20 +14,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      {/* 
-        Body classes:
-        - min-h-screen: Ensures minimum height of 100vh
-        - flex flex-col: Sets up vertical flexbox layout
-        - Light mode gradient:
-          - bg-gradient-to-br: Base gradient direction
-          - from-light-background-gradient-start
-          - via-light-background-gradient-via
-          - to-light-background-gradient-end
-        - Dark mode gradient:
-          - dark:from-dark-background-gradient-start
-          - dark:via-dark-background-gradient-via
-          - dark:to-dark-background-gradient-end
-      */}
+      
       <body className="gradient-bg flex min-h-screen flex-col">
         <ThemeProvider>
           <Navbar />

@@ -1,103 +1,405 @@
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination } from 'swiper/modules';
-import AnimatedMaskButton from '../tools/Animation/Buttons/AnimatedMaskButton';
-import { motion } from 'framer-motion';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Code2, Database, Server, Wrench, BookOpen, Star, Sparkles, Zap } from 'lucide-react';
 
-// Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
 const SkillSection = () => {
+  const [activeCategory, setActiveCategory] = useState('All');
+
   const skills = [
     // Languages
-    { name: 'TypeScript', category: 'Language' },
-    { name: 'JavaScript', category: 'Language' },
-    { name: 'Python', category: 'Language' },
+    {
+      name: 'TypeScript',
+      category: 'Language',
+      level: 90,
+      icon: '🔷',
+      description: 'Strongly typed JavaScript for better development experience',
+    },
+    {
+      name: 'JavaScript',
+      category: 'Language',
+      level: 99,
+      icon: '🟨',
+      description: 'Core language for web development and modern applications',
+    },
+    {
+      name: 'Python',
+      category: 'Language',
+      level: 90,
+      icon: '🐍',
+      description: 'Versatile language for backend and data processing',
+    },
 
     // Frontend
-    { name: 'React.js', category: 'Frontend' },
-    { name: 'Next.js', category: 'Frontend' },
-    { name: 'Tailwind CSS', category: 'Frontend' },
-    { name: 'jQuery', category: 'Frontend' },
+    {
+      name: 'HTML',
+      category: 'Frontend',
+      level: 100,
+      icon: '📄',
+      description: 'Markup language for structuring web content',
+    },
+    {
+      name: 'CSS',
+      category: 'Frontend',
+      level: 100,
+      icon: '🎨',
+      description: 'Style sheet language for designing web pages',
+    },
+    {
+      name: 'React.js',
+      category: 'Frontend',
+      level: 96,
+      icon: '⚛️',
+      description: 'Modern library for building interactive user interfaces',
+    },
+    {
+      name: 'Next.js',
+      category: 'Frontend',
+      level: 100,
+      icon: '🔺',
+      description: 'Full-stack React framework with server-side rendering',
+    },
+    {
+      name: 'Tailwind CSS',
+      category: 'Frontend',
+      level: 100,
+      icon: '🎨',
+      description: 'Utility-first CSS framework for rapid UI development',
+    },
 
     // Backend
-    { name: 'Node.js', category: 'Backend' },
-    { name: 'Express.js', category: 'Backend' },
-    { name: 'REST APIs', category: 'Backend' },
+    {
+      name: 'Node.js',
+      category: 'Backend',
+      level: 90,
+      icon: '🟢',
+      description: 'JavaScript runtime for server-side development',
+    },
+    {
+      name: 'Express.js',
+      category: 'Backend',
+      level: 82,
+      icon: '🚀',
+      description: 'Fast and minimalist web framework for Node.js',
+    },
+    {
+      name: 'REST APIs',
+      category: 'Backend',
+      level: 95,
+      icon: '🔗',
+      description: 'RESTful web services and API design principles',
+    },
 
     // Databases
-    { name: 'MongoDB', category: 'Database' },
-    { name: 'Redis', category: 'Database' },
-    { name: 'SQL', category: 'Database' },
-    { name: 'Firebase', category: 'Database' },
+    {
+      name: 'MongoDB',
+      category: 'Database',
+      level: 83,
+      icon: '🍃',
+      description: 'NoSQL database for modern applications',
+    },
+    {
+      name: 'Redis',
+      category: 'Database',
+      level: 75,
+      icon: '🔴',
+      description: 'In-memory data structure store for caching',
+    },
+    { name: 'SQL', category: 'Database', level: 80, icon: '🗄️', description: 'Relational database query language' },
 
     // Tools
-    { name: 'Git', category: 'Tool' },
-    { name: 'Docker', category: 'Tool' },
-    { name: 'AWS', category: 'Tool' },
-    { name: 'Webpack', category: 'Tool' },
-    { name: 'Postman', category: 'Tool' },
+    {
+      name: 'Git',
+      category: 'Tool',
+      level: 95,
+      icon: '🌿',
+      description: 'Version control system for tracking changes',
+    },
+    {
+      name: 'Docker',
+      category: 'Tool',
+      level: 70,
+      icon: '🐳',
+      description: 'Containerization platform for deployment',
+    },
+    {
+      name: 'AWS',
+      category: 'Tool',
+      level: 75,
+      icon: '☁️',
+      description: 'Cloud computing services and infrastructure',
+    },
+    {
+      name: 'Webpack',
+      category: 'Tool',
+      level: 72,
+      icon: '📦',
+      description: 'Module bundler for JavaScript applications',
+    },
+    {
+      name: 'Postman',
+      category: 'Tool',
+      level: 95,
+      icon: '📮',
+      description: 'API testing and development environment',
+    },
 
     // Practices
-    { name: 'Agile', category: 'Practice' },
-    { name: 'CI/CD', category: 'Practice' },
+    {
+      name: 'Agile',
+      category: 'Practice',
+      level: 88,
+      icon: '🔄',
+      description: 'Iterative development methodology for software development',
+    },
+    {
+      name: 'CI/CD',
+      category: 'Practice',
+      level: 82,
+      icon: '⚙️',
+      description: 'Continuous integration and deployment practices',
+    },
   ];
 
+  const categories = ['All', 'Language', 'Frontend', 'Backend', 'Database', 'Tool', 'Practice'] as const;
+  type Category = (typeof categories)[number];
+
+  const categoryIcons: Record<Category, React.ElementType> = {
+    All: Sparkles,
+    Language: Code2,
+    Frontend: Star,
+    Backend: Server,
+    Database: Database,
+    Tool: Wrench,
+    Practice: BookOpen,
+  };
+
+  const categoryColors: Record<Category, string> = {
+    All: 'from-blue-400 to-cyan-400',
+    Language: 'from-purple-400 to-pink-400',
+    Frontend: 'from-blue-400 to-indigo-400',
+    Backend: 'from-green-400 to-teal-400',
+    Database: 'from-orange-400 to-red-400',
+    Tool: 'from-gray-400 to-blue-400',
+    Practice: 'from-yellow-400 to-orange-400',
+  };
+
+  const filteredSkills =
+    activeCategory === 'All' ? skills : skills.filter((skill) => skill.category === activeCategory);
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const skillVariants = {
+    hidden: {
+      opacity: 0,
+      y: 50,
+      scale: 0.8,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        type: 'spring',
+        stiffness: 100,
+        damping: 12,
+      },
+    },
+  };
+
   return (
-    <div className="hover-glow mx-auto flex max-w-7xl flex-col items-center rounded-[20px] px-[20px] py-[30px] sm:px-[40px] sm:py-[60px]">
-      <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 0.5 }}
-        className="gradient-text"
-      >
-        <h1 className="text-center text-[28px] font-bold sm:text-[32px] md:text-[36px] lg:text-[40px]">Skills</h1>
-        <motion.p
-          initial={{ opacity: 0, x: -20 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ delay: 0.3, duration: 0.5 }}
-          className="mx-auto mt-[15px] w-full text-center text-[16px] leading-[24px] sm:mt-[20px] sm:w-3/4 sm:text-[18px] sm:leading-[30px] md:text-[20px]"
+    <section className="relative overflow-hidden bg-gradient-to-br from-blue-50 via-sky-50 to-cyan-50 px-4 py-16 dark:bg-gradient-to-br dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 md:py-24">
+      <div className="relative z-10 mx-auto max-w-7xl">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: -50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="mb-16 text-center"
         >
-          I am a software engineer with a passion for creating beautiful and functional web applications. I have a
-          strong background in front-end development, but I am also comfortable with back-end development. I am a quick
-          learner and I am always looking to expand my skills.
-        </motion.p>
-      </motion.div>
+          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-200/60 bg-blue-100/80 px-4 py-2 backdrop-blur-sm dark:border-slate-700/60 dark:bg-slate-800/80">
+            <Zap className="h-4 w-4 text-blue-600 dark:text-cyan-400" />
+            <span className="text-sm font-medium text-blue-700 dark:text-slate-200">Technical Expertise</span>
+          </div>
 
-      <motion.div
-        initial={{ opacity: 0, x: -50 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true, amount: 0.3 }}
-        transition={{ delay: 0.5, duration: 0.8 }}
-        className="relative mt-[20px] flex w-[95%] flex-col items-center justify-center gap-4 sm:mt-[40px] sm:w-[80%] sm:gap-8"
-      >
-        <div className="w-full">
-          <button className="swiper-button-prev absolute translate-x-[-100px] translate-y-[-20px]"></button>
+          <h1 className="mb-6 bg-gradient-to-r from-blue-600 via-sky-600 to-cyan-600 bg-clip-text text-4xl font-bold text-transparent dark:from-cyan-400 dark:via-blue-400 dark:to-sky-400 md:text-6xl">
+            Skills & Technologies
+          </h1>
 
-          <button className="swiper-button-next absolute translate-x-[120px] translate-y-[-20px]"></button>
+          <p className="mx-auto max-w-3xl text-xl leading-relaxed text-blue-700/80 dark:text-slate-300/80">
+            I am a software engineer with a passion for creating beautiful and functional web applications. I have a
+            strong background in front-end development, but I am also comfortable with back-end development. I am a
+            quick learner and I am always looking to expand my skills.
+          </p>
+        </motion.div>
 
-          <Swiper
-            modules={[Navigation, Pagination]}
-            slidesPerView="auto"
-            spaceBetween={35}
-            grabCursor={true}
-            navigation={{
-              prevEl: '.swiper-button-prev',
-              nextEl: '.swiper-button-next',
-            }}
-            className="!ml-0 !mr-0 !py-[20px] !pl-[20px]"
+        {/* Category Filter */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="mb-12 flex flex-wrap justify-center gap-3"
+        >
+          {categories.map((category) => {
+            const IconComponent = categoryIcons[category];
+            const isActive = activeCategory === category;
+
+            return (
+              <button
+                key={category}
+                onClick={() => setActiveCategory(category)}
+                className={`group relative overflow-hidden rounded-full border px-6 py-3 font-medium backdrop-blur-sm transition-all duration-300 ${
+                  isActive
+                    ? 'border-blue-300/60 bg-white/80 text-blue-700 shadow-lg dark:border-cyan-400/60 dark:bg-slate-900/80 dark:text-cyan-300 dark:shadow-cyan-900/30'
+                    : 'border-blue-200/40 bg-blue-50/50 text-blue-600 hover:border-blue-300/50 hover:bg-white/60 dark:border-slate-700/40 dark:bg-slate-800/50 dark:text-cyan-200 dark:hover:border-cyan-400/50 dark:hover:bg-slate-900/60'
+                } `}
+              >
+                <div
+                  className={`absolute inset-0 bg-gradient-to-r ${categoryColors[category]} opacity-0 transition-opacity duration-300 group-hover:opacity-10 dark:from-cyan-900 dark:to-blue-900`}
+                ></div>
+                <div className="relative flex items-center gap-2">
+                  <IconComponent className="h-4 w-4" />
+                  <span>{category}</span>
+                  {isActive && (
+                    <motion.div
+                      layoutId="activeIndicator"
+                      className="absolute -bottom-1 left-0 right-0 h-0.5 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 dark:from-cyan-400 dark:to-blue-400"
+                    />
+                  )}
+                </div>
+              </button>
+            );
+          })}
+        </motion.div>
+
+        {/* Skills Grid */}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeCategory}
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
           >
-            {skills.map((skill, index) => (
-              <SwiperSlide key={index} className="!w-auto">
-                <AnimatedMaskButton text={skill.name} className='w-[200px] h-[200px] text-[20px]'/>
-              </SwiperSlide>
+            {filteredSkills.map((skill, index) => (
+              <motion.div key={`${skill.name}-${activeCategory}`} variants={skillVariants} className="group relative">
+                <div className="relative overflow-hidden rounded-2xl border border-blue-200/50 bg-white/70 p-6 shadow-lg backdrop-blur-xl transition-all duration-500 dark:border-slate-700/50 dark:bg-slate-900/70">
+                  {/* Gradient Overlay */}
+                  <div
+                    className={`absolute inset-0 bg-gradient-to-br ${categoryColors[skill.category as Category]} opacity-0 transition-opacity duration-500 group-hover:opacity-10 dark:from-cyan-900 dark:to-blue-900`}
+                  ></div>
+                  {/* Skill Content */}
+                  <div className="relative z-10">
+                    {/* Icon and Name */}
+                    <div className="mb-4 flex items-center gap-3">
+                      <div className="text-2xl">{skill.icon}</div>
+                      <div>
+                        <h3 className="font-bold text-blue-900 transition-colors duration-300 group-hover:text-blue-800 dark:text-cyan-200 dark:group-hover:text-cyan-100">
+                          {skill.name}
+                        </h3>
+                        <span className="rounded-full bg-blue-100/60 px-2 py-1 text-xs font-medium text-blue-600 dark:bg-slate-800/60 dark:text-cyan-300">
+                          {skill.category}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Progress Bar */}
+                    <div className="mb-4">
+                      <div className="mb-2 flex items-center justify-between">
+                        <span className="text-sm font-medium text-blue-700 dark:text-cyan-200">Proficiency</span>
+                        <span className="text-sm font-bold text-blue-800 dark:text-cyan-100">{skill.level}%</span>
+                      </div>
+                      <div className="h-2 w-full overflow-hidden rounded-full bg-blue-100/60 dark:bg-slate-800/60">
+                        <motion.div
+                          className={`h-2 bg-gradient-to-r ${categoryColors[skill.category as Category]} rounded-full dark:from-cyan-700 dark:to-blue-700`}
+                          initial={{ width: 0 }}
+                          whileInView={{ width: `${skill.level}%` }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 1, delay: index * 0.1 }}
+                        />
+                      </div>
+                    </div>
+
+                    {/* Description */}
+                    <p className="text-sm leading-relaxed text-blue-700/80 dark:text-slate-300/80">
+                      {skill.description}
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
             ))}
-          </Swiper>
-        </div>
-      </motion.div>
-    </div>
+          </motion.div>
+        </AnimatePresence>
+
+        {/* Stats */}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="mt-16 grid grid-cols-2 gap-6 md:grid-cols-4"
+        >
+          {[
+            { label: 'Languages', count: skills.filter((s) => s.category === 'Language').length, icon: '💻' },
+            { label: 'Frontend', count: skills.filter((s) => s.category === 'Frontend').length, icon: '🎨' },
+            { label: 'Backend', count: skills.filter((s) => s.category === 'Backend').length, icon: '⚡' },
+            {
+              label: 'Tools',
+              count:
+                skills.filter((s) => s.category === 'Tool').length +
+                skills.filter((s) => s.category === 'Database').length +
+                skills.filter((s) => s.category === 'Practice').length,
+              icon: '🛠️',
+            },
+          ].map((stat, index) => (
+            <div
+              key={index}
+              className="rounded-2xl border border-blue-200/50 bg-white/70 p-6 text-center backdrop-blur-xl dark:border-slate-700/50 dark:bg-slate-900/70"
+            >
+              <div className="mb-2 text-3xl">{stat.icon}</div>
+              <motion.div
+                className="mb-1 text-3xl font-bold text-blue-800 dark:text-cyan-200"
+                initial={{ opacity: 0, scale: 0.5 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+              >
+                {stat.count}+
+              </motion.div>
+              <div className="text-sm font-medium text-blue-600 dark:text-cyan-300">{stat.label}</div>
+            </div>
+          ))}
+        </motion.div>
+
+        {/* Call to Action */}
+        <motion.div
+          initial={{ y: 50, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          className="mt-16 text-center"
+        >
+          <div className="inline-flex items-center gap-3 rounded-full border border-blue-200/60 bg-blue-100/80 px-6 py-3 backdrop-blur-sm dark:border-slate-700/60 dark:bg-slate-800/80">
+            <span className="text-blue-800 dark:text-cyan-200">Ready to work together?</span>
+            <a
+              href="#contact"
+              className="font-medium text-blue-600 transition-colors duration-300 hover:text-blue-700 dark:text-cyan-300 dark:hover:text-cyan-100"
+            >
+              Let&apos;s collaborate →
+            </a>
+          </div>
+        </motion.div>
+      </div>
+    </section>
   );
 };
 
