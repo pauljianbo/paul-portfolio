@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Code2, Database, Server, Wrench, BookOpen, Star, Sparkles, Zap } from 'lucide-react';
 
 const SkillSection = () => {
-  const [activeCategory, setActiveCategory] = useState('All');
+  const [activeCategory, setActiveCategory] = useState('Frontend');
 
   const skills = [
     // Languages
@@ -65,6 +65,20 @@ const SkillSection = () => {
       icon: '🎨',
       description: 'Utility-first CSS framework for rapid UI development',
     },
+    {
+      name: 'Three.js',
+      category: 'Frontend',
+      level: 80,
+      icon: '🧊',
+      description: '3D JavaScript library for creating interactive 3D graphics in the browser',
+    },
+    {
+      name: 'WebGL',
+      category: 'Frontend',
+      level: 75,
+      icon: '🌐',
+      description: 'Web Graphics Library for rendering interactive 2D and 3D graphics',
+    },
 
     // Backend
     {
@@ -104,7 +118,13 @@ const SkillSection = () => {
       icon: '🔴',
       description: 'In-memory data structure store for caching',
     },
-    { name: 'SQL', category: 'Database', level: 80, icon: '🗄️', description: 'Relational database query language' },
+    {
+      name: 'SQL',
+      category: 'Database',
+      level: 80,
+      icon: '🗄️',
+      description: 'Relational database query language for backend development',
+    },
 
     // Tools
     {
@@ -160,7 +180,7 @@ const SkillSection = () => {
     },
   ];
 
-  const categories = ['All', 'Language', 'Frontend', 'Backend', 'Database', 'Tool', 'Practice'] as const;
+  const categories = ['Frontend', 'Backend', 'Database', 'Language', 'Tool', 'Practice', 'All'] as const;
   type Category = (typeof categories)[number];
 
   const categoryIcons: Record<Category, React.ElementType> = {
@@ -302,7 +322,7 @@ const SkillSection = () => {
                     {/* Icon and Name */}
                     <div className="mb-4 flex items-center gap-3">
                       <div className="text-2xl">{skill.icon}</div>
-                      <div>
+                      <div className='flex flex-col gap-1'>
                         <h3 className="font-bold text-blue-900 transition-colors duration-300 group-hover:text-blue-800 dark:text-cyan-200 dark:group-hover:text-cyan-100">
                           {skill.name}
                         </h3>
