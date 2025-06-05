@@ -262,19 +262,6 @@ const ProjectSection = () => {
             );
           })}
         </div>
-
-        {/* Call to Action */}
-        <div className="animate-fade-in mt-20 text-center" style={{ animationDelay: '0.8s' }}>
-          <div className="inline-flex items-center gap-4 rounded-full border border-blue-200/60 bg-white/70 px-8 py-4 shadow-lg backdrop-blur-xl transition-all duration-300 hover:scale-105 hover:border-blue-300/60 hover:bg-white/80 hover:shadow-xl dark:border-blue-700/60 dark:bg-slate-800/80 dark:hover:border-cyan-400/60 dark:hover:bg-slate-900/80">
-            <span className="text-slate-700 dark:text-cyan-200">Ready to create something extraordinary?</span>
-            <a
-              href="#contact"
-              className="font-medium text-blue-600 transition-colors duration-300 hover:text-blue-700 dark:text-cyan-300 dark:hover:text-cyan-100"
-            >
-              Let&apos;s collaborate →
-            </a>
-          </div>
-        </div>
       </div>
 
       <style jsx>{`

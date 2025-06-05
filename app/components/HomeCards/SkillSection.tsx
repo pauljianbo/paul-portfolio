@@ -322,7 +322,7 @@ const SkillSection = () => {
                     {/* Icon and Name */}
                     <div className="mb-4 flex items-center gap-3">
                       <div className="text-2xl">{skill.icon}</div>
-                      <div className='flex flex-col gap-1'>
+                      <div className="flex flex-col gap-1">
                         <h3 className="font-bold text-blue-900 transition-colors duration-300 group-hover:text-blue-800 dark:text-cyan-200 dark:group-hover:text-cyan-100">
                           {skill.name}
                         </h3>
@@ -398,25 +398,6 @@ const SkillSection = () => {
               <div className="text-sm font-medium text-blue-600 dark:text-cyan-300">{stat.label}</div>
             </div>
           ))}
-        </motion.div>
-
-        {/* Call to Action */}
-        <motion.div
-          initial={{ y: 50, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="mt-16 text-center"
-        >
-          <div className="inline-flex items-center gap-3 rounded-full border border-blue-200/60 bg-blue-100/80 px-6 py-3 backdrop-blur-sm dark:border-slate-700/60 dark:bg-slate-800/80">
-            <span className="text-blue-800 dark:text-cyan-200">Ready to work together?</span>
-            <a
-              href="#contact"
-              className="font-medium text-blue-600 transition-colors duration-300 hover:text-blue-700 dark:text-cyan-300 dark:hover:text-cyan-100"
-            >
-              Let&apos;s collaborate →
-            </a>
-          </div>
         </motion.div>
       </div>
     </section>
