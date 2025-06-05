@@ -141,7 +141,7 @@ const ProjectSection = () => {
           </div>
 
           <h1 className="mb-8 bg-gradient-to-r from-blue-600 via-sky-600 to-cyan-600 bg-clip-text text-5xl font-bold text-transparent dark:from-cyan-400 dark:via-blue-400 dark:to-sky-400 md:text-7xl lg:text-8xl">
-            Digital
+            Personal
             <span className="block bg-gradient-to-r from-blue-500 via-sky-500 to-cyan-500 bg-clip-text dark:from-cyan-400 dark:via-blue-400 dark:to-sky-400">
               Masterpieces
             </span>
