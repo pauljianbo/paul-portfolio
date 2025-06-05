@@ -60,7 +60,7 @@ const config: Config = {
           // Light mode primary actions - vibrant sky blue
           // Usage: bg-light-primary, text-light-primary
 
-          secondary: '#14b8a6', // Teal-500
+          secondary: '#7dd3fc', // sky-300
           // Light mode secondary actions - lighter sky blue
           // Usage: bg-light-secondary, text-light-secondary
 
