@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 import { ExternalLink, Code, Zap, ChevronRight, Eye, ArrowUpRight, Sparkles } from 'lucide-react';
 
 // Define the structure for project data
@@ -77,13 +76,13 @@ const ProjectSection = () => {
   const getStatusColor = (status: string) => {
     switch (status) {
       case 'Live':
-        return 'bg-emerald-50 text-emerald-700 border-emerald-200 shadow-emerald-100';
+        return 'bg-emerald-50 text-emerald-700 border-emerald-200';
       case 'In Development':
-        return 'bg-amber-50 text-amber-700 border-amber-200 shadow-amber-100';
+        return 'bg-amber-50 text-amber-700 border-amber-200';
       case 'Completed':
-        return 'bg-blue-50 text-blue-700 border-blue-200 shadow-blue-100';
+        return 'bg-blue-50 text-blue-700 border-blue-200';
       default:
-        return 'bg-slate-50 text-slate-700 border-slate-200 shadow-slate-100';
+        return 'bg-slate-50 text-slate-700 border-slate-200';
     }
   };
 
@@ -93,71 +92,68 @@ const ProjectSection = () => {
         text: 'text-blue-600',
         bg: 'bg-blue-50',
         border: 'border-blue-200',
-        hover: 'hover:bg-blue-100',
+        hover: 'hover:bg-blue-100'
       },
       cyan: {
         text: 'text-cyan-600',
         bg: 'bg-cyan-50',
         border: 'border-cyan-200',
-        hover: 'hover:bg-cyan-100',
-      },
+        hover: 'hover:bg-cyan-100'
+      }
     };
     return colors[color as keyof typeof colors] || colors.blue;
   };
 
   return (
     <section className="relative min-h-screen overflow-hidden bg-gradient-to-br from-sky-50 via-blue-50 to-cyan-50">
+      {/* Background Elements */}
+      <div className="absolute inset-0">
+        <div className="absolute left-1/4 top-1/4 h-96 w-96 rounded-full bg-blue-200/30 blur-3xl"></div>
+        <div className="absolute right-1/3 top-1/3 h-80 w-80 rounded-full bg-cyan-200/30 blur-3xl"></div>
+        <div className="absolute bottom-1/4 left-1/3 h-[500px] w-[500px] rounded-full bg-sky-200/20 blur-3xl"></div>
+        
+        {/* Grid Pattern */}
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.05)_1px,transparent_1px)] bg-[size:60px_60px]"></div>
+      </div>
+
       <div className="relative z-10 mx-auto max-w-7xl px-4 py-20 md:py-32">
         {/* Header */}
-        <motion.div
-          initial={{ y: -50, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, ease: 'easeOut' }}
-          className="mb-20 text-center"
-        >
-          <motion.div
-            initial={{ scale: 0.8, opacity: 0 }}
-            whileInView={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="mb-8 inline-flex items-center gap-3 rounded-full border border-blue-200/60 bg-white/70 px-6 py-3 shadow-lg backdrop-blur-xl"
-          >
+        <div className="mb-20 text-center animate-fade-in">
+          <div className="mb-8 inline-flex items-center gap-3 rounded-full border border-blue-200/60 bg-white/70 px-6 py-3 shadow-lg backdrop-blur-xl">
             <Sparkles className="h-5 w-5 text-blue-500" />
             <span className="text-sm font-medium text-blue-700">Featured Projects</span>
             <div className="h-2 w-2 rounded-full bg-blue-400"></div>
-          </motion.div>
+          </div>
 
-          <motion.h1
-            initial={{ y: 20, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="mb-8 bg-gradient-to-r from-blue-600 via-sky-600 to-cyan-600 bg-clip-text text-5xl font-bold text-transparent md:text-7xl lg:text-8xl"
-          >
+          <h1 className="mb-8 bg-gradient-to-r from-blue-600 via-sky-600 to-cyan-600 bg-clip-text text-5xl font-bold text-transparent md:text-7xl lg:text-8xl">
             Digital
             <span className="block bg-gradient-to-r from-blue-500 via-sky-500 to-cyan-500 bg-clip-text">
               Masterpieces
             </span>
-          </motion.h1>
+          </h1>
 
-          <motion.p
-            initial={{ y: 20, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="mx-auto max-w-3xl text-xl leading-relaxed text-blue-700/80 md:text-2xl"
-          >
+          <p className="mx-auto max-w-3xl text-xl leading-relaxed text-blue-700/80 md:text-2xl">
             Crafting exceptional digital experiences that push the boundaries of innovation and design
-          </motion.p>
-        </motion.div>
+          </p>
+        </div>
 
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
           {projects.map((project, index) => {
             const accentColors = getAccentColors(project.accentColor);
-
+            
             return (
-              <motion.div key={index} className="group relative">
+              <div
+                key={index}
+                className="group relative animate-slide-up"
+                style={{ animationDelay: `${index * 0.2}s` }}
+              >
+                {/* Subtle Glow */}
+                <div className="absolute -inset-0.5 rounded-2xl bg-gradient-to-r from-blue-200 via-sky-200 to-cyan-200 opacity-0 transition-opacity duration-500 group-hover:opacity-50"></div>
+                
                 {/* Main Card */}
-                <div className="relative flex h-full flex-col overflow-hidden rounded-2xl border border-blue-200/50 bg-white/80 shadow-xl backdrop-blur-xl transition-all duration-500 group-hover:border-blue-300/60 group-hover:bg-white/90 group-hover:shadow-2xl">
+                <div className="relative flex h-full flex-col overflow-hidden rounded-2xl border border-blue-200/50 bg-white/80 shadow-xl backdrop-blur-xl transition-all duration-500 group-hover:border-blue-300/60 group-hover:shadow-2xl group-hover:bg-white/90 group-hover:-translate-y-2">
+                  
                   {/* Image Section */}
                   <div className="relative h-80 overflow-hidden lg:h-96">
                     <img
@@ -165,95 +161,60 @@ const ProjectSection = () => {
                       alt={project.title}
                       className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />
-
+                    
                     {/* Overlay */}
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-slate-900/20 to-transparent"></div>
-
+                    
                     {/* Floating Action Button */}
-                    <motion.a
+                    <a
                       href={project.projectUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      initial={{ scale: 0, rotate: -90 }}
-                      whileInView={{ scale: 1, rotate: 0 }}
-                      transition={{ duration: 0.6, delay: index * 0.1 + 0.4 }}
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.95 }}
-                      className={`absolute right-6 top-6 rounded-full border ${accentColors.border} ${accentColors.bg} p-3 shadow-lg backdrop-blur-xl transition-all duration-300 ${accentColors.hover} group/btn`}
+                      className={`absolute right-6 top-6 rounded-full border ${accentColors.border} ${accentColors.bg} p-3 shadow-lg backdrop-blur-xl transition-all duration-300 ${accentColors.hover} group/btn hover:scale-110`}
                     >
-                      <ArrowUpRight
-                        className={`h-5 w-5 ${accentColors.text} transition-transform duration-300 group-hover/btn:rotate-12`}
-                      />
-                    </motion.a>
+                      <ArrowUpRight className={`h-5 w-5 ${accentColors.text} transition-transform duration-300 group-hover/btn:rotate-12`} />
+                    </a>
 
                     {/* Status Badge */}
-                    <motion.div
-                      initial={{ x: -50, opacity: 0 }}
-                      whileInView={{ x: 0, opacity: 1 }}
-                      transition={{ duration: 0.6, delay: index * 0.1 + 0.3 }}
-                      className="absolute bottom-6 left-6"
-                    >
-                      <span
-                        className={`rounded-full border px-4 py-2 text-sm font-medium shadow-lg backdrop-blur-xl ${getStatusColor(project.status)}`}
-                      >
+                    <div className="absolute bottom-6 left-6">
+                      <span className={`rounded-full border px-4 py-2 text-sm font-medium shadow-lg backdrop-blur-xl ${getStatusColor(project.status)}`}>
                         <div className="mr-2 inline-block h-2 w-2 rounded-full bg-current"></div>
                         {project.status}
                       </span>
-                    </motion.div>
+                    </div>
                   </div>
 
                   {/* Content Section */}
                   <div className="relative flex-1 p-8 lg:p-10">
                     {/* Header */}
-                    <motion.div
-                      initial={{ y: 20, opacity: 0 }}
-                      whileInView={{ y: 0, opacity: 1 }}
-                      transition={{ duration: 0.6, delay: index * 0.1 + 0.4 }}
-                      className="mb-6"
-                    >
+                    <div className="mb-6">
                       <div className="mb-3 flex items-center justify-between">
                         <h3 className="text-2xl font-bold text-slate-800 lg:text-3xl">{project.title}</h3>
-                        <Eye
-                          className={`h-5 w-5 ${accentColors.text} opacity-0 transition-all duration-300 group-hover:opacity-100`}
-                        />
+                        <Eye className={`h-5 w-5 ${accentColors.text} opacity-0 transition-all duration-300 group-hover:opacity-100`} />
                       </div>
                       <p className={`text-sm font-medium ${accentColors.text}`}>{project.category}</p>
-                    </motion.div>
+                    </div>
 
                     {/* Description */}
-                    <motion.div
-                      initial={{ y: 20, opacity: 0 }}
-                      whileInView={{ y: 0, opacity: 1 }}
-                      transition={{ duration: 0.6, delay: index * 0.1 + 0.5 }}
-                      className="mb-8 flex-1"
-                    >
-                      <p
-                        className={`leading-relaxed text-slate-600 ${!expandedCards.includes(index) ? 'line-clamp-3' : ''}`}
-                      >
+                    <div className="mb-8 flex-1">
+                      <p className={`leading-relaxed text-slate-600 ${!expandedCards.includes(index) ? 'line-clamp-3' : ''}`}>
                         {project.description}
                       </p>
 
-                      <motion.button
+                      <button
                         onClick={() => toggleCard(index)}
-                        whileHover={{ x: 4 }}
-                        whileTap={{ scale: 0.98 }}
-                        className={`group/read mt-4 inline-flex items-center gap-2 text-sm font-medium ${accentColors.text} transition-all duration-300 hover:text-slate-800`}
+                        className={`group/read mt-4 inline-flex items-center gap-2 text-sm font-medium ${accentColors.text} transition-all duration-300 hover:text-slate-800 hover:translate-x-1`}
                       >
                         {expandedCards.includes(index) ? 'Show less' : 'Read more'}
                         <ChevronRight
                           className={`h-4 w-4 transition-transform duration-300 ${expandedCards.includes(index) ? 'rotate-90' : 'group-hover/read:translate-x-1'}`}
                         />
-                      </motion.button>
-                    </motion.div>
+                      </button>
+                    </div>
 
                     {/* Technologies */}
                     {project.technologies && (
-                      <motion.div
-                        initial={{ y: 20, opacity: 0 }}
-                        whileInView={{ y: 0, opacity: 1 }}
-                        transition={{ duration: 0.6, delay: index * 0.1 + 0.6 }}
-                        className="space-y-4"
-                      >
+                      <div className="space-y-4">
                         <div className={`flex items-center gap-2 ${accentColors.text}`}>
                           <Zap className="h-4 w-4" />
                           <span className="text-sm font-medium">Tech Arsenal</span>
@@ -261,43 +222,77 @@ const ProjectSection = () => {
 
                         <div className="flex flex-wrap gap-2">
                           {project.technologies.map((tech, techIndex) => (
-                            <motion.span
+                            <span
                               key={techIndex}
-                              className="rounded-full border border-blue-200/60 bg-blue-50/80 px-4 py-2 text-xs font-medium text-blue-700 shadow-sm backdrop-blur-sm transition-all duration-300 hover:border-blue-300/60 hover:bg-blue-100/80 hover:shadow-md"
+                              className="rounded-full border border-blue-200/60 bg-blue-50/80 px-4 py-2 text-xs font-medium text-blue-700 shadow-sm backdrop-blur-sm transition-all duration-300 hover:border-blue-300/60 hover:bg-blue-100/80 hover:shadow-md hover:scale-105 hover:-translate-y-1"
                             >
                               {tech}
-                            </motion.span>
+                            </span>
                           ))}
                         </div>
-                      </motion.div>
+                      </div>
                     )}
                   </div>
                 </div>
-              </motion.div>
+              </div>
             );
           })}
         </div>
 
         {/* Call to Action */}
-        <motion.div
-          initial={{ y: 50, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="mt-20 text-center"
-        >
-          <motion.div
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-            className="inline-flex items-center gap-4 rounded-full border border-blue-200/60 bg-white/70 px-8 py-4 shadow-lg backdrop-blur-xl transition-all duration-300 hover:border-blue-300/60 hover:bg-white/80 hover:shadow-xl"
-          >
+        <div className="mt-20 text-center animate-fade-in" style={{ animationDelay: '0.8s' }}>
+          <div className="inline-flex items-center gap-4 rounded-full border border-blue-200/60 bg-white/70 px-8 py-4 shadow-lg backdrop-blur-xl transition-all duration-300 hover:border-blue-300/60 hover:bg-white/80 hover:shadow-xl hover:scale-105">
             <span className="text-slate-700">Ready to create something extraordinary?</span>
-            <a href="#contact" className="font-medium text-blue-600 transition-colors duration-300 hover:text-blue-700">
+            <a 
+              href="#contact" 
+              className="font-medium text-blue-600 transition-colors duration-300 hover:text-blue-700"
+            >
               Let's collaborate →
             </a>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </div>
+
+      <style jsx>{`
+        @keyframes fade-in {
+          from {
+            opacity: 0;
+            transform: translateY(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        @keyframes slide-up {
+          from {
+            opacity: 0;
+            transform: translateY(60px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        .animate-fade-in {
+          animation: fade-in 0.8s ease-out forwards;
+          opacity: 0;
+        }
+
+        .animate-slide-up {
+          animation: slide-up 0.8s ease-out forwards;
+          opacity: 0;
+        }
+
+        .line-clamp-3 {
+          display: -webkit-box;
+          -webkit-line-clamp: 3;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+        }
+      `}</style>
     </section>
   );
 };

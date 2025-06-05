@@ -9,20 +9,6 @@ const SkillSection = () => {
   const skills = [
     // Languages
     {
-      name: 'HTML',
-      category: 'Language',
-      level: 100,
-      icon: '📄',
-      description: 'Markup language for structuring web content',
-    },
-    {
-      name: 'CSS',
-      category: 'Language',
-      level: 100,
-      icon: '🎨',
-      description: 'Style sheet language for designing web pages',
-    },
-    {
       name: 'TypeScript',
       category: 'Language',
       level: 90,
@@ -159,7 +145,7 @@ const SkillSection = () => {
     },
 
     // Practices
-    { name: 'Agile', category: 'Practice', level: 88, icon: '🔄', description: 'Iterative development methodology' },
+    { name: 'Agile', category: 'Practice', level: 88, icon: '🔄', description: 'Iterative development methodology for software development' },
     {
       name: 'CI/CD',
       category: 'Practice',
@@ -225,11 +211,6 @@ const SkillSection = () => {
 
   return (
     <section className="relative overflow-hidden bg-gradient-to-br from-blue-50 via-sky-50 to-cyan-50 px-4 py-16 md:py-24">
-      {/* Background Elements */}
-      <div className="absolute right-0 top-0 h-96 w-96 rounded-full bg-blue-200/20 blur-3xl"></div>
-      <div className="absolute bottom-0 left-0 h-96 w-96 rounded-full bg-sky-200/20 blur-3xl"></div>
-      <div className="absolute left-1/2 top-1/2 h-[400px] w-[800px] -translate-x-1/2 -translate-y-1/2 transform rounded-full bg-cyan-100/10 blur-3xl"></div>
-
       <div className="relative z-10 mx-auto max-w-7xl">
         {/* Header */}
         <motion.div
@@ -312,7 +293,7 @@ const SkillSection = () => {
                 onMouseEnter={() => setHoveredSkill(skill.name)}
                 onMouseLeave={() => setHoveredSkill(null)}
               >
-                <div className="relative overflow-hidden rounded-2xl border border-blue-200/50 bg-white/70 p-6 shadow-lg backdrop-blur-xl transition-all duration-500 hover:border-blue-300/60 hover:shadow-xl">
+                <div className="relative overflow-hidden rounded-2xl border border-blue-200/50 bg-white/70 p-6 shadow-lg backdrop-blur-xl transition-all duration-500">
                   {/* Gradient Overlay */}
                   <div
                     className={`absolute inset-0 bg-gradient-to-br ${categoryColors[skill.category as Category]} opacity-0 transition-opacity duration-500 group-hover:opacity-10`}
@@ -351,18 +332,6 @@ const SkillSection = () => {
 
                     {/* Description */}
                     <p className="text-sm leading-relaxed text-blue-700/80">{skill.description}</p>
-
-                    {/* Hover Effect */}
-                    <motion.div
-                      className="absolute inset-0 rounded-2xl border-2 border-blue-400/50 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-                      animate={{
-                        boxShadow:
-                          hoveredSkill === skill.name
-                            ? '0 0 20px rgba(59, 130, 246, 0.3)'
-                            : '0 0 0px rgba(59, 130, 246, 0)',
-                      }}
-                      transition={{ duration: 0.3 }}
-                    />
                   </div>
                 </div>
               </motion.div>
