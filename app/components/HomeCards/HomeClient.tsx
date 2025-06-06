@@ -6,14 +6,17 @@ import AnimatedIntroBanner from './AnimatedIntroBanner';
 import SkillSection from './SkillSection';
 import ProjectSection from './ProjectSection';
 import ContactSection from './ContactSection';
+import ExperienceSection from './ExperienceSection';
 const HomeClient = () => {
   const skillsRef = useRef(null);
   const projectsRef = useRef(null);
   const contactRef = useRef(null);
+  const experienceRef = useRef(null);
 
   const isSkillsInView = useInView(skillsRef, { once: true });
   const isProjectsInView = useInView(projectsRef, { once: true });
   const isContactInView = useInView(contactRef, { once: true });
+  const isExperienceInView = useInView(experienceRef, { once: true });
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -33,6 +36,9 @@ const HomeClient = () => {
       </div>
       <div id="projects" ref={projectsRef}>
         {isProjectsInView && <ProjectSection />}
+      </div>
+      <div id="experience" ref={projectsRef}>
+        { <ExperienceSection />}
       </div>
       <div id="contact" ref={contactRef}>
         {isContactInView && <ContactSection />}

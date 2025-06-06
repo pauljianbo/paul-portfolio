@@ -212,7 +212,7 @@ const ProjectSection = () => {
             <div className="h-2 w-2 rounded-full bg-blue-400 dark:bg-cyan-400"></div>
           </div>
 
-          <h1 className="mb-8 hidden bg-gradient-to-r from-blue-600 via-sky-600 to-cyan-600 bg-clip-text text-5xl font-bold text-transparent dark:from-cyan-400 dark:via-blue-400 dark:to-sky-400 md:block md:text-7xl lg:text-8xl">
+          <h1 className="mb-8 bg-gradient-to-r from-blue-600 via-sky-600 to-cyan-600 bg-clip-text text-5xl font-bold text-transparent dark:from-cyan-400 dark:via-blue-400 dark:to-sky-400 md:block md:text-7xl lg:text-8xl">
             Personal
             <span className="block bg-gradient-to-r from-blue-500 via-sky-500 to-cyan-500 bg-clip-text dark:from-cyan-400 dark:via-blue-400 dark:to-sky-400">
               Masterpieces
@@ -233,7 +233,7 @@ const ProjectSection = () => {
                   onMouseEnter={() => setIsHovered(true)}
                   onMouseLeave={() => setIsHovered(false)}
                 >
-                  <div key={index} className="group relative mx-24">
+                  <div key={index} className="group relative xl:mx-24">
                     {/* Main Card */}
                     <div className="relative flex h-full flex-col overflow-hidden rounded-2xl border border-blue-200/50 bg-white/80 backdrop-blur-xl transition-all duration-500 group-hover:-translate-y-2 group-hover:border-blue-300/60 group-hover:bg-white/90 dark:border-slate-700/50 dark:bg-slate-900/80 dark:group-hover:border-cyan-400/60 dark:group-hover:bg-slate-900/90">
                       {/* Image Section */}
@@ -306,7 +306,7 @@ const ProjectSection = () => {
 
                         {/* Technologies */}
                         {project.technologies && (
-                          <div className="space-y-4">
+                          <div className="space-y-4 hidden md:block">
                             <div className={`flex items-center gap-2 ${accentColors.text}`}>
                               <Zap className="h-4 w-4" />
                               <span className="text-sm font-medium">Tech Arsenal</span>

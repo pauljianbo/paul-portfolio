@@ -16,6 +16,7 @@ const navItems = [
   { text: 'Skills', href: '#skills' },
   { text: 'Projects', href: '#projects' },
   { text: 'Contact', href: '#contact' },
+  { text: 'Experience', href: '#experience' },
 ];
 
 /**
@@ -65,15 +66,15 @@ const Navbar = (): JSX.Element => {
 
   return (
     <nav
-      className={`fixed top-0 z-50 w-full px-6 py-5 transition-all duration-300 ${scrolled ? 'bg-white/50 shadow-md backdrop-blur-sm dark:bg-dark-border/50' : 'bg-transparent'}`}
+      className={`fixed top-0 z-50 w-full px-2 md:px-6 py-5 transition-all duration-300 ${scrolled ? 'bg-white/50 shadow-md backdrop-blur-sm dark:bg-dark-border/50' : 'bg-transparent'}`}
     >
       <div className="container mx-auto flex items-center justify-between">
         {/* Logo */}
-        <div className="h-[40px] w-[40px] overflow-hidden rounded-full bg-white">
+        <div className="h-[40px] w-[40px] overflow-hidden rounded-full bg-white hidden md:block">
           <Image src="/apple-icon.png" alt="Logo" width={40} height={40} />
         </div>
         {/* Navigation chips */}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1 md:gap-2">
           {navItems.map((item) => (
             <a href={item.href} key={item.text} onClick={(e) => handleNavClick(e, item)}>
               <Chip text={item.text} selected={selected === item.text} onClick={() => setSelected(item.text)} />
