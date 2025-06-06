@@ -127,23 +127,23 @@ const ProjectSection = () => {
         <div className="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.05)_1px,transparent_1px)] bg-[size:60px_60px] dark:bg-[linear-gradient(rgba(30,41,59,0.15)_1px,transparent_1px),linear-gradient(90deg,rgba(30,41,59,0.15)_1px,transparent_1px)]"></div>
       </div>
 
-      <div className="container relative z-10 mx-auto px-4 py-20 md:py-32">
+      <div className="container relative z-10 mx-auto px-4 py-12 md:py-20">
         {/* Header */}
-        <div className="animate-fade-in mb-20 text-center">
+        <div className="animate-fade-in md:mb-20 text-center">
           <div className="mb-8 inline-flex items-center gap-3 rounded-full border border-blue-200/60 bg-white/70 px-6 py-3 shadow-lg backdrop-blur-xl dark:border-blue-700/60 dark:bg-slate-800/80">
             <Sparkles className="h-5 w-5 text-blue-500 dark:text-cyan-300" />
             <span className="text-sm font-medium text-blue-700 dark:text-slate-200">Featured Projects</span>
             <div className="h-2 w-2 rounded-full bg-blue-400 dark:bg-cyan-400"></div>
           </div>
 
-          <h1 className="mb-8 bg-gradient-to-r from-blue-600 via-sky-600 to-cyan-600 bg-clip-text text-5xl font-bold text-transparent dark:from-cyan-400 dark:via-blue-400 dark:to-sky-400 md:text-7xl lg:text-8xl">
+          <h1 className="hidden md:block mb-8 bg-gradient-to-r from-blue-600 via-sky-600 to-cyan-600 bg-clip-text text-5xl font-bold text-transparent dark:from-cyan-400 dark:via-blue-400 dark:to-sky-400 md:text-7xl lg:text-8xl">
             Personal
             <span className="block bg-gradient-to-r from-blue-500 via-sky-500 to-cyan-500 bg-clip-text dark:from-cyan-400 dark:via-blue-400 dark:to-sky-400">
               Masterpieces
             </span>
           </h1>
 
-          <p className="mx-auto max-w-3xl text-xl leading-relaxed text-blue-700/80 dark:text-slate-300/80 md:text-2xl">
+          <p className="hidden md:block mx-auto max-w-3xl text-xl leading-relaxed text-blue-700/80 dark:text-slate-300/80 md:text-2xl">
             Crafting exceptional digital experiences that push the boundaries of innovation and design
           </p>
         </div>

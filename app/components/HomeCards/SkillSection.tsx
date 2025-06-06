@@ -236,7 +236,7 @@ const SkillSection = () => {
   };
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-blue-50 via-sky-50 to-cyan-50 px-4 py-16 dark:bg-gradient-to-br dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 md:py-24">
+    <section className="relative overflow-hidden bg-gradient-to-br from-blue-50 via-sky-50 to-cyan-50 px-4 py-12 md:py-20 dark:bg-gradient-to-br dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
       <div className="container relative z-10 mx-auto">
         {/* Header */}
         <motion.div
@@ -244,14 +244,14 @@ const SkillSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="mb-16 text-center"
+          className="md:mb-16 text-center"
         >
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-200/60 bg-blue-100/80 px-4 py-2 backdrop-blur-sm dark:border-slate-700/60 dark:bg-slate-800/80">
             <Zap className="h-4 w-4 text-blue-600 dark:text-cyan-400" />
             <span className="text-sm font-medium text-blue-700 dark:text-slate-200">Technical Expertise</span>
           </div>
 
-          <h2 className="mb-6 bg-gradient-to-r from-blue-500 via-sky-500 to-cyan-500 bg-clip-text text-6xl font-bold text-transparent dark:from-cyan-200 dark:via-blue-200 dark:to-blue-100">
+          <h2 className="hidden md:block mb-6 bg-gradient-to-r from-blue-500 via-sky-500 to-cyan-500 bg-clip-text text-6xl font-bold text-transparent dark:from-cyan-200 dark:via-blue-200 dark:to-blue-100">
             Skills & Technologies
           </h2>
         </motion.div>

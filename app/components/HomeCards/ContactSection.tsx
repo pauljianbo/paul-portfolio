@@ -3,7 +3,7 @@ import { Mail, Phone, MapPin, Github, Linkedin, Star, Globe, Coffee, MessageCirc
 
 const ContactSection = () => {
   return (
-    <div className="relative min-h-screen overflow-hidden bg-gradient-to-br  dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+    <div className="relative min-h-screen overflow-hidden bg-gradient-to-br dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
       {/* Enhanced Animated Background */}
       <div className="absolute inset-0">
         {/* Floating orbs */}
@@ -12,7 +12,7 @@ const ContactSection = () => {
         <div className="animation-delay-4000 absolute bottom-20 left-1/3 h-72 w-72 animate-pulse rounded-full bg-gradient-to-r from-cyan-400/20 to-blue-400/20 blur-3xl dark:from-cyan-900/30 dark:to-blue-900/30"></div>
       </div>
 
-      <div className="container relative mx-auto px-4 py-20 sm:px-6 lg:px-8">
+      <div className="container relative mx-auto px-4 py-12 md:py-20 sm:px-6 lg:px-8">
         {/* Enhanced Header */}
         <div className="mb-10 text-center">
           <div className="mb-6">
@@ -21,7 +21,7 @@ const ContactSection = () => {
               Available for Projects
             </span>
           </div>
-          <h2 className="mb-6 bg-gradient-to-r from-blue-900 via-blue-700 to-cyan-700 bg-clip-text text-6xl font-bold text-transparent dark:from-cyan-200 dark:via-blue-200 dark:to-blue-100">
+          <h2 className="mb-6 hidden bg-gradient-to-r from-blue-900 via-blue-700 to-cyan-700 bg-clip-text text-6xl font-bold text-transparent dark:from-cyan-200 dark:via-blue-200 dark:to-blue-100 md:block">
             Let&apos;s Create Something
             <span className="block bg-gradient-to-r from-blue-500 to-cyan-500 bg-clip-text pb-2 text-transparent dark:from-cyan-300 dark:to-blue-300">
               Amazing Together
