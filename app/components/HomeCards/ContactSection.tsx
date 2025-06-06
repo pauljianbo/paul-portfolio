@@ -8,7 +8,7 @@ const ContactSection = () => {
       <div className="absolute inset-0 hidden md:block">
         {/* Floating orbs */}
         <div className="absolute left-1/4 top-20 h-96 w-96 animate-pulse rounded-full bg-gradient-to-r from-blue-400/20 to-cyan-400/20 blur-3xl dark:from-blue-900/30 dark:to-cyan-900/30"></div>
-        <div className="animation-delay-2000 absolute right-1/4 top-1/3 h-80 w-80 animate-pulse rounded-full bg-gradient-to-r from-purple-400/20 to-pink-400/20 blur-3xl dark:from-purple-900/30 dark:to-pink-900/30"></div>
+        <div className="animation-delay-2000 absolute right-1/4 top-1/3 h-80 w-80 animate-pulse rounded-full bg-gradient-to-r from-green-400/20 to-blue-400/20 blur-3xl dark:from-green-900/30 dark:to-blue-900/30"></div>
         <div className="animation-delay-4000 absolute bottom-20 left-1/3 h-72 w-72 animate-pulse rounded-full bg-gradient-to-r from-cyan-400/20 to-blue-400/20 blur-3xl dark:from-cyan-900/30 dark:to-blue-900/30"></div>
       </div>
 
@@ -128,11 +128,11 @@ const ContactSection = () => {
           {/* Location & Availability Card */}
           <div className="space-y-8">
             {/* Location Card */}
-            <div className="group relative overflow-hidden rounded-3xl border border-purple-200/40 bg-gradient-to-br from-white/80 to-purple-100/80 p-6 backdrop-blur-xl transition-all duration-500 hover:scale-105 hover:border-purple-400/60 hover:shadow-2xl hover:shadow-purple-300/20 dark:border-purple-900/40 dark:from-gray-900/80 dark:to-purple-900/80 dark:hover:border-pink-400/60 dark:hover:shadow-pink-900/20">
-              <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-pink-500/5 opacity-0 transition-opacity duration-500 group-hover:opacity-100 dark:from-purple-900/10 dark:to-pink-900/10"></div>
+            <div className="group relative overflow-hidden rounded-3xl border border-blue-200/40 bg-gradient-to-br from-white/80 to-blue-100/80 p-6 backdrop-blur-xl transition-all duration-500 hover:scale-105 hover:border-blue-400/60 hover:shadow-2xl hover:shadow-blue-300/20 dark:border-blue-900/40 dark:from-gray-900/80 dark:to-blue-900/80 dark:hover:border-blue-400/60 dark:hover:shadow-blue-900/20">
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-blue-500/5 opacity-0 transition-opacity duration-500 group-hover:opacity-100 dark:from-blue-900/10 dark:to-blue-900/10"></div>
 
               <div className="relative">
-                <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-r from-purple-300 to-pink-300 shadow-lg dark:from-purple-700 dark:to-pink-700">
+                <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-r from-blue-300 to-blue-300 shadow-lg dark:from-blue-700 dark:to-blue-700">
                   <MapPin className="h-7 w-7 text-blue-900 dark:text-cyan-100" />
                 </div>
                 <h4 className="mb-2 text-lg font-bold text-blue-900 dark:text-cyan-100">Location</h4>
