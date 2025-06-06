@@ -48,7 +48,7 @@ const projects: Project[] = [
     description:
       'A comprehensive delivery management platform featuring multi-role access (customers, drivers, admins). Includes complete order lifecycle management, SingPass integration for verification, and enterprise-level features. Key functionalities: authentication, real-time order tracking, notifications, driver-customer matching, reviews & ratings, credibility scoring system, bulk order processing via Excel, and specialized company contract management for corporate clients.',
     projectUrl: 'https://pickagoo.com',
-    imageUrl: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop&crop=center',
+    imageUrl: 'https://images.unsplash.com/photo-1704652838446-edc4448d6261?q=80&w=800&h=500&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     category: 'Delivery Platform',
     status: 'Live',
     gradient: 'from-cyan-400 via-blue-400 to-indigo-400',
