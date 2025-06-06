@@ -236,7 +236,7 @@ const SkillSection = () => {
   };
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-blue-50 via-sky-50 to-cyan-50 px-4 py-16 dark:bg-gradient-to-br dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 md:py-24">
+    <section className="relative overflow-hidden bg-gradient-to-br from-blue-50 via-sky-50 to-cyan-50 px-4 py-12 dark:bg-gradient-to-br dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 md:py-20">
       <div className="container relative z-10 mx-auto">
         {/* Header */}
         <motion.div
@@ -244,14 +244,14 @@ const SkillSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="mb-16 text-center"
+          className="text-center md:mb-16"
         >
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-200/60 bg-blue-100/80 px-4 py-2 backdrop-blur-sm dark:border-slate-700/60 dark:bg-slate-800/80">
             <Zap className="h-4 w-4 text-blue-600 dark:text-cyan-400" />
             <span className="text-sm font-medium text-blue-700 dark:text-slate-200">Technical Expertise</span>
           </div>
 
-          <h2 className="mb-6 bg-gradient-to-r from-blue-500 via-sky-500 to-cyan-500 bg-clip-text text-6xl font-bold text-transparent dark:from-cyan-200 dark:via-blue-200 dark:to-blue-100">
+          <h2 className="mb-6 hidden bg-gradient-to-r from-blue-500 via-sky-500 to-cyan-500 bg-clip-text text-6xl font-bold text-transparent dark:from-cyan-200 dark:via-blue-200 dark:to-blue-100 md:block">
             Skills & Technologies
           </h2>
         </motion.div>
@@ -262,7 +262,7 @@ const SkillSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="mb-12 flex flex-wrap justify-center gap-3"
+          className="mb-8 flex gap-3 overflow-scroll py-4 md:justify-center"
         >
           {categories.map((category) => {
             const IconComponent = categoryIcons[category];
@@ -272,7 +272,7 @@ const SkillSection = () => {
               <button
                 key={category}
                 onClick={() => setActiveCategory(category)}
-                className={`group relative overflow-hidden rounded-full border px-6 py-3 font-medium backdrop-blur-sm transition-all duration-300 ${
+                className={`group relative shrink-0 overflow-hidden rounded-full border px-6 py-3 font-medium backdrop-blur-sm transition-all duration-300 ${
                   isActive
                     ? 'border-blue-300/60 bg-white/80 text-blue-700 shadow-lg dark:border-cyan-400/60 dark:bg-slate-900/80 dark:text-cyan-300 dark:shadow-cyan-900/30'
                     : 'border-blue-200/40 bg-blue-50/50 text-blue-600 hover:border-blue-300/50 hover:bg-white/60 dark:border-slate-700/40 dark:bg-slate-800/50 dark:text-cyan-200 dark:hover:border-cyan-400/50 dark:hover:bg-slate-900/60'
@@ -361,7 +361,7 @@ const SkillSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="mt-16 grid grid-cols-2 gap-6 md:grid-cols-4"
+          className="mt-16 hidden grid-cols-2 gap-6 md:grid md:grid-cols-4"
         >
           {[
             { label: 'Languages', count: skills.filter((s) => s.category === 'Language').length, icon: '💻' },

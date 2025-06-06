@@ -38,7 +38,7 @@ const Footer = () => {
             - mt-2: Top margin on mobile
             - md:mt-0: Remove top margin on medium screens
           */}
-          <div className="mt-2 flex gap-4 md:mt-0">
+          <div className="mt-2 hidden gap-4 md:mt-0 md:flex">
             <a
               href="https://www.linkedin.com/in/jianbo-cai-4540242a0/"
               target="_blank"
