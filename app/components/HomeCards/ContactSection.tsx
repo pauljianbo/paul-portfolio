@@ -5,14 +5,14 @@ const ContactSection = () => {
   return (
     <div className="relative min-h-screen overflow-hidden bg-gradient-to-br dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
       {/* Enhanced Animated Background */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 hidden md:block">
         {/* Floating orbs */}
         <div className="absolute left-1/4 top-20 h-96 w-96 animate-pulse rounded-full bg-gradient-to-r from-blue-400/20 to-cyan-400/20 blur-3xl dark:from-blue-900/30 dark:to-cyan-900/30"></div>
         <div className="animation-delay-2000 absolute right-1/4 top-1/3 h-80 w-80 animate-pulse rounded-full bg-gradient-to-r from-purple-400/20 to-pink-400/20 blur-3xl dark:from-purple-900/30 dark:to-pink-900/30"></div>
         <div className="animation-delay-4000 absolute bottom-20 left-1/3 h-72 w-72 animate-pulse rounded-full bg-gradient-to-r from-cyan-400/20 to-blue-400/20 blur-3xl dark:from-cyan-900/30 dark:to-blue-900/30"></div>
       </div>
 
-      <div className="container relative mx-auto px-4 py-12 md:py-20 sm:px-6 lg:px-8">
+      <div className="container relative mx-auto px-4 py-12 sm:px-6 md:py-20 lg:px-8">
         {/* Enhanced Header */}
         <div className="mb-10 text-center">
           <div className="mb-6">
