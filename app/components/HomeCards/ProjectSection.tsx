@@ -101,22 +101,33 @@ const ProjectSection = () => {
 
   const [activeIdx, setActiveIdx] = useState(0);
   const swiperRef = useRef<SwiperRef>(null);
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
+  const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
     const swiperInstance = swiperRef?.current?.swiper;
     if (swiperInstance) {
       swiperInstance.on('slideChange', handleSlideChange);
     }
-    const interval = setInterval(() => {
-      handleNextClick();
-    }, 10000);
+    // Function to start interval
+    const startInterval = () => {
+      if (intervalRef.current) clearInterval(intervalRef.current);
+      intervalRef.current = setInterval(() => {
+        handleNextClick();
+      }, 5000);
+    };
+    // Start interval if not hovered
+    if (!isHovered) {
+      startInterval();
+    }
     return () => {
-      clearInterval(interval);
+      if (intervalRef.current) clearInterval(intervalRef.current);
       if (swiperInstance) {
         swiperInstance.off('slideChange', handleSlideChange);
       }
     };
-  }, []);
+    // Depend on isHovered
+  }, [isHovered]);
 
   const handleNextClick = () => {
     const swiperInstance = swiperRef?.current?.swiper;
@@ -216,7 +227,12 @@ const ProjectSection = () => {
             projects.map((project, index) => {
               const accentColors = getAccentColors(project.accentColor);
               return (
-                <SwiperSlide key={`img-${index}`} className="cursor-pointer">
+                <SwiperSlide
+                  key={`img-${index}`}
+                  className="cursor-pointer"
+                  onMouseEnter={() => setIsHovered(true)}
+                  onMouseLeave={() => setIsHovered(false)}
+                >
                   <div key={index} className="group relative mx-24">
                     {/* Main Card */}
                     <div className="relative flex h-full flex-col overflow-hidden rounded-2xl border border-blue-200/50 bg-white/80 backdrop-blur-xl transition-all duration-500 group-hover:-translate-y-2 group-hover:border-blue-300/60 group-hover:bg-white/90 dark:border-slate-700/50 dark:bg-slate-900/80 dark:group-hover:border-cyan-400/60 dark:group-hover:bg-slate-900/90">

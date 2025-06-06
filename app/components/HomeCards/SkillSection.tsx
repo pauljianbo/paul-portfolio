@@ -262,7 +262,7 @@ const SkillSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="mb-8 flex gap-3 overflow-scroll py-4"
+          className="mb-8 flex gap-3 overflow-scroll py-4 md:justify-center"
         >
           {categories.map((category) => {
             const IconComponent = categoryIcons[category];
