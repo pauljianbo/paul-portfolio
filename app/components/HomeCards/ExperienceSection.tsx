@@ -103,12 +103,12 @@ const ExperienceSection: React.FC = () => {
         <div className="mb-16 text-center">
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-200/30 bg-blue-500/10 px-4 py-2 backdrop-blur-sm">
             <Briefcase className="h-4 w-4 text-blue-600" />
-            <span className="text-sm font-medium text-white">Professional Journey</span>
+            <span className="text-sm font-medium text-blue-600 dark:text-white">Professional Journey</span>
           </div>
           <h2 className="mb-6 bg-gradient-to-r from-slate-800 via-blue-700 to-cyan-700 bg-clip-text text-5xl font-bold text-transparent md:text-6xl">
             Experience
           </h2>
-          <p className="mx-auto max-w-2xl text-xl leading-relaxed text-slate-200 ">
+          <p className="mx-auto max-w-2xl text-xl leading-relaxed dark:text-slate-200 ">
             A timeline of my professional growth, key achievements, and the technologies that have shaped my career
           </p>
         </div>

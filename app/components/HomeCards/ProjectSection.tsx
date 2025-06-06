@@ -94,6 +94,27 @@ const projects: Project[] = [
       'MongoDB',
     ],
   },
+  {
+    title: 'UI Academy',
+    description:
+      'A documentation site that serves as a comprehensive resource for reusable React components, animation, and utilities built with TypeScript and Tailwind CSS. Users can easily copy and paste components for rapid development. Features include pre-built customizable components, context providers, custom hooks, and utility functions, all with a TypeScript-first approach for better code quality and productivity.',
+    projectUrl: 'https://ui-academy.vercel.app/',
+    imageUrl: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&h=600&fit=crop&crop=center',
+    category: 'Component Library Documentation',
+    status: 'Live',
+    gradient: 'from-blue-400 via-sky-400 to-cyan-400',
+    accentColor: 'blue',
+    technologies: [
+      'Next.js',
+      'React',
+      'TypeScript',
+      'TailwindCSS',
+      'Framer Motion',
+      'Component Library',
+      'Documentation',
+      'Vercel',
+    ],
+  },
 ];
 
 const ProjectSection = () => {
@@ -306,7 +327,7 @@ const ProjectSection = () => {
 
                         {/* Technologies */}
                         {project.technologies && (
-                          <div className="space-y-4 hidden md:block">
+                          <div className="hidden space-y-4 md:block">
                             <div className={`flex items-center gap-2 ${accentColors.text}`}>
                               <Zap className="h-4 w-4" />
                               <span className="text-sm font-medium">Tech Arsenal</span>

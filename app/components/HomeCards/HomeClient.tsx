@@ -37,8 +37,8 @@ const HomeClient = () => {
       <div id="projects" ref={projectsRef}>
         {isProjectsInView && <ProjectSection />}
       </div>
-      <div id="experience" ref={projectsRef}>
-        { <ExperienceSection />}
+      <div id="experience" ref={experienceRef}>
+        {isExperienceInView && <ExperienceSection />}
       </div>
       <div id="contact" ref={contactRef}>
         {isContactInView && <ContactSection />}
