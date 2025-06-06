@@ -83,16 +83,19 @@ const ExperienceSection: React.FC = () => {
 
   const getTypeColor = (type: Experience['type']) => {
     const colors = {
-      'full-time': 'bg-blue-100 text-blue-700 border-blue-200',
-      contract: 'bg-sky-100 text-sky-700 border-sky-200',
-      internship: 'bg-cyan-100 text-cyan-700 border-cyan-200',
-      freelance: 'bg-indigo-100 text-indigo-700 border-indigo-200',
+      'full-time':
+        'bg-blue-100 text-blue-700 border-blue-200 dark:bg-blue-900/30 dark:text-blue-300 dark:border-blue-700/60',
+      contract: 'bg-sky-100 text-sky-700 border-sky-200 dark:bg-sky-900/30 dark:text-sky-300 dark:border-sky-700/60',
+      internship:
+        'bg-cyan-100 text-cyan-700 border-cyan-200 dark:bg-cyan-900/30 dark:text-cyan-300 dark:border-cyan-700/60',
+      freelance:
+        'bg-indigo-100 text-indigo-700 border-indigo-200 dark:bg-indigo-900/30 dark:text-indigo-300 dark:border-indigo-700/60',
     };
     return colors[type];
   };
 
   return (
-    <section className="relative min-h-screen overflow-hidden bg-gradient-to-br from-slate-50 via-blue-50/50 to-cyan-50 px-4 py-20">
+    <section className="relative min-h-screen overflow-hidden bg-gradient-to-br from-slate-50 via-blue-50/50 to-cyan-50 px-4 py-20 dark:bg-gradient-to-br dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
       {/* Animated background elements */}
 
       <div className="relative z-10 mx-auto max-w-6xl">
@@ -100,12 +103,12 @@ const ExperienceSection: React.FC = () => {
         <div className="mb-16 text-center">
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-200/30 bg-blue-500/10 px-4 py-2 backdrop-blur-sm">
             <Briefcase className="h-4 w-4 text-blue-600" />
-            <span className="text-sm font-medium text-slate-700">Professional Journey</span>
+            <span className="text-sm font-medium text-white">Professional Journey</span>
           </div>
           <h2 className="mb-6 bg-gradient-to-r from-slate-800 via-blue-700 to-cyan-700 bg-clip-text text-5xl font-bold text-transparent md:text-6xl">
             Experience
           </h2>
-          <p className="mx-auto max-w-2xl text-xl leading-relaxed text-slate-600">
+          <p className="mx-auto max-w-2xl text-xl leading-relaxed text-slate-200 ">
             A timeline of my professional growth, key achievements, and the technologies that have shaped my career
           </p>
         </div>
@@ -140,9 +143,9 @@ const ExperienceSection: React.FC = () => {
                   onMouseLeave={() => setActiveCard(null)}
                 >
                   {/* Glassmorphism card */}
-                  <div className="relative overflow-hidden rounded-2xl border border-blue-200/30 bg-white/70 p-6 shadow-xl shadow-blue-500/10 backdrop-blur-xl md:p-8">
+                  <div className="relative overflow-hidden rounded-2xl border border-blue-200/30 bg-white/70 p-6 shadow-xl shadow-blue-500/10 backdrop-blur-xl dark:border-slate-700/50 dark:bg-slate-900/80 dark:shadow-cyan-900/10 md:p-8">
                     {/* Gradient overlay */}
-                    <div className="from-blue-500/8 to-cyan-500/8 absolute inset-0 bg-gradient-to-br via-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
+                    <div className="from-blue-500/8 to-cyan-500/8 absolute inset-0 bg-gradient-to-br via-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100 dark:from-blue-900/10 dark:to-cyan-900/10"></div>
 
                     {/* Content */}
                     <div className="relative z-10">
@@ -150,14 +153,14 @@ const ExperienceSection: React.FC = () => {
                       <div className="mb-4 flex flex-wrap items-start justify-between gap-4">
                         <div className="min-w-0 flex-1">
                           <div className="mb-2 flex items-center gap-3">
-                            <h3 className="text-xl font-bold text-slate-800 transition-colors group-hover:text-blue-700 md:text-2xl">
+                            <h3 className="text-xl font-bold text-slate-800 transition-colors group-hover:text-blue-700 dark:text-cyan-200 group-hover:dark:text-cyan-400 md:text-2xl">
                               {exp.position}
                             </h3>
                             {exp.companyUrl && (
                               <ExternalLink className="h-4 w-4 text-slate-400 transition-colors group-hover:text-blue-500" />
                             )}
                           </div>
-                          <p className="mb-2 text-lg font-medium text-blue-600">{exp.company}</p>
+                          <p className="mb-2 text-lg font-medium text-blue-600 dark:text-cyan-300">{exp.company}</p>
                         </div>
 
                         <div className={`rounded-full border px-3 py-1 text-xs font-medium ${getTypeColor(exp.type)}`}>
@@ -166,7 +169,7 @@ const ExperienceSection: React.FC = () => {
                       </div>
 
                       {/* Meta info */}
-                      <div className="mb-4 flex flex-wrap gap-4 text-sm text-slate-500">
+                      <div className="mb-4 flex flex-wrap gap-4 text-sm text-slate-500 dark:text-slate-400">
                         <div className="flex items-center gap-1">
                           <Calendar className="h-4 w-4" />
                           <span>{exp.duration}</span>
@@ -178,7 +181,7 @@ const ExperienceSection: React.FC = () => {
                       </div>
 
                       {/* Description */}
-                      <p className="mb-4 leading-relaxed text-slate-700">{exp.description}</p>
+                      <p className="mb-4 leading-relaxed text-slate-700 dark:text-slate-300">{exp.description}</p>
 
                       {/* Achievements */}
                       <div
@@ -187,13 +190,13 @@ const ExperienceSection: React.FC = () => {
                         }`}
                       >
                         <div className="mb-4">
-                          <h4 className="mb-3 flex items-center gap-2 text-sm font-semibold text-cyan-600">
+                          <h4 className="mb-3 flex items-center gap-2 text-sm font-semibold text-cyan-600 dark:text-cyan-300">
                             <Award className="h-4 w-4" />
                             Key Achievements
                           </h4>
                           <ul className="space-y-2">
                             {exp.achievements.map((achievement, i) => (
-                              <li key={i} className="flex items-start gap-2 text-sm text-slate-600">
+                              <li key={i} className="flex items-start gap-2 text-sm text-slate-600 dark:text-slate-400">
                                 <ChevronRight className="mt-0.5 h-3 w-3 flex-shrink-0 text-cyan-500" />
                                 <span>{achievement}</span>
                               </li>
@@ -207,7 +210,7 @@ const ExperienceSection: React.FC = () => {
                         {exp.technologies.map((tech, i) => (
                           <span
                             key={i}
-                            className="rounded-full border border-blue-200 bg-blue-50 px-3 py-1 text-xs font-medium text-blue-700 backdrop-blur-sm transition-colors hover:bg-blue-100"
+                            className="rounded-full border border-blue-200 bg-blue-50 px-3 py-1 text-xs font-medium text-blue-700 backdrop-blur-sm transition-colors hover:bg-blue-100 dark:border-slate-700 dark:bg-slate-800 dark:text-cyan-200 dark:hover:bg-slate-900"
                           >
                             {tech}
                           </span>
@@ -225,7 +228,7 @@ const ExperienceSection: React.FC = () => {
                     </div>
 
                     {/* Animated border */}
-                    <div className="absolute inset-0 -z-10 rounded-2xl bg-gradient-to-r from-blue-500/15 via-sky-500/15 to-cyan-500/15 opacity-0 blur-sm transition-opacity duration-500 group-hover:opacity-100"></div>
+                    <div className="absolute inset-0 -z-10 rounded-2xl bg-gradient-to-r from-blue-500/15 via-sky-500/15 to-cyan-500/15 opacity-0 blur-sm transition-opacity duration-500 group-hover:opacity-100 dark:from-blue-900/10 dark:via-sky-900/10 dark:to-cyan-900/10"></div>
                   </div>
                 </div>
               </div>
@@ -242,15 +245,17 @@ const ExperienceSection: React.FC = () => {
           ].map((stat, i) => (
             <div
               key={i}
-              className="group rounded-xl border border-blue-200/30 bg-white/70 p-6 text-center shadow-lg shadow-blue-500/10 backdrop-blur-xl transition-all duration-300 hover:bg-white/90"
+              className="group rounded-xl border border-blue-200/30 bg-white/70 p-6 text-center shadow-lg shadow-blue-500/10 backdrop-blur-xl transition-all duration-300 hover:bg-white/90 dark:border-slate-700/50 dark:bg-slate-900/70 dark:text-cyan-200 hover:dark:bg-slate-900/80"
             >
               <div
-                className={`inline-flex h-12 w-12 items-center justify-center rounded-full bg-${stat.color}-100 text-${stat.color}-600 mb-4 transition-transform group-hover:scale-110`}
+                className={`inline-flex h-12 w-12 items-center justify-center rounded-full bg-${stat.color}-100 text-${stat.color}-600 mb-4 transition-transform group-hover:scale-110 dark:bg-${stat.color}-900/40 dark:text-${stat.color}-300`}
               >
                 <stat.icon className="h-6 w-6" />
               </div>
-              <div className={`text-2xl font-bold text-${stat.color}-600 mb-1`}>{stat.value}</div>
-              <div className="text-sm text-slate-500">{stat.label}</div>
+              <div className={`text-2xl font-bold text-${stat.color}-600 mb-1 dark:text-${stat.color}-300`}>
+                {stat.value}
+              </div>
+              <div className="text-sm text-slate-500 dark:text-slate-400">{stat.label}</div>
             </div>
           ))}
         </div>
