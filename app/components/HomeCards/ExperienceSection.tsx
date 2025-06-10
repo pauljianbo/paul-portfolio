@@ -108,7 +108,7 @@ const ExperienceSection: React.FC = () => {
           <h2 className="mb-6 bg-gradient-to-r from-slate-800 via-blue-700 to-cyan-700 bg-clip-text text-5xl font-bold text-transparent md:text-6xl">
             Experience
           </h2>
-          <p className="mx-auto max-w-2xl text-xl leading-relaxed dark:text-slate-200 ">
+          <p className="mx-auto max-w-2xl text-xl leading-relaxed dark:text-slate-200">
             A timeline of my professional growth, key achievements, and the technologies that have shaped my career
           </p>
         </div>
@@ -122,9 +122,7 @@ const ExperienceSection: React.FC = () => {
             <div
               key={exp.id}
               ref={(el) => cardRef(el, exp.id)}
-              className={`relative mb-12 transition-all duration-1000 md:mb-16 ${
-                visibleCards.has(exp.id) ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
-              }`}
+              className={`relative mb-12 transition-all duration-1000 md:mb-16`}
               style={{ transitionDelay: `${index * 200}ms` }}
             >
               {/* Timeline dot - Always on left */}
@@ -136,7 +134,7 @@ const ExperienceSection: React.FC = () => {
               <div className="md:ml-16">
                 <div
                   className={`group relative cursor-pointer transition-all duration-500 ${
-                    activeCard === exp.id ? 'scale-105' : 'hover:scale-102'
+                    activeCard === exp.id ? 'scale-[1.02]' : 'hover:scale-100'
                   }`}
                   onClick={() => setActiveCard(activeCard === exp.id ? null : exp.id)}
                   onMouseEnter={() => setActiveCard(exp.id)}
