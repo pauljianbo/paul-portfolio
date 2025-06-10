@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import { Calendar, MapPin, ExternalLink, ChevronRight, Briefcase, Award, TrendingUp } from 'lucide-react';
 
 interface Experience {
@@ -16,7 +16,6 @@ interface Experience {
 
 const ExperienceSection: React.FC = () => {
   const [activeCard, setActiveCard] = useState<number | null>(null);
-  const [visibleCards, setVisibleCards] = useState<Set<number>>(new Set());
   const observerRef = useRef<IntersectionObserver | null>(null);
 
   const experiences: Experience[] = [
@@ -53,26 +52,6 @@ const ExperienceSection: React.FC = () => {
       type: 'full-time',
     },
   ];
-
-  useEffect(() => {
-    observerRef.current = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const cardId = parseInt(entry.target.getAttribute('data-card-id') || '0');
-            setVisibleCards((prev) => new Set([...Array.from(prev), cardId]));
-          }
-        });
-      },
-      { threshold: 0.2 }
-    );
-
-    return () => {
-      if (observerRef.current) {
-        observerRef.current.disconnect();
-      }
-    };
-  }, []);
 
   const cardRef = (element: HTMLDivElement | null, id: number) => {
     if (element && observerRef.current) {
@@ -133,9 +112,7 @@ const ExperienceSection: React.FC = () => {
               {/* Card - Always on right */}
               <div className="md:ml-16">
                 <div
-                  className={`group relative cursor-pointer transition-all duration-500 ${
-                    activeCard === exp.id ? 'scale-[1.02]' : 'hover:scale-100'
-                  }`}
+                  className={`group relative cursor-pointer transition-all duration-500`}
                   onClick={() => setActiveCard(activeCard === exp.id ? null : exp.id)}
                   onMouseEnter={() => setActiveCard(exp.id)}
                   onMouseLeave={() => setActiveCard(null)}
