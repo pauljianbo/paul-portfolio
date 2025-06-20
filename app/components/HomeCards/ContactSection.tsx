@@ -39,19 +39,14 @@ const ContactSection = () => {
             {/* Central Contact Hub */}
             <div className="relative z-10 mx-auto mb-20 max-w-2xl">
               <div
-                className="group relative overflow-hidden rounded-3xl border border-blue-500/20 bg-gradient-to-br from-white/80 to-blue-50/60 p-8 backdrop-blur-2xl transition-all duration-700 hover:border-blue-400/40 hover:bg-gradient-to-br hover:from-white/90 hover:to-blue-50/80 dark:border-cyan-500/20 dark:from-white/5 dark:to-cyan-900/10 dark:hover:border-cyan-400/40 dark:hover:from-white/10 dark:hover:to-cyan-900/20"
+                className="group relative overflow-hidden rounded-3xl border border-blue-500/20 bg-gradient-to-br from-white/80 to-blue-50/60 p-8 
+                backdrop-blur-2xl transition-all duration-700 hover:border-blue-400/40 hover:bg-gradient-to-br hover:from-white/90 hover:to-blue-50/80
+                 dark:border-cyan-500/20 dark:from-white/5 dark:to-cyan-900/60 dark:hover:border-cyan-400/40 dark:hover:from-white/10 dark:hover:to-cyan-900/20"
                 style={{
                   transformStyle: 'preserve-3d',
                   boxShadow: '0 25px 50px -12px rgba(59, 130, 246, 0.15)',
                 }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'rotateX(5deg) rotateY(-5deg) translateZ(20px)';
-                  e.currentTarget.style.boxShadow = '0 35px 70px -12px rgba(59, 130, 246, 0.25)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'rotateX(0deg) rotateY(0deg) translateZ(0px)';
-                  e.currentTarget.style.boxShadow = '0 25px 50px -12px rgba(59, 130, 246, 0.15)';
-                }}
+              
               >
                 {/* Animated Border */}
                 <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-blue-500/20 via-indigo-500/20 to-purple-500/20 p-[1px] dark:from-cyan-500/20 dark:via-blue-500/20 dark:to-purple-500/20">
@@ -211,15 +206,7 @@ const ContactSection = () => {
                 className="absolute -bottom-16 left-1/2 -translate-x-1/2 transform"
                 style={{ transform: 'translateX(-50%) translateZ(15px)' }}
               >
-                <div
-                  className="group cursor-pointer"
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.transform = 'translateX(-50%) translateZ(35px) rotateY(5deg)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.transform = 'translateX(-50%) translateZ(15px) rotateY(0deg)';
-                  }}
-                >
+                <div className="group cursor-pointer">
                   <div className="flex items-center space-x-4 rounded-2xl border border-purple-400/40 bg-gradient-to-r from-purple-100/80 to-pink-100/60 px-6 py-4 backdrop-blur-xl transition-all duration-500 hover:border-purple-400/60 hover:bg-gradient-to-r hover:from-purple-100/90 hover:to-pink-100/80 dark:border-purple-500/20 dark:from-purple-900/20 dark:to-pink-900/20 dark:hover:border-purple-400/40 dark:hover:from-purple-900/30 dark:hover:to-pink-900/30">
                     <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-purple-500 to-pink-600 shadow-lg transition-transform duration-300 group-hover:scale-110">
                       <MapPin className="h-6 w-6 text-white" />

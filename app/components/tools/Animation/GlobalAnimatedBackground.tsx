@@ -26,7 +26,7 @@ const colorThemes = {
       particles: ['#1d4ed8', '#7c3aed', '#db2777', '#0891b2', '#059669'],
     },
     dark: {
-      primary: 'from-slate-900 via-purple-900 to-slate-900 dark:from-blue-950 dark:via-purple-950/50 dark:to-black',
+      primary: 'from-slate-900 via-purple-900 to-slate-900 dark:from-blue-950 dark:via-slate-800 dark:to-black',
       accent1: 'from-blue-500/10 to-purple-500/10',
       accent2: 'from-pink-500/10 to-blue-500/10',
       particles: ['#3b82f6', '#8b5cf6', '#ec4899', '#06b6d4', '#10b981'],
@@ -40,7 +40,7 @@ const colorThemes = {
       particles: ['#3b82f6', '#0ea5e9', '#06b6d4', '#0891b2', '#059669'],
     },
     dark: {
-      primary: 'from-slate-900 via-blue-900/50 to-slate-900',
+      primary: 'from-slate-900 via-blue-900 to-slate-900',
       accent1: 'from-blue-500/10 to-sky-500/10',
       accent2: 'from-cyan-500/10 to-blue-500/10',
       particles: ['#60a5fa', '#38bdf8', '#22d3ee', '#06b6d4', '#10b981'],
@@ -54,7 +54,7 @@ const colorThemes = {
       particles: ['#3b82f6', '#8b5cf6', '#a855f7', '#0891b2', '#6366f1'],
     },
     dark: {
-      primary: 'from-slate-900 via-blue-900/40 to-purple-900/40',
+      primary: 'from-slate-900 via-blue-900 to-purple-900/40',
       accent1: 'from-blue-500/10 to-purple-500/10',
       accent2: 'from-purple-500/10 to-blue-500/10',
       particles: ['#60a5fa', '#a78bfa', '#c084fc', '#06b6d4', '#818cf8'],
@@ -68,7 +68,7 @@ const colorThemes = {
       particles: ['#475569', '#3b82f6', '#64748b', '#0891b2', '#374151'],
     },
     dark: {
-      primary: 'from-slate-900 via-slate-800 to-blue-900/30',
+      primary: 'from-slate-900 via-slate-800 to-blue-900',
       accent1: 'from-slate-500/10 to-blue-500/10',
       accent2: 'from-blue-500/10 to-slate-500/10',
       particles: ['#94a3b8', '#60a5fa', '#e2e8f0', '#06b6d4', '#f1f5f9'],
@@ -82,7 +82,7 @@ const colorThemes = {
       particles: ['#10b981', '#3b82f6', '#06b6d4', '#059669', '#0ea5e9'],
     },
     dark: {
-      primary: 'from-gray-900 via-green-900/30 to-blue-900/30',
+      primary: 'from-blue-600 via-slate-900 to-blue-900',
       accent1: 'from-green-500/10 to-blue-500/10',
       accent2: 'from-blue-500/10 to-cyan-500/10',
       particles: ['#34d399', '#60a5fa', '#22d3ee', '#10b981', '#38bdf8'],
