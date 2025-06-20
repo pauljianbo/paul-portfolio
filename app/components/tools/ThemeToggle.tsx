@@ -29,8 +29,10 @@ const ThemeToggle = (): JSX.Element => {
   return (
     <button
       onClick={toggleTheme}
-      className={`relative rounded-md p-2  transition-colors text-dark-text-primary bg-gradient-to-r ${
-        theme === 'light' ? 'from-light-primary to-light-secondary' : 'from-dark-primary to-dark-secondary'
+      className={`relative rounded-md bg-gradient-to-r p-2 text-dark-text-primary transition-colors ${
+        theme === 'light'
+          ? 'from-light-primary to-light-secondary'
+          : 'dark:from-blue-900 dark:via-slate-800 dark:to-slate-900'
       }`}
       aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
     >
