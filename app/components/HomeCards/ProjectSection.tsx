@@ -136,7 +136,7 @@ const ProjectSection = () => {
       if (intervalRef.current) clearInterval(intervalRef.current);
       intervalRef.current = setInterval(() => {
         handleNextClick();
-      }, 5000);
+      }, 2000);
     };
     // Start interval if not hovered
     if (!isHovered) {
@@ -184,6 +184,10 @@ const ProjectSection = () => {
 
   const toggleCard = (index: number) => {
     setExpandedCards((prev) => (prev.includes(index) ? prev.filter((i) => i !== index) : [...prev, index]));
+  };
+
+  const handleCardClick = (projectUrl: string) => {
+    window.open(projectUrl, '_blank', 'noopener,noreferrer');
   };
 
   const getStatusColor = (status: string) => {
@@ -248,7 +252,10 @@ const ProjectSection = () => {
                 >
                   <div key={index} className="group relative xl:mx-24">
                     {/* Main Card */}
-                    <div className="relative flex h-full flex-col overflow-hidden rounded-2xl border border-blue-200/50 bg-white/80 backdrop-blur-xl transition-all duration-500 group-hover:-translate-y-2 group-hover:border-blue-300/60 group-hover:bg-white/90 dark:border-slate-700/50 dark:bg-slate-900/80 dark:group-hover:border-cyan-400/60 dark:group-hover:bg-slate-900/90">
+                    <div
+                      className="relative flex h-full cursor-pointer flex-col overflow-hidden rounded-2xl border border-blue-200/50 bg-white/80 backdrop-blur-xl transition-all duration-500 group-hover:-translate-y-2 group-hover:border-blue-300/60 group-hover:bg-white/90 dark:border-slate-700/50 dark:bg-slate-900/80 dark:group-hover:border-cyan-400/60 dark:group-hover:bg-slate-900/90"
+                      onClick={() => handleCardClick(project.projectUrl)}
+                    >
                       {/* Image Section */}
                       <div className="relative h-80 overflow-hidden lg:h-96">
                         <img
@@ -265,6 +272,7 @@ const ProjectSection = () => {
                           href={project.projectUrl}
                           target="_blank"
                           rel="noopener noreferrer"
+                          onClick={(e) => e.stopPropagation()}
                           className={`absolute right-6 top-6 rounded-full border ${accentColors.border} ${accentColors.bg} p-3 shadow-lg backdrop-blur-xl transition-all duration-300 ${accentColors.hover} group/btn hover:scale-110`}
                         >
                           <ArrowUpRight
@@ -307,7 +315,10 @@ const ProjectSection = () => {
                           </p>
 
                           <button
-                            onClick={() => toggleCard(index)}
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              toggleCard(index);
+                            }}
                             className={`group/read mt-4 inline-flex items-center gap-2 text-sm font-medium ${accentColors.text} transition-all duration-300 hover:translate-x-1 hover:text-slate-800 dark:hover:text-cyan-100`}
                           >
                             {expandedCards.includes(index) ? 'Show less' : 'Read more'}
