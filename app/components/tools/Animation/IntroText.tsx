@@ -124,11 +124,11 @@ const IntroText = () => {
         >
           <div className="group relative">
             <div className="animate-tilt absolute -inset-1 rounded-2xl bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 opacity-75 blur transition duration-1000 group-hover:opacity-100 group-hover:duration-200"></div>
-            <button className="relative flex items-center divide-x divide-gray-600 rounded-xl bg-black px-8 py-4 leading-none dark:bg-white">
+            <button className="relative flex items-center divide-x divide-gray-600 rounded-xl bg-blue-400 px-8 py-4 leading-none dark:bg-white">
               <span className="flex items-center space-x-3">
                 <span className="text-lg font-semibold text-white dark:text-black">Let&apos;s Connect</span>
               </span>
-              <span className="pl-4 text-blue-400 transition duration-200 group-hover:text-white dark:text-blue-600 dark:group-hover:text-black">
+              <span className="pl-4 text-white transition duration-200 group-hover:text-white dark:text-blue-600 dark:group-hover:text-black">
                 →
               </span>
             </button>
