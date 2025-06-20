@@ -82,7 +82,7 @@ const ExperienceSection: React.FC = () => {
             <Briefcase className="h-4 w-4 text-blue-600" />
             <span className="text-sm font-medium text-blue-600 dark:text-white">Professional Journey</span>
           </div>
-          <h2 className="mb-6 bg-gradient-to-r from-slate-800 via-blue-700 to-cyan-700 bg-clip-text text-5xl font-bold text-transparent md:text-6xl">
+          <h2 className="mb-6 hidden bg-gradient-to-r from-blue-500 via-sky-500 to-cyan-500 bg-clip-text text-6xl font-bold text-transparent dark:from-cyan-200 dark:via-blue-200 dark:to-blue-100 md:block">
             Experience
           </h2>
           <p className="mx-auto max-w-2xl text-xl leading-relaxed dark:text-slate-200">

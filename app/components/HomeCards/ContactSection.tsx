@@ -39,14 +39,11 @@ const ContactSection = () => {
             {/* Central Contact Hub */}
             <div className="relative z-10 mx-auto mb-20 max-w-2xl">
               <div
-                className="group relative overflow-hidden rounded-3xl border border-blue-500/20 bg-gradient-to-br from-white/80 to-blue-50/60 p-8 
-                backdrop-blur-2xl transition-all duration-700 hover:border-blue-400/40 hover:bg-gradient-to-br hover:from-white/90 hover:to-blue-50/80
-                 dark:border-cyan-500/20 dark:from-white/5 dark:to-cyan-900/60 dark:hover:border-cyan-400/40 dark:hover:from-white/10 dark:hover:to-cyan-900/20"
+                className="group relative overflow-hidden rounded-3xl border border-blue-500/20 bg-gradient-to-br from-white/80 to-blue-50/60 p-8 backdrop-blur-2xl transition-all duration-700 hover:border-blue-400/40 hover:bg-gradient-to-br hover:from-white/90 hover:to-blue-50/80 dark:border-cyan-500/20 dark:from-white/5 dark:to-cyan-900/60 dark:hover:border-cyan-400/40 dark:hover:from-white/10 dark:hover:to-cyan-900/20"
                 style={{
                   transformStyle: 'preserve-3d',
                   boxShadow: '0 25px 50px -12px rgba(59, 130, 246, 0.15)',
                 }}
-              
               >
                 {/* Animated Border */}
                 <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-blue-500/20 via-indigo-500/20 to-purple-500/20 p-[1px] dark:from-cyan-500/20 dark:via-blue-500/20 dark:to-purple-500/20">
@@ -102,64 +99,32 @@ const ContactSection = () => {
             {/* Floating Social Cards */}
             <div className="relative">
               {/* GitHub - Top Left */}
-              <div className="absolute -top-10 left-0 md:left-10 lg:left-20" style={{ transform: 'translateZ(30px)' }}>
-                <a
-                  href="#"
-                  className="group block"
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.transform = 'translateZ(50px) rotateY(15deg) scale(1.1)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.transform = 'translateZ(30px) rotateY(0deg) scale(1)';
-                  }}
-                >
-                  <div className="flex h-24 w-24 items-center justify-center rounded-2xl border border-gray-300/60 bg-gradient-to-br from-gray-100 to-gray-200 shadow-2xl backdrop-blur-xl transition-all duration-500 hover:border-gray-400/80 dark:border-gray-600/30 dark:from-gray-800 dark:to-gray-900 dark:hover:border-gray-400/50">
+              <div className="absolute -top-10 left-0 md:left-10 lg:left-20">
+                <a href="#" className="group">
+                  <div className="flex h-24 w-24 items-center justify-center rounded-2xl border border-gray-300/60 bg-gradient-to-br from-gray-100 to-gray-200 shadow-2xl backdrop-blur-xl transition-all duration-500 hover:scale-110 hover:border-gray-400/80 dark:border-gray-600/30 dark:from-gray-800 dark:to-gray-900 dark:hover:border-gray-400/50">
                     <Github className="h-10 w-10 text-gray-700 transition-transform duration-300 group-hover:scale-110 dark:text-white" />
                   </div>
                 </a>
               </div>
 
               {/* LinkedIn - Top Right */}
-              <div
-                className="absolute -top-10 right-0 md:right-10 lg:right-20"
-                style={{ transform: 'translateZ(25px)' }}
-              >
+              <div className="absolute -top-10 right-0 md:right-10 lg:right-20">
                 <a
                   href="https://www.linkedin.com/in/jianbo-cai-4540242a0/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group block"
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.transform = 'translateZ(45px) rotateY(-15deg) scale(1.1)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.transform = 'translateZ(25px) rotateY(0deg) scale(1)';
-                  }}
+                  className="group"
                 >
-                  <div className="flex h-24 w-24 items-center justify-center rounded-2xl border border-blue-400/60 bg-gradient-to-br from-blue-500 to-blue-700 shadow-2xl backdrop-blur-xl transition-all duration-500 hover:border-blue-300/80 dark:border-blue-500/30 dark:from-blue-600 dark:to-blue-800 dark:hover:border-blue-400/50">
+                  <div className="flex h-24 w-24 items-center justify-center rounded-2xl border border-blue-400/60 bg-gradient-to-br from-blue-500 to-blue-700 shadow-2xl backdrop-blur-xl transition-all duration-500 hover:scale-110 hover:border-blue-300/80 dark:border-blue-500/30 dark:from-blue-600 dark:to-blue-800 dark:hover:border-blue-400/50">
                     <Linkedin className="h-10 w-10 text-white transition-transform duration-300 group-hover:scale-110" />
                   </div>
                 </a>
               </div>
 
               {/* WhatsApp - Bottom Left */}
-              <div
-                className="absolute -bottom-10 left-0 md:left-16 lg:left-32"
-                style={{ transform: 'translateZ(20px)' }}
-              >
-                <a
-                  href="https://wa.me/6587199362"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group block"
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.transform = 'translateZ(40px) rotateX(10deg) scale(1.1)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.transform = 'translateZ(20px) rotateX(0deg) scale(1)';
-                  }}
-                >
-                  <div className="flex h-24 w-24 items-center justify-center rounded-2xl border border-green-400/60 bg-gradient-to-br from-green-500 to-green-700 shadow-2xl backdrop-blur-xl transition-all duration-500 hover:border-green-300/80 dark:border-green-400/30 dark:hover:border-green-300/50">
+              <div className="absolute -bottom-10 left-0 md:left-16 lg:left-32">
+                <a href="https://wa.me/6587199362" target="_blank" rel="noopener noreferrer" className="group">
+                  <div className="flex h-24 w-24 items-center justify-center rounded-2xl border border-green-400/60 bg-gradient-to-br from-green-500 to-green-700 shadow-2xl backdrop-blur-xl transition-all duration-500 hover:scale-110 hover:border-green-300/80 dark:border-green-400/30 dark:hover:border-green-300/50">
                     <svg
                       className="h-10 w-10 text-white transition-transform duration-300 group-hover:scale-110"
                       viewBox="0 0 24 24"
@@ -173,23 +138,9 @@ const ContactSection = () => {
               </div>
 
               {/* Telegram - Bottom Right */}
-              <div
-                className="absolute -bottom-10 right-0 md:right-16 lg:right-32"
-                style={{ transform: 'translateZ(35px)' }}
-              >
-                <a
-                  href="https://t.me/LboVboE"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group block"
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.transform = 'translateZ(55px) rotateX(-10deg) scale(1.1)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.transform = 'translateZ(35px) rotateX(0deg) scale(1)';
-                  }}
-                >
-                  <div className="flex h-24 w-24 items-center justify-center rounded-2xl border border-sky-400/60 bg-gradient-to-br from-sky-500 to-blue-600 shadow-2xl backdrop-blur-xl transition-all duration-500 hover:border-sky-300/80 dark:border-sky-400/30 dark:hover:border-sky-300/50">
+              <div className="absolute -bottom-10 right-0 md:right-16 lg:right-32">
+                <a href="https://t.me/LboVboE" target="_blank" rel="noopener noreferrer" className="group">
+                  <div className="flex h-24 w-24 items-center justify-center rounded-2xl border border-sky-400/60 bg-gradient-to-br from-sky-500 to-blue-600 shadow-2xl backdrop-blur-xl transition-all duration-500 hover:scale-110 hover:border-sky-300/80 dark:border-sky-400/30 dark:hover:border-sky-300/50">
                     <svg
                       className="h-10 w-10 text-white transition-transform duration-300 group-hover:scale-110"
                       viewBox="0 0 24 24"
@@ -202,10 +153,7 @@ const ContactSection = () => {
               </div>
 
               {/* Location Card - Center Bottom */}
-              <div
-                className="absolute -bottom-16 left-1/2 -translate-x-1/2 transform"
-                style={{ transform: 'translateX(-50%) translateZ(15px)' }}
-              >
+              <div className="absolute -bottom-16 left-1/2 -translate-x-1/2 transform">
                 <div className="group cursor-pointer">
                   <div className="flex items-center space-x-4 rounded-2xl border border-purple-400/40 bg-gradient-to-r from-purple-100/80 to-pink-100/60 px-6 py-4 backdrop-blur-xl transition-all duration-500 hover:border-purple-400/60 hover:bg-gradient-to-r hover:from-purple-100/90 hover:to-pink-100/80 dark:border-purple-500/20 dark:from-purple-900/20 dark:to-pink-900/20 dark:hover:border-purple-400/40 dark:hover:from-purple-900/30 dark:hover:to-pink-900/30">
                     <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-purple-500 to-pink-600 shadow-lg transition-transform duration-300 group-hover:scale-110">
