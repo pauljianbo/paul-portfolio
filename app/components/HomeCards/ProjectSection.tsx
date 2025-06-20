@@ -225,19 +225,16 @@ const ProjectSection = () => {
 
       <div className="container relative z-10 mx-auto px-4 py-12 md:py-20">
         {/* Header */}
-        <div className="animate-fade-in text-center md:mb-20">
+        <div className="animate-fade-in text-center md:mb-10">
           <div className="mb-8 inline-flex items-center gap-3 rounded-full border border-blue-200/60 bg-white/70 px-6 py-3 shadow-lg backdrop-blur-xl dark:border-blue-700/60 dark:bg-slate-800/80">
             <Sparkles className="h-5 w-5 text-blue-500 dark:text-cyan-300" />
             <span className="text-sm font-medium text-blue-700 dark:text-slate-200">Featured Projects</span>
             <div className="h-2 w-2 rounded-full bg-blue-400 dark:bg-cyan-400"></div>
           </div>
 
-          <h1 className="mb-8 bg-gradient-to-r from-blue-600 via-sky-600 to-cyan-600 bg-clip-text text-5xl font-bold text-transparent dark:from-cyan-400 dark:via-blue-400 dark:to-sky-400 md:block md:text-7xl lg:text-8xl">
-            Personal
-            <span className="block bg-gradient-to-r from-blue-500 via-sky-500 to-cyan-500 bg-clip-text dark:from-cyan-400 dark:via-blue-400 dark:to-sky-400">
-              Masterpieces
-            </span>
-          </h1>
+          <h2 className="hidden bg-gradient-to-r from-blue-500 via-sky-500 to-cyan-500 bg-clip-text text-6xl font-bold text-transparent dark:from-cyan-200 dark:via-blue-200 dark:to-blue-100 md:block">
+            Personal Masterpieces
+          </h2>
         </div>
 
         <Swiper spaceBetween={0} slidesPerView={1} ref={swiperRef} loop={true} onSlideChange={handleSlideChange}>
