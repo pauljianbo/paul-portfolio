@@ -34,20 +34,28 @@ export const ThemeContext = createContext<ThemeContextType | undefined>(undefine
  * @param {ReactNode} props.children - Child components that will have access to the theme context
  */
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
-  // Initialize theme state with 'light' as default
-  const [theme, setTheme] = useState<'light' | 'dark'>('light');
+  // Initialize theme state with 'dark' as default (changed from 'light')
+  const [theme, setTheme] = useState<'light' | 'dark'>('dark');
 
   /**
    * On component mount:
    * - Checks local storage for saved theme preference
-   * - Applies the saved theme if it exists
+   * - Applies the saved theme if it exists, or defaults to dark mode
    * - Updates DOM classes accordingly
    */
   useEffect(() => {
     const storedTheme = localStorage.getItem('theme');
     if (storedTheme) {
       setTheme(storedTheme as 'light' | 'dark');
-      document.documentElement.classList.add(storedTheme);
+      // Only add dark class if the stored theme is dark
+      if (storedTheme === 'dark') {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    } else {
+      // No stored preference, use default dark mode
+      document.documentElement.classList.add('dark');
     }
   }, []);
 
