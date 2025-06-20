@@ -1,6 +1,5 @@
 import React, { useState, useRef } from 'react';
 import { Calendar, MapPin, ExternalLink, ChevronRight, Briefcase, Award, TrendingUp } from 'lucide-react';
-import ThemedAnimatedBackground from '../tools/Animation/ThemedAnimatedBackground';
 
 interface Experience {
   id: number;
@@ -76,9 +75,6 @@ const ExperienceSection: React.FC = () => {
 
   return (
     <section className="relative min-h-screen overflow-hidden px-4 py-20">
-      {/* Themed Animated Background */}
-      <ThemedAnimatedBackground colorTheme="experience" />
-
       <div className="relative z-10 mx-auto max-w-6xl">
         {/* Header */}
         <div className="mb-16 text-center">

@@ -3,7 +3,6 @@ import { Zap, ChevronRight, Eye, ArrowUpRight, Sparkles } from 'lucide-react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { SwiperRef } from 'swiper/react';
 import 'swiper/css';
-import ThemedAnimatedBackground from '../tools/Animation/ThemedAnimatedBackground';
 // Define the structure for project data
 interface Project {
   title: string;
@@ -220,9 +219,6 @@ const ProjectSection = () => {
 
   return (
     <section className="relative min-h-screen overflow-hidden">
-      {/* Themed Animated Background */}
-      <ThemedAnimatedBackground colorTheme="projects" />
-
       <div className="container relative z-10 mx-auto px-4 py-12 md:py-20">
         {/* Header */}
         <div className="animate-fade-in text-center md:mb-10">

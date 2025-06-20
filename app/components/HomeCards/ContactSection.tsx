@@ -1,13 +1,9 @@
 import React from 'react';
 import { Mail, Phone, MapPin, Github, Linkedin, Zap, Globe } from 'lucide-react';
-import ThemedAnimatedBackground from '../tools/Animation/ThemedAnimatedBackground';
 
 const ContactSection = () => {
   return (
     <div className="relative min-h-screen overflow-hidden">
-      {/* Themed Animated Background */}
-      <ThemedAnimatedBackground colorTheme="contact" />
-
       {/* Perspective Container for 3D Effects */}
       <div className="relative min-h-screen" style={{ perspective: '1000px' }}>
         <div className="container relative mx-auto px-4 py-20 lg:px-8">

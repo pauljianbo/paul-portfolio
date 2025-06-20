@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Code2, Database, Server, Wrench, BookOpen, Star, Sparkles, Zap } from 'lucide-react';
-import ThemedAnimatedBackground from '../tools/Animation/ThemedAnimatedBackground';
 
 const SkillSection = () => {
   const [activeCategory, setActiveCategory] = useState('Frontend');
@@ -238,9 +237,6 @@ const SkillSection = () => {
 
   return (
     <section className="relative overflow-hidden px-4 py-12 md:py-20">
-      {/* Themed Animated Background */}
-      <ThemedAnimatedBackground colorTheme="skills" />
-
       <div className="container relative z-10 mx-auto">
         {/* Header */}
         <motion.div
