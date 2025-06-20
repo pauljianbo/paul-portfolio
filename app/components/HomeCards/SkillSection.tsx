@@ -306,7 +306,7 @@ const SkillSection = () => {
             className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
           >
             {filteredSkills.map((skill, index) => (
-              <motion.div key={`${skill.name}-${activeCategory}`} variants={skillVariants} className="group relative ">
+              <motion.div key={`${skill.name}-${activeCategory}`} variants={skillVariants} className="group relative">
                 <div className="relative h-full overflow-hidden rounded-2xl border border-blue-200/50 bg-white/70 p-6 shadow-lg backdrop-blur-xl transition-all duration-500 dark:border-slate-700/50 dark:bg-slate-900/70">
                   {/* Gradient Overlay */}
                   <div
@@ -337,8 +337,7 @@ const SkillSection = () => {
                         <motion.div
                           className={`h-2 bg-gradient-to-r ${categoryColors[skill.category as Category]} rounded-full dark:from-cyan-700 dark:to-blue-700`}
                           initial={{ width: 0 }}
-                          whileInView={{ width: `${skill.level}%` }}
-                          viewport={{ once: true }}
+                          animate={{ width: `${skill.level}%` }}
                           transition={{ duration: 1, delay: index * 0.1 }}
                         />
                       </div>
