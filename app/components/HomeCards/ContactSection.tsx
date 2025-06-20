@@ -14,26 +14,26 @@ const ContactSection = () => {
           {/* Futuristic Header */}
           <div className="mb-20 text-center">
             <div className="mb-8 inline-flex">
-              <span className="relative overflow-hidden rounded-full border border-cyan-500/30 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 px-8 py-3 backdrop-blur-xl">
-                <div className="absolute inset-0 animate-pulse bg-gradient-to-r from-cyan-500/20 to-blue-500/20"></div>
+              <span className="relative overflow-hidden rounded-full border border-blue-500/30 bg-gradient-to-r from-blue-500/10 to-indigo-500/10 px-8 py-3 backdrop-blur-xl dark:border-cyan-500/30 dark:from-cyan-500/10 dark:to-blue-500/10">
+                <div className="absolute inset-0 animate-pulse bg-gradient-to-r from-blue-500/20 to-indigo-500/20 dark:from-cyan-500/20 dark:to-blue-500/20"></div>
                 <div className="relative flex items-center space-x-3">
-                  <Zap className="h-5 w-5 text-cyan-400" />
-                  <span className="text-sm font-semibold text-cyan-300">AVAILABLE FOR PROJECTS</span>
-                  <div className="h-2 w-2 animate-pulse rounded-full bg-green-400"></div>
+                  <Zap className="h-5 w-5 text-blue-600 dark:text-cyan-400" />
+                  <span className="text-sm font-semibold text-blue-700 dark:text-cyan-300">AVAILABLE FOR PROJECTS</span>
+                  <div className="h-2 w-2 animate-pulse rounded-full bg-green-500 dark:bg-green-400"></div>
                 </div>
               </span>
             </div>
 
             <h1 className="mb-6 text-6xl font-black tracking-tight md:text-8xl">
-              <span className="block bg-gradient-to-r from-white via-cyan-200 to-blue-200 bg-clip-text text-transparent">
+              <span className="block bg-gradient-to-r from-gray-800 via-blue-700 to-indigo-700 bg-clip-text text-transparent dark:from-white dark:via-cyan-200 dark:to-blue-200">
                 LET&apos;S
               </span>
-              <span className="block animate-pulse bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
+              <span className="block animate-pulse bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent dark:from-cyan-400 dark:via-blue-400 dark:to-purple-400">
                 CONNECT
               </span>
             </h1>
 
-            <p className="mx-auto max-w-2xl text-xl leading-relaxed text-cyan-200/80">
+            <p className="mx-auto max-w-2xl text-xl leading-relaxed text-blue-700/80 dark:text-cyan-200/80">
               Ready to bring your next big idea to life? Let&apos;s create something extraordinary together.
             </p>
           </div>
@@ -43,42 +43,44 @@ const ContactSection = () => {
             {/* Central Contact Hub */}
             <div className="relative z-10 mx-auto mb-20 max-w-2xl">
               <div
-                className="group relative overflow-hidden rounded-3xl border border-cyan-500/20 bg-gradient-to-br from-white/5 to-cyan-900/10 p-8 backdrop-blur-2xl transition-all duration-700 hover:border-cyan-400/40 hover:bg-gradient-to-br hover:from-white/10 hover:to-cyan-900/20"
+                className="group relative overflow-hidden rounded-3xl border border-blue-500/20 bg-gradient-to-br from-white/80 to-blue-50/60 p-8 backdrop-blur-2xl transition-all duration-700 hover:border-blue-400/40 hover:bg-gradient-to-br hover:from-white/90 hover:to-blue-50/80 dark:border-cyan-500/20 dark:from-white/5 dark:to-cyan-900/10 dark:hover:border-cyan-400/40 dark:hover:from-white/10 dark:hover:to-cyan-900/20"
                 style={{
                   transformStyle: 'preserve-3d',
-                  boxShadow: '0 25px 50px -12px rgba(0, 255, 255, 0.1)',
+                  boxShadow: '0 25px 50px -12px rgba(59, 130, 246, 0.15)',
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.transform = 'rotateX(5deg) rotateY(-5deg) translateZ(20px)';
-                  e.currentTarget.style.boxShadow = '0 35px 70px -12px rgba(0, 255, 255, 0.25)';
+                  e.currentTarget.style.boxShadow = '0 35px 70px -12px rgba(59, 130, 246, 0.25)';
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.transform = 'rotateX(0deg) rotateY(0deg) translateZ(0px)';
-                  e.currentTarget.style.boxShadow = '0 25px 50px -12px rgba(0, 255, 255, 0.1)';
+                  e.currentTarget.style.boxShadow = '0 25px 50px -12px rgba(59, 130, 246, 0.15)';
                 }}
               >
                 {/* Animated Border */}
-                <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-cyan-500/20 via-blue-500/20 to-purple-500/20 p-[1px]">
-                  <div className="h-full w-full rounded-3xl bg-gradient-to-br from-gray-900/80 to-cyan-900/20 backdrop-blur-2xl"></div>
+                <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-blue-500/20 via-indigo-500/20 to-purple-500/20 p-[1px] dark:from-cyan-500/20 dark:via-blue-500/20 dark:to-purple-500/20">
+                  <div className="h-full w-full rounded-3xl bg-gradient-to-br from-white/90 to-blue-50/60 backdrop-blur-2xl dark:from-gray-900/80 dark:to-cyan-900/20"></div>
                 </div>
 
                 {/* Content */}
                 <div className="relative z-10">
                   <div className="mb-8 text-center">
-                    <h2 className="mb-4 text-3xl font-bold text-white">PRIMARY CONTACT</h2>
-                    <div className="mx-auto h-1 w-20 rounded-full bg-gradient-to-r from-cyan-400 to-blue-400"></div>
+                    <h2 className="mb-4 text-3xl font-bold text-gray-800 dark:text-white">PRIMARY CONTACT</h2>
+                    <div className="mx-auto h-1 w-20 rounded-full bg-gradient-to-r from-blue-500 to-indigo-500 dark:from-cyan-400 dark:to-blue-400"></div>
                   </div>
 
                   <div className="space-y-6">
                     {/* Email */}
                     <a href="mailto:caijianbopaul@gmail.com" className="group/item block">
-                      <div className="flex items-center space-x-6 rounded-2xl border border-cyan-500/10 bg-gradient-to-r from-white/5 to-cyan-900/10 p-6 backdrop-blur-xl transition-all duration-500 hover:scale-105 hover:border-cyan-400/30 hover:bg-gradient-to-r hover:from-white/10 hover:to-cyan-900/20">
-                        <div className="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-cyan-500 to-blue-600 shadow-lg transition-transform duration-500 group-hover/item:rotate-12 group-hover/item:scale-110">
+                      <div className="flex items-center space-x-6 rounded-2xl border border-blue-500/10 bg-gradient-to-r from-white/60 to-blue-50/40 p-6 backdrop-blur-xl transition-all duration-500 hover:scale-105 hover:border-blue-400/30 hover:bg-gradient-to-r hover:from-white/80 hover:to-blue-50/60 dark:border-cyan-500/10 dark:from-white/5 dark:to-cyan-900/10 dark:hover:border-cyan-400/30 dark:hover:from-white/10 dark:hover:to-cyan-900/20">
+                        <div className="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-500 to-indigo-600 shadow-lg transition-transform duration-500 group-hover/item:rotate-12 group-hover/item:scale-110 dark:from-cyan-500 dark:to-blue-600">
                           <Mail className="h-8 w-8 text-white" />
                         </div>
                         <div className="flex-1">
-                          <p className="text-sm font-medium uppercase tracking-wide text-cyan-300">Email Address</p>
-                          <p className="text-xl font-bold text-white transition-colors group-hover/item:text-cyan-300">
+                          <p className="text-sm font-medium uppercase tracking-wide text-blue-600 dark:text-cyan-300">
+                            Email Address
+                          </p>
+                          <p className="text-xl font-bold text-gray-800 transition-colors group-hover/item:text-blue-600 dark:text-white dark:group-hover/item:text-cyan-300">
                             caijianbopaul@gmail.com
                           </p>
                         </div>
@@ -87,13 +89,15 @@ const ContactSection = () => {
 
                     {/* Phone */}
                     <a href="tel:+6587199362" className="group/item block">
-                      <div className="flex items-center space-x-6 rounded-2xl border border-blue-500/10 bg-gradient-to-r from-white/5 to-blue-900/10 p-6 backdrop-blur-xl transition-all duration-500 hover:scale-105 hover:border-blue-400/30 hover:bg-gradient-to-r hover:from-white/10 hover:to-blue-900/20">
-                        <div className="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-500 to-purple-600 shadow-lg transition-transform duration-500 group-hover/item:rotate-12 group-hover/item:scale-110">
+                      <div className="flex items-center space-x-6 rounded-2xl border border-indigo-500/10 bg-gradient-to-r from-white/60 to-indigo-50/40 p-6 backdrop-blur-xl transition-all duration-500 hover:scale-105 hover:border-indigo-400/30 hover:bg-gradient-to-r hover:from-white/80 hover:to-indigo-50/60 dark:border-blue-500/10 dark:from-white/5 dark:to-blue-900/10 dark:hover:border-blue-400/30 dark:hover:from-white/10 dark:hover:to-blue-900/20">
+                        <div className="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-600 shadow-lg transition-transform duration-500 group-hover/item:rotate-12 group-hover/item:scale-110 dark:from-blue-500 dark:to-purple-600">
                           <Phone className="h-8 w-8 text-white" />
                         </div>
                         <div className="flex-1">
-                          <p className="text-sm font-medium uppercase tracking-wide text-blue-300">Phone Number</p>
-                          <p className="text-xl font-bold text-white transition-colors group-hover/item:text-blue-300">
+                          <p className="text-sm font-medium uppercase tracking-wide text-indigo-600 dark:text-blue-300">
+                            Phone Number
+                          </p>
+                          <p className="text-xl font-bold text-gray-800 transition-colors group-hover/item:text-indigo-600 dark:text-white dark:group-hover/item:text-blue-300">
                             +65 8719 9362
                           </p>
                         </div>
@@ -118,8 +122,8 @@ const ContactSection = () => {
                     e.currentTarget.style.transform = 'translateZ(30px) rotateY(0deg) scale(1)';
                   }}
                 >
-                  <div className="flex h-24 w-24 items-center justify-center rounded-2xl border border-gray-600/30 bg-gradient-to-br from-gray-800 to-gray-900 shadow-2xl backdrop-blur-xl transition-all duration-500 hover:border-gray-400/50">
-                    <Github className="h-10 w-10 text-white transition-transform duration-300 group-hover:scale-110" />
+                  <div className="flex h-24 w-24 items-center justify-center rounded-2xl border border-gray-300/60 bg-gradient-to-br from-gray-100 to-gray-200 shadow-2xl backdrop-blur-xl transition-all duration-500 hover:border-gray-400/80 dark:border-gray-600/30 dark:from-gray-800 dark:to-gray-900 dark:hover:border-gray-400/50">
+                    <Github className="h-10 w-10 text-gray-700 transition-transform duration-300 group-hover:scale-110 dark:text-white" />
                   </div>
                 </a>
               </div>
@@ -141,7 +145,7 @@ const ContactSection = () => {
                     e.currentTarget.style.transform = 'translateZ(25px) rotateY(0deg) scale(1)';
                   }}
                 >
-                  <div className="flex h-24 w-24 items-center justify-center rounded-2xl border border-blue-500/30 bg-gradient-to-br from-blue-600 to-blue-800 shadow-2xl backdrop-blur-xl transition-all duration-500 hover:border-blue-400/50">
+                  <div className="flex h-24 w-24 items-center justify-center rounded-2xl border border-blue-400/60 bg-gradient-to-br from-blue-500 to-blue-700 shadow-2xl backdrop-blur-xl transition-all duration-500 hover:border-blue-300/80 dark:border-blue-500/30 dark:from-blue-600 dark:to-blue-800 dark:hover:border-blue-400/50">
                     <Linkedin className="h-10 w-10 text-white transition-transform duration-300 group-hover:scale-110" />
                   </div>
                 </a>
@@ -164,7 +168,7 @@ const ContactSection = () => {
                     e.currentTarget.style.transform = 'translateZ(20px) rotateX(0deg) scale(1)';
                   }}
                 >
-                  <div className="flex h-24 w-24 items-center justify-center rounded-2xl border border-green-400/30 bg-gradient-to-br from-green-500 to-green-700 shadow-2xl backdrop-blur-xl transition-all duration-500 hover:border-green-300/50">
+                  <div className="flex h-24 w-24 items-center justify-center rounded-2xl border border-green-400/60 bg-gradient-to-br from-green-500 to-green-700 shadow-2xl backdrop-blur-xl transition-all duration-500 hover:border-green-300/80 dark:border-green-400/30 dark:hover:border-green-300/50">
                     <svg
                       className="h-10 w-10 text-white transition-transform duration-300 group-hover:scale-110"
                       viewBox="0 0 24 24"
@@ -194,7 +198,7 @@ const ContactSection = () => {
                     e.currentTarget.style.transform = 'translateZ(35px) rotateX(0deg) scale(1)';
                   }}
                 >
-                  <div className="flex h-24 w-24 items-center justify-center rounded-2xl border border-sky-400/30 bg-gradient-to-br from-sky-500 to-blue-600 shadow-2xl backdrop-blur-xl transition-all duration-500 hover:border-sky-300/50">
+                  <div className="flex h-24 w-24 items-center justify-center rounded-2xl border border-sky-400/60 bg-gradient-to-br from-sky-500 to-blue-600 shadow-2xl backdrop-blur-xl transition-all duration-500 hover:border-sky-300/80 dark:border-sky-400/30 dark:hover:border-sky-300/50">
                     <svg
                       className="h-10 w-10 text-white transition-transform duration-300 group-hover:scale-110"
                       viewBox="0 0 24 24"
@@ -220,15 +224,17 @@ const ContactSection = () => {
                     e.currentTarget.style.transform = 'translateX(-50%) translateZ(15px) rotateY(0deg)';
                   }}
                 >
-                  <div className="flex items-center space-x-4 rounded-2xl border border-purple-500/20 bg-gradient-to-r from-purple-900/20 to-pink-900/20 px-6 py-4 backdrop-blur-xl transition-all duration-500 hover:border-purple-400/40 hover:bg-gradient-to-r hover:from-purple-900/30 hover:to-pink-900/30">
+                  <div className="flex items-center space-x-4 rounded-2xl border border-purple-400/40 bg-gradient-to-r from-purple-100/80 to-pink-100/60 px-6 py-4 backdrop-blur-xl transition-all duration-500 hover:border-purple-400/60 hover:bg-gradient-to-r hover:from-purple-100/90 hover:to-pink-100/80 dark:border-purple-500/20 dark:from-purple-900/20 dark:to-pink-900/20 dark:hover:border-purple-400/40 dark:hover:from-purple-900/30 dark:hover:to-pink-900/30">
                     <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-purple-500 to-pink-600 shadow-lg transition-transform duration-300 group-hover:scale-110">
                       <MapPin className="h-6 w-6 text-white" />
                     </div>
                     <div>
-                      <p className="text-sm font-medium uppercase tracking-wide text-purple-300">Location</p>
-                      <p className="text-lg font-bold text-white">Singapore</p>
+                      <p className="text-sm font-medium uppercase tracking-wide text-purple-600 dark:text-purple-300">
+                        Location
+                      </p>
+                      <p className="text-lg font-bold text-gray-800 dark:text-white">Singapore</p>
                     </div>
-                    <div className="flex items-center text-purple-300">
+                    <div className="flex items-center text-purple-600 dark:text-purple-300">
                       <Globe className="mr-1 h-4 w-4" />
                       <span className="text-xs">Remote Available</span>
                     </div>
