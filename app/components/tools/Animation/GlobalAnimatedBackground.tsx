@@ -26,7 +26,7 @@ const colorThemes = {
       particles: ['#1d4ed8', '#7c3aed', '#db2777', '#0891b2', '#059669'],
     },
     dark: {
-      primary: 'from-slate-900 via-purple-900 to-slate-900 dark:from-blue-950 dark:via-slate-800 dark:to-black',
+      primary: 'from-blue-950 via-slate-800 to-black',
       accent1: 'from-blue-500/10 to-purple-500/10',
       accent2: 'from-pink-500/10 to-blue-500/10',
       particles: ['#3b82f6', '#8b5cf6', '#ec4899', '#06b6d4', '#10b981'],
