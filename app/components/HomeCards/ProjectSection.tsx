@@ -3,6 +3,7 @@ import { Zap, ChevronRight, Eye, ArrowUpRight, Sparkles } from 'lucide-react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { SwiperRef } from 'swiper/react';
 import 'swiper/css';
+import ThemedAnimatedBackground from '../tools/Animation/ThemedAnimatedBackground';
 // Define the structure for project data
 interface Project {
   title: string;
@@ -48,7 +49,8 @@ const projects: Project[] = [
     description:
       'A comprehensive delivery management platform featuring multi-role access (customers, drivers, admins). Includes complete order lifecycle management, SingPass integration for verification, and enterprise-level features. Key functionalities: authentication, real-time order tracking, notifications, driver-customer matching, reviews & ratings, credibility scoring system, bulk order processing via Excel, and specialized company contract management for corporate clients.',
     projectUrl: 'https://pickagoo.com',
-    imageUrl: 'https://images.unsplash.com/photo-1704652838446-edc4448d6261?q=80&w=800&h=500&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    imageUrl:
+      'https://images.unsplash.com/photo-1704652838446-edc4448d6261?q=80&w=800&h=500&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     category: 'Delivery Platform',
     status: 'Live',
     gradient: 'from-cyan-400 via-blue-400 to-indigo-400',
@@ -217,12 +219,9 @@ const ProjectSection = () => {
   };
 
   return (
-    <section className="relative min-h-screen overflow-hidden bg-gradient-to-br dark:bg-gradient-to-br dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
-      {/* Background Elements */}
-      <div className="absolute inset-0">
-        {/* Grid Pattern */}
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.05)_1px,transparent_1px)] bg-[size:60px_60px] dark:bg-[linear-gradient(rgba(30,41,59,0.15)_1px,transparent_1px),linear-gradient(90deg,rgba(30,41,59,0.15)_1px,transparent_1px)]"></div>
-      </div>
+    <section className="relative min-h-screen overflow-hidden">
+      {/* Themed Animated Background */}
+      <ThemedAnimatedBackground colorTheme="projects" />
 
       <div className="container relative z-10 mx-auto px-4 py-12 md:py-20">
         {/* Header */}

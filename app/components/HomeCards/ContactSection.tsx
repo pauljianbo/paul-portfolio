@@ -1,16 +1,12 @@
 import React from 'react';
 import { Mail, Phone, MapPin, Github, Linkedin, Star, Globe, Coffee, MessageCircle } from 'lucide-react';
+import ThemedAnimatedBackground from '../tools/Animation/ThemedAnimatedBackground';
 
 const ContactSection = () => {
   return (
-    <div className="relative min-h-screen overflow-hidden bg-gradient-to-br dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
-      {/* Enhanced Animated Background */}
-      <div className="absolute inset-0 hidden md:block">
-        {/* Floating orbs */}
-        <div className="absolute left-1/4 top-20 h-96 w-96 animate-pulse rounded-full bg-gradient-to-r from-blue-400/20 to-cyan-400/20 blur-3xl dark:from-blue-900/30 dark:to-cyan-900/30"></div>
-        <div className="animation-delay-2000 absolute right-1/4 top-1/3 h-80 w-80 animate-pulse rounded-full bg-gradient-to-r from-green-400/20 to-blue-400/20 blur-3xl dark:from-green-900/30 dark:to-blue-900/30"></div>
-        <div className="animation-delay-4000 absolute bottom-20 left-1/3 h-72 w-72 animate-pulse rounded-full bg-gradient-to-r from-cyan-400/20 to-blue-400/20 blur-3xl dark:from-cyan-900/30 dark:to-blue-900/30"></div>
-      </div>
+    <div className="relative min-h-screen overflow-hidden">
+      {/* Themed Animated Background */}
+      <ThemedAnimatedBackground colorTheme="contact" />
 
       <div className="container relative mx-auto px-4 py-12 sm:px-6 md:py-20 lg:px-8">
         {/* Enhanced Header */}
@@ -159,15 +155,6 @@ const ContactSection = () => {
           </div>
         </div>
       </div>
-
-      <style jsx>{`
-        .animation-delay-2000 {
-          animation-delay: 2s;
-        }
-        .animation-delay-4000 {
-          animation-delay: 4s;
-        }
-      `}</style>
     </div>
   );
 };
