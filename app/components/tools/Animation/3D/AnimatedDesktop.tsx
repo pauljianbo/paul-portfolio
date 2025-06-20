@@ -6,12 +6,20 @@ import * as THREE from 'three';
 import { useTheme } from '@/app/context/ThemeContext';
 
 // Animation constants for desktop
-const ROTATION_SPEED = 0.1; // Reduced speed for pendulum motion
-const FLOAT_SPEED = 1.2; // Speed of floating motion
-const FLOAT_HEIGHT = 0.2; // Height of floating animation
-const BASE_SCALE = 0.7; // Base scale of the desktop
+const ROTATION_SPEED = 0.5; // Reduced speed for pendulum motion
+const FLOAT_SPEED = 1; // Speed of floating motion
+const FLOAT_HEIGHT = 0.1; // Height of floating animation
+const BASE_SCALE = 0.8; // Base scale of the desktop
 
-const DesktopModel = () => {
+// Type for rotation prop
+type RotationProp = number | { x?: number; y?: number; z?: number };
+
+interface DesktopModelProps {
+  rotation?: RotationProp;
+  enableAnimation?: boolean;
+}
+
+const DesktopModel = ({ rotation = 0, enableAnimation = true }: DesktopModelProps) => {
   const { theme } = useTheme();
   const isDarkMode = theme === 'dark';
 
@@ -21,17 +29,28 @@ const DesktopModel = () => {
   // Create references for animation
   const desktopRef = useRef<THREE.Group>(null);
 
+  // Parse rotation prop
+  const baseRotation =
+    typeof rotation === 'number'
+      ? { x: 0, y: rotation, z: 0 }
+      : { x: rotation.x || 0, y: rotation.y || 0, z: rotation.z || 0 };
+
   // Animation loop for desktop effects
   useFrame((state) => {
     if (desktopRef.current) {
-      // Pendulum motion: swings between -45° and +45° degrees
-      desktopRef.current.rotation.y = Math.sin(state.clock.elapsedTime * ROTATION_SPEED) * (Math.PI / 4);
+      // Apply base rotation + optional pendulum motion
+      desktopRef.current.rotation.x = baseRotation.x;
+      desktopRef.current.rotation.y =
+        baseRotation.y + (enableAnimation ? Math.sin(state.clock.elapsedTime * ROTATION_SPEED) * (Math.PI / 20) : 0);
+      desktopRef.current.rotation.z = baseRotation.z;
 
-      // Subtle floating motion
-      desktopRef.current.position.y = Math.sin(state.clock.elapsedTime * FLOAT_SPEED) * FLOAT_HEIGHT;
+      // Optional floating motion
+      desktopRef.current.position.y = enableAnimation
+        ? Math.sin(state.clock.elapsedTime * FLOAT_SPEED) * FLOAT_HEIGHT
+        : 0;
 
       // Optional: Add subtle scaling pulse for modern effect
-      const scaleMultiplier = 1 + Math.sin(state.clock.elapsedTime * 0.5) * 0.02;
+      const scaleMultiplier = enableAnimation ? 1 + Math.sin(state.clock.elapsedTime * 0.5) * 0.02 : 1;
       desktopRef.current.scale.setScalar(BASE_SCALE * scaleMultiplier);
     }
   });
@@ -59,12 +78,17 @@ const DesktopModel = () => {
       ref={desktopRef}
       object={scene}
       scale={BASE_SCALE}
-      position={[0, 0, 0]} // Position the desktop appropriately
+      position={[0, -2, 0]} // Position the desktop appropriately
     />
   );
 };
 
-const AnimatedDesktop = () => {
+interface AnimatedDesktopProps {
+  rotation?: RotationProp;
+  enableAnimation?: boolean;
+}
+
+const AnimatedDesktop = ({ rotation, enableAnimation = true }: AnimatedDesktopProps) => {
   const { theme } = useTheme();
   const isDarkMode = theme === 'dark';
 
@@ -87,7 +111,7 @@ const AnimatedDesktop = () => {
           <pointLight position={[-2, 1, 2]} intensity={0.5} color="#ef4444" />
 
           <Stage adjustCamera={false} intensity={0.3} shadows="contact">
-            <DesktopModel />
+            <DesktopModel rotation={rotation} enableAnimation={enableAnimation} />
           </Stage>
         </Suspense>
 

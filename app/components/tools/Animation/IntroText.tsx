@@ -55,7 +55,7 @@ const IntroText = () => {
   };
 
   return (
-    <div className="gradient-text flex h-full flex-col justify-center space-y-6 p-6">
+    <div className="gradient-text flex h-full flex-col items-center justify-end space-y-6 p-6">
       {/* Name heading - responsive text sizes */}
       <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
         <motion.h1 className="text-4xl font-bold sm:text-5xl md:text-6xl lg:text-[90px]">Hi, I&apos;m Paul</motion.h1>
