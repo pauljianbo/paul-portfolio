@@ -20,8 +20,8 @@ interface DesktopModelProps {
 }
 
 const DesktopModel = ({ rotation = 0, enableAnimation = true }: DesktopModelProps) => {
-  const { theme } = useTheme();
-  const isDarkMode = theme === 'dark';
+
+
 
   // Load the desktop 3D model
   const { scene } = useGLTF('/desktop-3D-assets/scene.gltf', true);

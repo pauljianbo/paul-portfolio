@@ -15,23 +15,7 @@ interface Particle {
   color: string;
 }
 
-interface ColorTheme {
-  name: string;
-  light: {
-    primary: string;
-    secondary: string;
-    accent1: string;
-    accent2: string;
-    particles: string[];
-  };
-  dark: {
-    primary: string;
-    secondary: string;
-    accent1: string;
-    accent2: string;
-    particles: string[];
-  };
-}
+
 
 interface ThemedAnimatedBackgroundProps {
   colorTheme: keyof typeof colorThemes;
