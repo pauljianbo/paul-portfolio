@@ -306,16 +306,16 @@ const SkillSection = () => {
             className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
           >
             {filteredSkills.map((skill, index) => (
-              <motion.div key={`${skill.name}-${activeCategory}`} variants={skillVariants} className="group relative">
-                <div className="relative overflow-hidden rounded-2xl border border-blue-200/50 bg-white/70 p-6 shadow-lg backdrop-blur-xl transition-all duration-500 dark:border-slate-700/50 dark:bg-slate-900/70">
+              <motion.div key={`${skill.name}-${activeCategory}`} variants={skillVariants} className="group relative ">
+                <div className="relative h-full overflow-hidden rounded-2xl border border-blue-200/50 bg-white/70 p-6 shadow-lg backdrop-blur-xl transition-all duration-500 dark:border-slate-700/50 dark:bg-slate-900/70">
                   {/* Gradient Overlay */}
                   <div
                     className={`absolute inset-0 bg-gradient-to-br ${categoryColors[skill.category as Category]} opacity-0 transition-opacity duration-500 group-hover:opacity-10 dark:from-cyan-900 dark:to-blue-900`}
                   ></div>
                   {/* Skill Content */}
-                  <div className="relative z-10">
+                  <div className="relative z-10 flex flex-col gap-4">
                     {/* Icon and Name */}
-                    <div className="mb-4 flex items-center gap-3">
+                    <div className="flex items-center gap-3">
                       <div className="text-2xl">{skill.icon}</div>
                       <div className="flex flex-col gap-1">
                         <h3 className="font-bold text-blue-900 transition-colors duration-300 group-hover:text-blue-800 dark:text-cyan-200 dark:group-hover:text-cyan-100">
@@ -328,7 +328,7 @@ const SkillSection = () => {
                     </div>
 
                     {/* Progress Bar */}
-                    <div className="mb-4">
+                    <div className="">
                       <div className="mb-2 flex items-center justify-between">
                         <span className="text-sm font-medium text-blue-700 dark:text-cyan-200">Proficiency</span>
                         <span className="text-sm font-bold text-blue-800 dark:text-cyan-100">{skill.level}%</span>
