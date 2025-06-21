@@ -181,14 +181,58 @@ const ProjectSection = () => {
 
   // End of swiper section
   const [expandedCards, setExpandedCards] = useState<number[]>([]);
+  const [isTruncated, setIsTruncated] = useState<boolean[]>([]);
+  const descriptionRefs = useRef<(HTMLParagraphElement | null)[]>([]);
 
   const toggleCard = (index: number) => {
     setExpandedCards((prev) => (prev.includes(index) ? prev.filter((i) => i !== index) : [...prev, index]));
   };
 
+  /**
+   * CLICKABLE CARD FEATURE
+   * Handles clicking on the entire project card to redirect to the project URL.
+   * Opens the link in a new tab to preserve user's current browsing session.
+   * This function is called when user clicks anywhere on the card EXCEPT:
+   * - The "Read more" button (uses stopPropagation to prevent card click)
+   * - The floating action button (uses stopPropagation to prevent double navigation)
+   */
   const handleCardClick = (projectUrl: string) => {
     window.open(projectUrl, '_blank', 'noopener,noreferrer');
   };
+
+  /**
+   * CONDITIONAL READ MORE FEATURE
+   * Detects if text descriptions actually exceed 3 lines and need a "Read more" button.
+   * How it works:
+   * 1. Compares scrollHeight (total content height) with clientHeight (visible height)
+   * 2. When line-clamp-3 is applied and content exceeds 3 lines, scrollHeight > clientHeight
+   * 3. Only shows "Read more" button for descriptions that are actually truncated
+   * 4. Prevents unnecessary buttons for short descriptions that fit in 3 lines
+   */
+  const checkTruncation = () => {
+    const truncatedStates = descriptionRefs.current.map((ref) => {
+      if (!ref) return false;
+      return ref.scrollHeight > ref.clientHeight;
+    });
+    setIsTruncated(truncatedStates);
+  };
+
+  useEffect(() => {
+    // Check truncation after content loads
+    const timer = setTimeout(checkTruncation, 100);
+
+    // Check on window resize
+    const handleResize = () => {
+      setTimeout(checkTruncation, 100);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [projects]);
 
   const getStatusColor = (status: string) => {
     switch (status) {
@@ -251,7 +295,11 @@ const ProjectSection = () => {
                   onMouseLeave={() => setIsHovered(false)}
                 >
                   <div key={index} className="group relative xl:mx-24">
-                    {/* Main Card */}
+                    {/* Main Card - CLICKABLE CARD FEATURE
+                        The entire card is clickable and redirects to the project URL.
+                        Event bubbling allows clicks anywhere on the card to trigger navigation,
+                        except for elements that use stopPropagation() to prevent it.
+                    */}
                     <div
                       className="relative flex h-full cursor-pointer flex-col overflow-hidden rounded-2xl border border-blue-200/50 bg-white/80 backdrop-blur-xl transition-all duration-500 group-hover:-translate-y-2 group-hover:border-blue-300/60 group-hover:bg-white/90 dark:border-slate-700/50 dark:bg-slate-900/80 dark:group-hover:border-cyan-400/60 dark:group-hover:bg-slate-900/90"
                       onClick={() => handleCardClick(project.projectUrl)}
@@ -267,7 +315,10 @@ const ProjectSection = () => {
                         {/* Overlay */}
                         <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-slate-900/20 to-transparent"></div>
 
-                        {/* Floating Action Button */}
+                        {/* Floating Action Button - CLICKABLE CARD FEATURE
+                            Uses stopPropagation() to prevent triggering the card click when clicked.
+                            This ensures users can click the button without also triggering card navigation.
+                        */}
                         <a
                           href={project.projectUrl}
                           target="_blank"
@@ -309,23 +360,34 @@ const ProjectSection = () => {
                         {/* Description */}
                         <div className="mb-8 flex-1">
                           <p
+                            ref={(el) => {
+                              descriptionRefs.current[index] = el;
+                            }}
                             className={`leading-relaxed text-slate-600 dark:text-slate-300 ${!expandedCards.includes(index) ? 'line-clamp-3' : ''}`}
                           >
                             {project.description}
                           </p>
 
-                          <button
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              toggleCard(index);
-                            }}
-                            className={`group/read mt-4 inline-flex items-center gap-2 text-sm font-medium ${accentColors.text} transition-all duration-300 hover:translate-x-1 hover:text-slate-800 dark:hover:text-cyan-100`}
-                          >
-                            {expandedCards.includes(index) ? 'Show less' : 'Read more'}
-                            <ChevronRight
-                              className={`h-4 w-4 transition-transform duration-300 ${expandedCards.includes(index) ? 'rotate-90' : 'group-hover/read:translate-x-1'}`}
-                            />
-                          </button>
+                          {/* CONDITIONAL READ MORE FEATURE
+                              Only show "Read more" button when text actually exceeds 3 lines.
+                              isTruncated[index] is true when scrollHeight > clientHeight for this description.
+                          */}
+                          {isTruncated[index] && (
+                            <button
+                              onClick={(e) => {
+                                // CLICKABLE CARD FEATURE - stopPropagation prevents card click
+                                // This ensures "Read more" only toggles text, doesn't navigate to project
+                                e.stopPropagation();
+                                toggleCard(index);
+                              }}
+                              className={`group/read mt-4 inline-flex items-center gap-2 text-sm font-medium ${accentColors.text} transition-all duration-300 hover:translate-x-1 hover:text-slate-800 dark:hover:text-cyan-100`}
+                            >
+                              {expandedCards.includes(index) ? 'Show less' : 'Read more'}
+                              <ChevronRight
+                                className={`h-4 w-4 transition-transform duration-300 ${expandedCards.includes(index) ? 'rotate-90' : 'group-hover/read:translate-x-1'}`}
+                              />
+                            </button>
+                          )}
                         </div>
 
                         {/* Technologies */}
