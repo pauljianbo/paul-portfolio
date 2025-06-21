@@ -4,7 +4,7 @@ import GlobalAnimatedBackground from '@/app/components/tools/Animation/GlobalAni
 import './globals.css';
 import './reset.css';
 import Footer from '@/app/components/Footer/Footer';
-import Navbar from '@/app/components/Headers/NavBar';
+import Header from '@/app/components/Headers/Header';
 // Define metadata for the application
 export const metadata: Metadata = {
   title: 'Paul | Portfolio',
@@ -18,7 +18,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="flex min-h-screen flex-col">
         <ThemeProvider>
           <GlobalAnimatedBackground />
-          <Navbar />
+          <Header />
           <main className="relative z-10 flex-grow">{children}</main>
           <Footer />
         </ThemeProvider>
