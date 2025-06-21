@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { ThemeProvider } from '@/app/context/ThemeContext';
-import GlobalAnimatedBackground from '@/app/components/tools/Animation/GlobalAnimatedBackground';
+import BackgroundRenderer from './components/tools/Animation/BackgroundRenderer';
 import './globals.css';
 import './reset.css';
 import Footer from '@/app/components/Footer/Footer';
@@ -17,7 +17,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body className="flex min-h-screen flex-col">
         <ThemeProvider>
-          <GlobalAnimatedBackground />
+          <BackgroundRenderer />
           <Header />
           <main className="relative z-10 flex-grow">{children}</main>
           <Footer />
