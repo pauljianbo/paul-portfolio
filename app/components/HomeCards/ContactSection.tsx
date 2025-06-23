@@ -72,7 +72,7 @@ const ContactSection = () => {
                 </div>
                 <div className="flex justify-center space-x-6">
                   <a
-                    href="#"
+                    href="https://github.com/lbovboe"
                     className="group flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-r from-gray-200 to-gray-400 shadow-lg transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:shadow-gray-400/25 dark:from-gray-800 dark:to-gray-700 dark:hover:shadow-gray-900/25"
                   >
                     <Github className="h-8 w-8 text-blue-900 transition-transform duration-300 group-hover:scale-110 dark:text-cyan-100" />
