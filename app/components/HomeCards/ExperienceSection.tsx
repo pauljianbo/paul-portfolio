@@ -74,9 +74,7 @@ const ExperienceSection: React.FC = () => {
   };
 
   return (
-    <section className="relative min-h-screen overflow-hidden bg-gradient-to-br from-slate-50 via-blue-50/50 to-cyan-50 px-4 py-20 dark:bg-gradient-to-br dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
-      {/* Animated background elements */}
-
+    <section className="relative min-h-screen overflow-hidden px-4 py-20">
       <div className="relative z-10 mx-auto max-w-6xl">
         {/* Header */}
         <div className="mb-16 text-center">
@@ -84,7 +82,7 @@ const ExperienceSection: React.FC = () => {
             <Briefcase className="h-4 w-4 text-blue-600" />
             <span className="text-sm font-medium text-blue-600 dark:text-white">Professional Journey</span>
           </div>
-          <h2 className="mb-6 bg-gradient-to-r from-slate-800 via-blue-700 to-cyan-700 bg-clip-text text-5xl font-bold text-transparent md:text-6xl">
+          <h2 className="mb-6 hidden bg-gradient-to-r from-blue-500 via-sky-500 to-cyan-500 bg-clip-text text-6xl font-bold text-transparent dark:from-cyan-200 dark:via-blue-200 dark:to-blue-100 md:block">
             Experience
           </h2>
           <p className="mx-auto max-w-2xl text-xl leading-relaxed dark:text-slate-200">

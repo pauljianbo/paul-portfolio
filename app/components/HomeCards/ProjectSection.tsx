@@ -48,7 +48,8 @@ const projects: Project[] = [
     description:
       'A comprehensive delivery management platform featuring multi-role access (customers, drivers, admins). Includes complete order lifecycle management, SingPass integration for verification, and enterprise-level features. Key functionalities: authentication, real-time order tracking, notifications, driver-customer matching, reviews & ratings, credibility scoring system, bulk order processing via Excel, and specialized company contract management for corporate clients.',
     projectUrl: 'https://pickagoo.com',
-    imageUrl: 'https://images.unsplash.com/photo-1704652838446-edc4448d6261?q=80&w=800&h=500&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    imageUrl:
+      'https://images.unsplash.com/photo-1704652838446-edc4448d6261?q=80&w=800&h=500&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     category: 'Delivery Platform',
     status: 'Live',
     gradient: 'from-cyan-400 via-blue-400 to-indigo-400',
@@ -135,7 +136,7 @@ const ProjectSection = () => {
       if (intervalRef.current) clearInterval(intervalRef.current);
       intervalRef.current = setInterval(() => {
         handleNextClick();
-      }, 5000);
+      }, 2000);
     };
     // Start interval if not hovered
     if (!isHovered) {
@@ -180,10 +181,58 @@ const ProjectSection = () => {
 
   // End of swiper section
   const [expandedCards, setExpandedCards] = useState<number[]>([]);
+  const [isTruncated, setIsTruncated] = useState<boolean[]>([]);
+  const descriptionRefs = useRef<(HTMLParagraphElement | null)[]>([]);
 
   const toggleCard = (index: number) => {
     setExpandedCards((prev) => (prev.includes(index) ? prev.filter((i) => i !== index) : [...prev, index]));
   };
+
+  /**
+   * CLICKABLE CARD FEATURE
+   * Handles clicking on the entire project card to redirect to the project URL.
+   * Opens the link in a new tab to preserve user's current browsing session.
+   * This function is called when user clicks anywhere on the card EXCEPT:
+   * - The "Read more" button (uses stopPropagation to prevent card click)
+   * - The floating action button (uses stopPropagation to prevent double navigation)
+   */
+  const handleCardClick = (projectUrl: string) => {
+    window.open(projectUrl, '_blank', 'noopener,noreferrer');
+  };
+
+  /**
+   * CONDITIONAL READ MORE FEATURE
+   * Detects if text descriptions actually exceed 3 lines and need a "Read more" button.
+   * How it works:
+   * 1. Compares scrollHeight (total content height) with clientHeight (visible height)
+   * 2. When line-clamp-3 is applied and content exceeds 3 lines, scrollHeight > clientHeight
+   * 3. Only shows "Read more" button for descriptions that are actually truncated
+   * 4. Prevents unnecessary buttons for short descriptions that fit in 3 lines
+   */
+  const checkTruncation = () => {
+    const truncatedStates = descriptionRefs.current.map((ref) => {
+      if (!ref) return false;
+      return ref.scrollHeight > ref.clientHeight;
+    });
+    setIsTruncated(truncatedStates);
+  };
+
+  useEffect(() => {
+    // Check truncation after content loads
+    const timer = setTimeout(checkTruncation, 100);
+
+    // Check on window resize
+    const handleResize = () => {
+      setTimeout(checkTruncation, 100);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [projects]);
 
   const getStatusColor = (status: string) => {
     switch (status) {
@@ -217,28 +266,19 @@ const ProjectSection = () => {
   };
 
   return (
-    <section className="relative min-h-screen overflow-hidden bg-gradient-to-br dark:bg-gradient-to-br dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
-      {/* Background Elements */}
-      <div className="absolute inset-0">
-        {/* Grid Pattern */}
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.05)_1px,transparent_1px)] bg-[size:60px_60px] dark:bg-[linear-gradient(rgba(30,41,59,0.15)_1px,transparent_1px),linear-gradient(90deg,rgba(30,41,59,0.15)_1px,transparent_1px)]"></div>
-      </div>
-
+    <section className="relative min-h-screen overflow-hidden">
       <div className="container relative z-10 mx-auto px-4 py-12 md:py-20">
         {/* Header */}
-        <div className="animate-fade-in text-center md:mb-20">
+        <div className="animate-fade-in text-center md:mb-10">
           <div className="mb-8 inline-flex items-center gap-3 rounded-full border border-blue-200/60 bg-white/70 px-6 py-3 shadow-lg backdrop-blur-xl dark:border-blue-700/60 dark:bg-slate-800/80">
             <Sparkles className="h-5 w-5 text-blue-500 dark:text-cyan-300" />
             <span className="text-sm font-medium text-blue-700 dark:text-slate-200">Featured Projects</span>
             <div className="h-2 w-2 rounded-full bg-blue-400 dark:bg-cyan-400"></div>
           </div>
 
-          <h1 className="mb-8 bg-gradient-to-r from-blue-600 via-sky-600 to-cyan-600 bg-clip-text text-5xl font-bold text-transparent dark:from-cyan-400 dark:via-blue-400 dark:to-sky-400 md:block md:text-7xl lg:text-8xl">
-            Personal
-            <span className="block bg-gradient-to-r from-blue-500 via-sky-500 to-cyan-500 bg-clip-text dark:from-cyan-400 dark:via-blue-400 dark:to-sky-400">
-              Masterpieces
-            </span>
-          </h1>
+          <h2 className="hidden bg-gradient-to-r from-blue-500 via-sky-500 to-cyan-500 bg-clip-text text-6xl font-bold text-transparent dark:from-cyan-200 dark:via-blue-200 dark:to-blue-100 md:block">
+            Personal Masterpieces
+          </h2>
         </div>
 
         <Swiper spaceBetween={0} slidesPerView={1} ref={swiperRef} loop={true} onSlideChange={handleSlideChange}>
@@ -255,8 +295,15 @@ const ProjectSection = () => {
                   onMouseLeave={() => setIsHovered(false)}
                 >
                   <div key={index} className="group relative xl:mx-24">
-                    {/* Main Card */}
-                    <div className="relative flex h-full flex-col overflow-hidden rounded-2xl border border-blue-200/50 bg-white/80 backdrop-blur-xl transition-all duration-500 group-hover:-translate-y-2 group-hover:border-blue-300/60 group-hover:bg-white/90 dark:border-slate-700/50 dark:bg-slate-900/80 dark:group-hover:border-cyan-400/60 dark:group-hover:bg-slate-900/90">
+                    {/* Main Card - CLICKABLE CARD FEATURE
+                        The entire card is clickable and redirects to the project URL.
+                        Event bubbling allows clicks anywhere on the card to trigger navigation,
+                        except for elements that use stopPropagation() to prevent it.
+                    */}
+                    <div
+                      className="relative flex h-full cursor-pointer flex-col overflow-hidden rounded-2xl border border-blue-200/50 bg-white/80 backdrop-blur-xl transition-all duration-500 group-hover:-translate-y-2 group-hover:border-blue-300/60 group-hover:bg-white/90 dark:border-slate-700/50 dark:bg-slate-900/80 dark:group-hover:border-cyan-400/60 dark:group-hover:bg-slate-900/90"
+                      onClick={() => handleCardClick(project.projectUrl)}
+                    >
                       {/* Image Section */}
                       <div className="relative h-80 overflow-hidden lg:h-96">
                         <img
@@ -268,11 +315,15 @@ const ProjectSection = () => {
                         {/* Overlay */}
                         <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-slate-900/20 to-transparent"></div>
 
-                        {/* Floating Action Button */}
+                        {/* Floating Action Button - CLICKABLE CARD FEATURE
+                            Uses stopPropagation() to prevent triggering the card click when clicked.
+                            This ensures users can click the button without also triggering card navigation.
+                        */}
                         <a
                           href={project.projectUrl}
                           target="_blank"
                           rel="noopener noreferrer"
+                          onClick={(e) => e.stopPropagation()}
                           className={`absolute right-6 top-6 rounded-full border ${accentColors.border} ${accentColors.bg} p-3 shadow-lg backdrop-blur-xl transition-all duration-300 ${accentColors.hover} group/btn hover:scale-110`}
                         >
                           <ArrowUpRight
@@ -309,20 +360,34 @@ const ProjectSection = () => {
                         {/* Description */}
                         <div className="mb-8 flex-1">
                           <p
+                            ref={(el) => {
+                              descriptionRefs.current[index] = el;
+                            }}
                             className={`leading-relaxed text-slate-600 dark:text-slate-300 ${!expandedCards.includes(index) ? 'line-clamp-3' : ''}`}
                           >
                             {project.description}
                           </p>
 
-                          <button
-                            onClick={() => toggleCard(index)}
-                            className={`group/read mt-4 inline-flex items-center gap-2 text-sm font-medium ${accentColors.text} transition-all duration-300 hover:translate-x-1 hover:text-slate-800 dark:hover:text-cyan-100`}
-                          >
-                            {expandedCards.includes(index) ? 'Show less' : 'Read more'}
-                            <ChevronRight
-                              className={`h-4 w-4 transition-transform duration-300 ${expandedCards.includes(index) ? 'rotate-90' : 'group-hover/read:translate-x-1'}`}
-                            />
-                          </button>
+                          {/* CONDITIONAL READ MORE FEATURE
+                              Only show "Read more" button when text actually exceeds 3 lines.
+                              isTruncated[index] is true when scrollHeight > clientHeight for this description.
+                          */}
+                          {isTruncated[index] && (
+                            <button
+                              onClick={(e) => {
+                                // CLICKABLE CARD FEATURE - stopPropagation prevents card click
+                                // This ensures "Read more" only toggles text, doesn't navigate to project
+                                e.stopPropagation();
+                                toggleCard(index);
+                              }}
+                              className={`group/read mt-4 inline-flex items-center gap-2 text-sm font-medium ${accentColors.text} transition-all duration-300 hover:translate-x-1 hover:text-slate-800 dark:hover:text-cyan-100`}
+                            >
+                              {expandedCards.includes(index) ? 'Show less' : 'Read more'}
+                              <ChevronRight
+                                className={`h-4 w-4 transition-transform duration-300 ${expandedCards.includes(index) ? 'rotate-90' : 'group-hover/read:translate-x-1'}`}
+                              />
+                            </button>
+                          )}
                         </div>
 
                         {/* Technologies */}

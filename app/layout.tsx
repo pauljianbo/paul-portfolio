@@ -1,9 +1,10 @@
 import type { Metadata } from 'next';
 import { ThemeProvider } from '@/app/context/ThemeContext';
+import BackgroundRenderer from './components/tools/Animation/BackgroundRenderer';
 import './globals.css';
 import './reset.css';
 import Footer from '@/app/components/Footer/Footer';
-import Navbar from '@/app/components/Headers/NavBar';
+import Header from '@/app/components/Headers/Header';
 // Define metadata for the application
 export const metadata: Metadata = {
   title: 'Paul | Portfolio',
@@ -14,11 +15,11 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      
-      <body className="gradient-bg flex min-h-screen flex-col">
+      <body className="flex min-h-screen flex-col">
         <ThemeProvider>
-          <Navbar />
-          <main className="flex-grow">{children}</main>
+          <BackgroundRenderer />
+          <Header />
+          <main className="relative z-10 flex-grow">{children}</main>
           <Footer />
         </ThemeProvider>
       </body>

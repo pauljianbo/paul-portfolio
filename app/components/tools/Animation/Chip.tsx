@@ -76,7 +76,7 @@ const Chip = ({ text, selected = false, onClick }: ChipProps) => {
         <motion.span
           layoutId="pill-tab"
           transition={{ type: 'spring', duration: 0.5 }}
-          className="absolute inset-0 z-0 rounded-md bg-gradient-to-r from-light-primary to-light-secondary dark:from-dark-primary dark:to-dark-secondary"
+          className="absolute inset-0 z-0 rounded-md bg-gradient-to-br from-light-primary to-light-secondary dark:from-blue-900 dark:via-slate-800 dark:to-slate-900"
         ></motion.span>
       )}
     </button>

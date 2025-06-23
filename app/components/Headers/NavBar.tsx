@@ -147,7 +147,7 @@ const Navbar = (): JSX.Element => {
     <nav
       className={`fixed top-0 z-50 w-full px-2 py-5 transition-all duration-300 md:px-6 ${
         // Conditional styling: Add background blur and shadow when scrolled
-        scrolled ? 'bg-white/50 shadow-md backdrop-blur-sm dark:bg-dark-border/50' : 'bg-transparent'
+        scrolled ? 'bg-white/50 shadow-md backdrop-blur-sm dark:bg-slate-900/50' : 'bg-transparent'
       }`}
     >
       <div className="container mx-auto flex items-center justify-between">
